@@ -1,0 +1,18 @@
+.page{min-height:100vh;}
+.hero{padding:3.5rem 2rem 2rem;text-align:center;}
+.headline{font-family:var(--font-serif);font-size:38px;letter-spacing:-0.5px;margin-bottom:0.75rem;}
+.sub{font-size:16px;color:var(--text-secondary);font-weight:300;}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:2rem;max-width:860px;margin:0 auto;}
+.card{background:var(--bg);border:0.5px solid var(--border-mid);border-radius:var(--radius-lg);padding:1.5rem;position:relative;}
+.highlight{border:2px solid var(--orange);}
+.badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--orange);color:white;font-size:11px;font-weight:500;padding:3px 14px;border-radius:var(--radius-pill);white-space:nowrap;}
+.planName{font-size:13px;font-weight:500;color:var(--text-secondary);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:8px;}
+.price{font-family:var(--font-serif);font-size:32px;margin-bottom:6px;}
+.desc{font-size:13px;color:var(--text-secondary);margin-bottom:1.25rem;line-height:1.5;}
+.features{list-style:none;margin-bottom:1.5rem;display:flex;flex-direction:column;gap:10px;}
+.features li{display:flex;align-items:center;gap:8px;font-size:13px;}
+.cta{display:block;text-align:center;padding:10px;border-radius:var(--radius-md);font-size:14px;font-weight:500;border:0.5px solid var(--border-mid);color:var(--text-primary);text-decoration:none;transition:all 0.15s;}
+.cta:hover{border-color:var(--orange);color:var(--orange);}
+.ctaHighlight{background:var(--orange);color:white;border-color:var(--orange);}
+.ctaHighlight:hover{background:var(--orange-dark);color:white;border-color:var(--orange-dark);}
+@media(max-width:700px){.grid{grid-template-columns:1fr;}}

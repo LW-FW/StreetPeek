@@ -1,0 +1,7 @@
+.badge { display:inline-flex;align-items:center;font-size:11px;font-weight:500;padding:3px 10px;border-radius:var(--radius-pill);white-space:nowrap; }
+.good    { background:var(--green-light);  color:#3B6D11; }
+.warn    { background:var(--amber-light);  color:var(--amber); }
+.info    { background:var(--blue-light);   color:#185FA5; }
+.orange  { background:var(--orange-light); color:var(--orange-dark); }
+.red     { background:var(--red-light);    color:#A32D2D; }
+.neutral { background:var(--bg-secondary); color:var(--text-secondary); border:0.5px solid var(--border); }

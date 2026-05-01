@@ -1,0 +1,15 @@
+.wrap { width:100%;max-width:500px; }
+.box { display:flex;align-items:center;border:1.5px solid var(--border-mid);border-radius:var(--radius-lg);overflow:hidden;background:var(--bg);box-shadow:var(--shadow-md);transition:border-color 0.15s; }
+.box:focus-within { border-color:var(--orange); }
+.box.hasError { border-color:var(--red); }
+.icon { padding:0 0.75rem 0 1.1rem;display:flex;align-items:center;flex-shrink:0; }
+.box input { flex:1;border:none;outline:none;font-size:16px;padding:0.95rem 0;background:transparent;color:var(--text-primary);letter-spacing:1.5px;min-width:0; }
+.box input::placeholder { color:var(--text-tertiary);letter-spacing:0;font-size:14px; }
+.box button { margin:7px;padding:0.6rem 1.2rem;background:var(--orange);color:white;border:none;border-radius:var(--radius-md);font-size:14px;font-weight:500;white-space:nowrap;transition:background 0.15s;flex-shrink:0; }
+.box button:hover { background:var(--orange-dark); }
+.large input { font-size:18px;padding:1.1rem 0; }
+.large button { padding:0.75rem 1.5rem;font-size:15px; }
+.error { font-size:13px;color:var(--red);margin-top:6px;padding-left:4px; }
+.hint { font-size:13px;color:var(--text-tertiary);margin-top:10px;padding-left:4px; }
+.example { color:var(--orange);cursor:pointer;font-weight:500;margin-left:6px; }
+.example:hover { text-decoration:underline; }
