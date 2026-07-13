@@ -1,107 +1,107 @@
 reference,name,website,portal_url,platform,scanned_at
 E60000001,County Durham LPA,https://www.durham.gov.uk,https://publicaccess.durham.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T07:59:19.212968
 E60000002,Darlington LPA,https://www.darlington.gov.uk,https://publicaccess.darlington.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T07:59:24.333634
-E60000003,Hartlepool LPA,https://www.hartlepool.gov.uk,https://planning.hartlepool.gov.uk/portal/servlets/ApplicationSearchServlet,Unknown/Custom,2026-07-12T21:28:52 [platform-changed]
-E60000004,Middlesbrough LPA,https://www.middlesbrough.gov.uk,https://planning.agileapplications.co.uk/middlesbrough,iApply/Agile,2026-07-12T21:28:52 [platform-changed]
+E60000003,Hartlepool LPA,https://www.hartlepool.gov.uk,https://eplanningconsultee.hartlepool.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849224 [manual]
+E60000004,Middlesbrough LPA,https://www.middlesbrough.gov.uk,https://planningonline.middlesbrough.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849305 [manual]
 E60000005,Northumberland LPA,https://www.northumberland.gov.uk,https://publicaccess.northumberland.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849318 [manual]
-E60000006,Redcar and Cleveland LPA,https://www.redcar-cleveland.gov.uk,https://planning.redcar-cleveland.gov.uk/,Unknown/Custom,2026-07-12T21:28:52 [platform-changed]
-E60000007,Stockton-on-Tees LPA,https://www.stockton.gov.uk,https://www.developmentmanagement.stockton.gov.uk/online-applications/,Idox/PublicAccess,2026-07-12T21:28:52 [rediscovered]
+E60000006,Redcar and Cleveland LPA,https://www.redcar-cleveland.gov.uk,https://planning.redcar-cleveland.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849333 [manual]
+E60000007,Stockton-on-Tees LPA,https://www.stockton.gov.uk,https://www.stockton.gov.uk/planning-and-development/planning-applications/search-for-planning-application/,Idox/PublicAccess,2026-05-01T11:35:26.849342 [manual]
 E60000008,Gateshead LPA,https://www.gateshead.gov.uk,https://public.gateshead.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849351 [manual]
-E60000009,Newcastle upon Tyne LPA,https://www.newcastle.gov.uk,https://www.newcastle.gov.uk/services/planning-building-and-development/search-view-and-comment-planning-applications,Unknown/Custom,2026-07-12T21:28:52 [platform-changed]
-E60000010,North Tyneside LPA,https://www.northtyneside.gov.uk,https://idoxpublicaccess.northtyneside.gov.uk/online-applications/,Idox/PublicAccess,2026-07-12T21:28:52 [rediscovered]
-E60000011,South Tyneside LPA,https://www.southtyneside.gov.uk,https://planning.southtyneside.info/Northgate/PlanningExplorer/ApplicationSearch.aspx,Northgate/MasterGov,2026-07-12T21:28:52 [platform-changed]
+E60000009,Newcastle upon Tyne LPA,https://www.newcastle.gov.uk,https://publicaccess.newcastle.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849359 [manual]
+E60000010,North Tyneside LPA,https://www.northtyneside.gov.uk,https://planningportal.northtyneside.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849366 [manual]
+E60000011,South Tyneside LPA,https://www.southtyneside.gov.uk,https://planning.southtyneside.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849375 [manual]
 E60000012,Sunderland LPA,https://www.sunderland.gov.uk,https://online-applications.sunderland.gov.uk/online-applications/?ccp=true#cookie-consent-prompt,Idox/PublicAccess,2026-05-01T08:02:54.695134
-E60000013,Blackburn with Darwen LPA,https://www.blackburn.gov.uk,https://planning.blackburn.gov.uk/Northgate/PlanningExplorer/ApplicationSearch.aspx,Northgate/MasterGov,2026-07-12T21:28:52 [platform-changed]
+E60000013,Blackburn with Darwen LPA,https://www.blackburn.gov.uk,https://planning.blackburn.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849385 [manual]
 E60000014,Blackpool LPA,https://www.blackpool.gov.uk,https://www.blackpool.gov.uk/Residents/Planning-environment-and-community/Planning/Planning-applications/Search-for-a-planning-application.aspx,Northgate/MasterGov,2026-05-01T11:35:26.849396 [manual]
 E60000015,Cheshire East LPA,https://www.cheshireeast.gov.uk,https://pa.cheshireeast.gov.uk/,Tascomi,2026-05-01T08:03:44.140249
 E60000016,Cheshire West and Chester LPA,https://www.cheshirewestandchester.gov.uk,https://pa.cheshirewestandchester.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:03:49.436534
 E60000017,Halton LPA,https://www.halton.gov.uk,https://pa.halton.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:03:54.578858
-E60000018,Warrington LPA,https://www.warrington.gov.uk,https://online.warrington.gov.uk/planning/,Unknown/Custom,2026-07-12T21:28:52 [platform-changed]
-E60000019,Allerdale LPA,https://www.allerdale.gov.uk,https://planning.allerdale.gov.uk/online-applications/,Defunct/Merged,2026-07-12T21:28:52 [merged into Cumberland (E60000334)]
-E60000020,Barrow-in-Furness LPA,https://www.barrow.gov.uk,https://planning.barrowbc.gov.uk/online-applications/,Defunct/Merged,2026-07-12T21:28:52 [merged into Westmorland and Furness (E60000335)]
+E60000018,Warrington LPA,https://www.warrington.gov.uk,https://planning.warrington.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849408 [manual]
+E60000019,Allerdale LPA,https://www.allerdale.gov.uk,https://planning.allerdale.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849415 [manual]
+E60000020,Barrow-in-Furness LPA,https://www.barrow.gov.uk,https://planning.barrowbc.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849423 [manual]
 E60000021,Carlisle LPA,https://www.carlisle.gov.uk,https://publicaccess.carlisle.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:04:41.683241
-E60000022,Copeland LPA,https://www.copeland.gov.uk,https://planning.copeland.gov.uk/online-applications/,Defunct/Merged,2026-07-12T21:28:52 [merged into Cumberland (E60000334)]
-E60000023,Eden LPA,https://www.eden.gov.uk,https://planning.eden.gov.uk/online-applications/,Defunct/Merged,2026-07-12T21:28:52 [merged into Westmorland and Furness (E60000335)]
-E60000024,South Lakeland LPA,https://www.southlakeland.gov.uk,https://planning.southlakeland.gov.uk/online-applications/,Defunct/Merged,2026-07-12T21:28:52 [merged into Westmorland and Furness (E60000335)]
-E60000025,Bolton LPA,https://www.bolton.gov.uk,https://paplanning.bolton.gov.uk/online-applications/,Idox/PublicAccess,2026-07-12T21:28:52 [rediscovered]
+E60000022,Copeland LPA,https://www.copeland.gov.uk,https://planning.copeland.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849431 [manual]
+E60000023,Eden LPA,https://www.eden.gov.uk,https://planning.eden.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849440 [manual]
+E60000024,South Lakeland LPA,https://www.southlakeland.gov.uk,https://planning.southlakeland.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849447 [manual]
+E60000025,Bolton LPA,https://www.bolton.gov.uk,https://www.taxandbenefits.bolton.gov.uk/publicaccesslive/selfservice/dashboard.htm,Idox/PublicAccess,2026-05-01T08:06:06.448772
 E60000026,Bury LPA,https://www.bury.gov.uk,https://planning.bury.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:06:10.359077
 E60000027,Manchester LPA,https://www.manchester.gov.uk,https://pa.manchester.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:06:13.126253
-E60000028,Oldham LPA,https://www.oldham.gov.uk,https://planningpa.oldham.gov.uk/online-applications/,Idox/PublicAccess,2026-07-12T21:28:52 [rediscovered]
-E60000029,Rochdale LPA,https://www.rochdale.gov.uk,https://publicaccess.rochdale.gov.uk/online-applications/,Idox/PublicAccess,2026-07-12T21:28:52 [rediscovered]
-E60000030,Salford LPA,https://www.salford.gov.uk,https://salfordcitycouncil.my.site.com/pr/s/,Arcus/Salesforce,2026-07-12T21:28:52 [platform-changed]
+E60000028,Oldham LPA,https://www.oldham.gov.uk,https://planning.oldham.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849460 [manual]
+E60000029,Rochdale LPA,https://www.rochdale.gov.uk,https://planning.rochdale.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849468 [manual]
+E60000030,Salford LPA,https://www.salford.gov.uk,https://planning.salford.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849475 [manual]
 E60000031,Stockport LPA,https://www.stockport.gov.uk,https://planning.stockport.gov.uk/PlanningData-live/,Idox/PublicAccess,2026-05-01T08:08:01.776995
 E60000032,Tameside LPA,https://www.tameside.gov.uk,https://publicaccess.tameside.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:08:05.643422
 E60000033,Trafford LPA,https://www.trafford.gov.uk,https://pa.trafford.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:08:15.975489
 E60000034,Wigan LPA,https://www.wigan.gov.uk,https://planning.wigan.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:08:19.849315
 E60000035,Burnley LPA,https://www.burnley.gov.uk,https://publicaccess.burnley.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:08:24.654278
 E60000036,Chorley LPA,https://www.chorley.gov.uk,https://planning.chorley.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:08:29.687299
-E60000037,Fylde LPA,https://www.fylde.gov.uk,https://fyldeselfservice.blackpool.gov.uk/publicaccesslive/selfservice/citizenportal/myservices.htm,Idox/PublicAccess,"2026-07-12T21:28:52 [unresolved: Fylde — portal host not found (www3.fylde.gov.uk dead, pa.fylde.gov.uk 404)]"
-E60000038,Hyndburn LPA,https://www.hyndburnbc.gov.uk,https://planning.hyndburnbc.gov.uk/Northgate/ES/Presentation/Planning/OnlinePlanning/OnlinePlanningSearch,Northgate/MasterGov,2026-07-12T21:28:52 [platform-changed]
+E60000037,Fylde LPA,https://www.fylde.gov.uk,https://fyldeselfservice.blackpool.gov.uk/publicaccesslive/selfservice/citizenportal/myservices.htm,Idox/PublicAccess,2026-05-01T08:08:37.798790
+E60000038,Hyndburn LPA,https://www.hyndburnbc.gov.uk,https://hyndburnbc.community.mrisoftware.com/publicaccesslive,Idox/PublicAccess,2026-05-01T08:08:44.550492
 E60000039,Lancaster LPA,https://www.lancaster.gov.uk,https://planning.lancaster.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:08:49.453433
-E60000040,Pendle LPA,https://www.pendle.gov.uk,https://publicaccess.pendle.gov.uk/online-applications/,Idox/PublicAccess,2026-07-12T21:28:52 [rediscovered]
-E60000041,Preston LPA,https://www.preston.gov.uk,https://selfservice.preston.gov.uk/service/planning/ApplicationSearch.aspx,Unknown/Custom,2026-07-12T21:28:52 [platform-changed]
-E60000042,Ribble Valley LPA,https://www.ribblevalley.gov.uk,https://webportal.ribblevalley.gov.uk/,Unknown/Custom,2026-07-12T21:28:52 [platform-changed]
+E60000040,Pendle LPA,https://www.pendle.gov.uk,https://planning.pendle.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849489 [manual]
+E60000041,Preston LPA,https://www.preston.gov.uk,https://planning.preston.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849497 [manual]
+E60000042,Ribble Valley LPA,https://www.ribblevalley.gov.uk,https://planning.ribblevalley.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849505 [manual]
 E60000043,Rossendale LPA,https://www.rossendale.gov.uk,https://publicaccess.rossendale.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:10:50.306363
-E60000044,South Ribble LPA,https://www.southribble.gov.uk,https://publicaccess.southribble.gov.uk/online-applications/,Idox/PublicAccess,2026-07-12T21:28:52 [rediscovered]
+E60000044,South Ribble LPA,https://www.southribble.gov.uk,https://planning.southribble.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849515 [manual]
 E60000045,West Lancashire LPA,https://www.westlancs.gov.uk,https://pa.westlancs.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:11:58.602004
 E60000046,Wyre LPA,https://www.wyre.gov.uk,https://publicaccess.wyre.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:12:02.372238
-E60000047,Knowsley LPA,https://www.knowsley.gov.uk,https://planapp.knowsley.gov.uk/online-applications/,Idox/PublicAccess,2026-07-12T21:28:52 [rediscovered]
-E60000048,Liverpool LPA,https://www.liverpool.gov.uk,https://liverpool.gov.uk/planning-and-building-control/search-and-track-planning-applications/,Unknown/Custom,2026-07-12T21:28:52 [platform-changed]
+E60000047,Knowsley LPA,https://www.knowsley.gov.uk,https://www.knowsley.gov.uk,Idox/PublicAccess,2026-05-01T08:13:05.314091
+E60000048,Liverpool LPA,https://www.liverpool.gov.uk,https://planningpublicaccess.liverpool.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849533 [manual]
 E60000049,Sefton LPA,https://www.sefton.gov.uk,https://pa.sefton.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849541 [manual]
 E60000050,St. Helens LPA,https://www.sthelens.gov.uk,https://www.sthelens.gov.uk/planning/planning-applications/search-for-planning-applications/,Civica/OcellaWeb,2026-05-01T11:35:26.849549 [manual]
-E60000051,Wirral LPA,https://www.wirral.gov.uk,https://planning.wirral.gov.uk/online-applications/,Idox/PublicAccess,2026-07-12T21:28:52 [unresolved: Wirral — planning.wirral.gov.uk correct per council site but times out]
+E60000051,Wirral LPA,https://www.wirral.gov.uk,https://planning.wirral.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849559 [manual]
 E60000052,East Riding of Yorkshire LPA,https://www.eastriding.gov.uk,https://newplanningaccess.eastriding.gov.uk/newplanningaccess/,Idox/PublicAccess,2026-05-01T11:35:26.849567 [manual]
 E60000053,"Kingston upon Hull, City of LPA",https://www.hull.gov.uk,https://www.hull.gov.uk/planning-and-development/planning-applications/search-and-view-planning-applications,Northgate/MasterGov,2026-05-01T11:35:26.849580 [manual]
-E60000054,North East Lincolnshire LPA,https://www.nelincs.gov.uk,https://planninganddevelopment.nelincs.gov.uk/online-applications/,Idox/PublicAccess,2026-07-12T21:28:52 [rediscovered]
+E60000054,North East Lincolnshire LPA,https://www.nelincs.gov.uk,https://planning.nelincs.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849588 [manual]
 E60000055,North Lincolnshire LPA,https://www.northlincs.gov.uk,https://www.northlincs.gov.uk/planning-and-development/planning-applications/search-for-planning-applications/,Northgate/MasterGov,2026-05-01T11:35:26.849596 [manual]
-E60000056,York LPA,https://www.york.gov.uk,https://planningaccess.york.gov.uk/online-applications/,Idox/PublicAccess,2026-07-12T21:28:52 [rediscovered]
+E60000056,York LPA,https://www.york.gov.uk,https://www.york.gov.uk/SearchForPlanning,Idox/PublicAccess,2026-05-01T11:35:26.849603 [manual]
 E60000057,Craven LPA,https://www.cravendc.gov.uk,https://publicaccess.cravendc.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:16:59.442586
-E60000058,Hambleton LPA,https://www.hambleton.gov.uk,https://planning.hambleton.gov.uk/online-applications/,Defunct/Merged,2026-07-12T21:28:52 [merged into North Yorkshire (E60000336)]
-E60000059,Harrogate LPA,https://www.harrogate.gov.uk,https://uniformonline.harrogate.gov.uk/online-applications/,Defunct/Merged,2026-07-12T21:28:52 [merged into North Yorkshire (E60000336)]
+E60000058,Hambleton LPA,https://www.hambleton.gov.uk,https://planning.hambleton.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849612 [manual]
+E60000059,Harrogate LPA,https://www.harrogate.gov.uk,https://uniformonline.harrogate.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849620 [manual]
 E60000060,Richmondshire LPA,https://www.richmondshire.gov.uk,https://planning.richmondshire.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:19:40.112014
-E60000061,Ryedale LPA,https://www.ryedale.gov.uk,https://planning.ryedale.gov.uk/online-applications/,Defunct/Merged,2026-07-12T21:28:52 [merged into North Yorkshire (E60000336)]
+E60000061,Ryedale LPA,https://www.ryedale.gov.uk,https://planning.ryedale.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849630 [manual]
 E60000062,Scarborough LPA,https://www.scarborough.gov.uk,https://planning.scarborough.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:19:45.734241
 E60000063,Selby LPA,https://www.selby.gov.uk,https://public.selby.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:19:53.749216
-E60000064,Barnsley LPA,https://www.barnsley.gov.uk,https://planningexplorer.barnsley.gov.uk/,Unknown/Custom,2026-07-12T21:28:52 [platform-changed]
+E60000064,Barnsley LPA,https://www.barnsley.gov.uk,https://www.barnsley.gov.uk/services/planning-and-development/planning-and-enforcement/planning-applications/search-for-a-planning-application/,Idox/PublicAccess,2026-05-01T11:35:26.849639 [manual]
 E60000065,Doncaster LPA,https://www.doncaster.gov.uk,https://planning.doncaster.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:20:13.832727
-E60000066,Rotherham LPA,https://www.rotherham.gov.uk,https://planning.rotherham.gov.uk/,Unknown/Custom,2026-07-12T21:28:52 [platform-changed]
-E60000067,Sheffield LPA,https://www.sheffield.gov.uk,https://planningapps.sheffield.gov.uk/online-applications/,Idox/PublicAccess,2026-07-12T21:28:52 [rediscovered]
+E60000066,Rotherham LPA,https://www.rotherham.gov.uk,https://planning.rotherham.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849648 [manual]
+E60000067,Sheffield LPA,https://www.sheffield.gov.uk,https://planningregister.sheffield.gov.uk/,Idox/PublicAccess,2026-05-01T11:35:26.849657 [manual]
 E60000068,Bradford LPA,https://www.bradford.gov.uk,https://planning.bradford.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:22:04.975769
-E60000069,Calderdale LPA,https://www.calderdale.gov.uk,https://portal.calderdale.gov.uk/online-applications/,Idox/PublicAccess,2026-07-12T21:28:52 [rediscovered]
-E60000070,Kirklees LPA,https://www.kirklees.gov.uk,https://www.kirklees.gov.uk/beta/planning-applications/search-for-planning-applications/default.aspx,Unknown/Custom,2026-07-12T21:28:52 [platform-changed]
+E60000069,Calderdale LPA,https://www.calderdale.gov.uk,https://publicaccess.calderdale.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849666 [manual]
+E60000070,Kirklees LPA,https://www.kirklees.gov.uk,https://www.kirklees.gov.uk/beta/planning-applications/search-for-planning-applications.aspx,Idox/PublicAccess,2026-05-01T11:35:26.849675 [manual]
 E60000071,Leeds LPA,https://www.leeds.gov.uk,https://publicaccess.leeds.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:22:48.348082
 E60000072,Wakefield LPA,https://www.wakefield.gov.uk,https://planning.wakefield.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849688 [manual]
 E60000073,Derby LPA,https://www.derby.gov.uk,https://eplanning.derby.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:23:11.017209
-E60000074,Leicester LPA,https://www.leicester.gov.uk,https://planning.leicester.gov.uk/,Unknown/Custom,2026-07-12T21:28:52 [platform-changed]
-E60000075,Nottingham LPA,https://www.nottinghamcity.gov.uk,https://publicaccess.nottinghamcity.gov.uk/online-applications/,Idox/PublicAccess,2026-07-12T21:28:52 [rediscovered]
+E60000074,Leicester LPA,https://www.leicester.gov.uk,https://planningonline.leicester.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849697 [manual]
+E60000075,Nottingham LPA,https://www.nottinghamcity.gov.uk,https://planningportal.nottinghamcity.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849705 [manual]
 E60000076,Rutland LPA,https://www.rutland.gov.uk,https://publicaccess.rutland.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:23:58.976585
-E60000077,Amber Valley LPA,https://www.ambervalley.gov.uk,https://www.ambervalley.gov.uk/planning/development-management/view-a-planning-application/,Unknown/Custom,2026-07-12T21:28:52 [platform-changed]
+E60000077,Amber Valley LPA,https://www.ambervalley.gov.uk,https://planning.ambervalley.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849713 [manual]
 E60000078,Bolsover LPA,https://www.bolsover.gov.uk,https://publicaccess.bolsover.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:24:19.260126
 E60000079,Chesterfield LPA,https://www.chesterfield.gov.uk,https://publicaccess.chesterfield.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:24:23.994868
 E60000080,Derbyshire Dales LPA,https://www.derbyshiredales.gov.uk,https://planning.derbyshiredales.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:24:28.829365
-E60000081,Erewash LPA,https://www.erewash.gov.uk,https://myservice.erewash.gov.uk/Planning/lg/plansearch.page,Unknown/Custom,2026-07-12T21:28:52 [platform-changed]
-E60000082,High Peak LPA,https://www.highpeak.gov.uk,https://planning.highpeak.gov.uk/portal/servlets/ApplicationSearchServlet,Unknown/Custom,2026-07-12T21:28:52 [platform-changed]
-E60000083,North East Derbyshire LPA,https://www.ne-derbyshire.gov.uk,https://planapps-online.ne-derbyshire.gov.uk/online-applications/,Idox/PublicAccess,2026-07-12T21:28:52 [rediscovered]
-E60000084,South Derbyshire LPA,https://www.south-derbys.gov.uk,https://planning.southderbyshire.gov.uk/,Unknown/Custom,2026-07-12T21:28:52 [platform-changed]
+E60000081,Erewash LPA,https://www.erewash.gov.uk,https://planning.erewash.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849724 [manual]
+E60000082,High Peak LPA,https://www.highpeak.gov.uk,https://planning.highpeak.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849733 [manual]
+E60000083,North East Derbyshire LPA,https://www.ne-derbyshire.gov.uk,https://publicaccess.ne-derbyshire.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849740 [manual]
+E60000084,South Derbyshire LPA,https://www.south-derbys.gov.uk,https://www.south-derbys.gov.uk/planning-and-building/planning-applications/search-for-planning-applications,Idox/PublicAccess,2026-05-01T11:35:26.849749 [manual]
 E60000085,Blaby LPA,https://www.blaby.gov.uk,https://pa.blaby.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:25:36.822186
 E60000086,Charnwood LPA,https://www.charnwood.gov.uk,https://www.charnwood.gov.uk/pages/services,Northgate/MasterGov,2026-05-01T08:26:21.956708
-E60000087,Harborough LPA,https://www.harborough.gov.uk,https://pa2.harborough.gov.uk/online-applications/,Idox/PublicAccess,2026-07-12T21:28:52 [rediscovered]
+E60000087,Harborough LPA,https://www.harborough.gov.uk,https://pa.harborough.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849790 [manual]
 E60000088,Hinckley and Bosworth LPA,https://www.hinckley-bosworth.gov.uk,https://pa.hinckley-bosworth.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:27:13.546808
-E60000089,Melton LPA,https://www.meltonbc.gov.uk,https://pa.melton.gov.uk/online-applications/,Idox/PublicAccess,2026-07-12T21:28:52 [rediscovered]
-E60000090,North West Leicestershire LPA,https://www.nwleics.gov.uk,https://plans.nwleics.gov.uk/public-access/,Idox/PublicAccess,2026-07-12T21:28:52 [rediscovered]
-E60000091,Oadby and Wigston LPA,https://www.oadby-wigston.gov.uk,https://pa.oadby-wigston.gov.uk/online-applications/,Idox/PublicAccess,2026-07-12T21:28:52 [rediscovered]
-E60000092,Boston LPA,https://www.boston.gov.uk,https://planning.boston.gov.uk/online-applications/,Idox/PublicAccess,2026-07-12T21:28:52 [unresolved: Boston — no current portal URL found (shares PSPS services with E. Lindsey / S. Holland)]
-E60000093,East Lindsey LPA,https://www.e-lindsey.gov.uk,https://publicaccess.e-lindsey.gov.uk/online-applications/,Idox/PublicAccess,2026-07-12T21:28:52 [rediscovered]
+E60000089,Melton LPA,https://www.meltonbc.gov.uk,https://publicaccess.meltonbc.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849800 [manual]
+E60000090,North West Leicestershire LPA,https://www.nwleics.gov.uk,https://planning.nwleics.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849808 [manual]
+E60000091,Oadby and Wigston LPA,https://www.oadby-wigston.gov.uk,https://www.oadby-wigston.gov.uk/pages/planning,Idox/PublicAccess,2026-05-01T08:27:39.988734
+E60000092,Boston LPA,https://www.boston.gov.uk,https://planning.boston.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849817 [manual]
+E60000093,East Lindsey LPA,https://www.e-lindsey.gov.uk,https://pa.e-lindsey.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849828 [manual]
 E60000094,Lincoln LPA,https://www.lincoln.gov.uk,https://planning.lincoln.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:28:21.170054
-E60000095,North Kesteven LPA,https://www.n-kesteven.gov.uk,https://planningonline.n-kesteven.gov.uk/online-applications/,Idox/PublicAccess,2026-07-12T21:28:52 [rediscovered]
-E60000096,South Holland LPA,https://www.sholland.gov.uk,https://planning.sholland.gov.uk/OcellaWeb/planningSearch,Civica/OcellaWeb,2026-07-12T21:28:52 [platform-changed]
+E60000095,North Kesteven LPA,https://www.n-kesteven.gov.uk,https://planningregister.n-kesteven.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849842 [manual]
+E60000096,South Holland LPA,https://www.sholland.gov.uk,https://www.sholland.gov.uk/planning/planning-applications/search-for-planning-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849849 [manual]
 E60000097,South Kesteven LPA,https://www.southkesteven.gov.uk,https://prod.publicaccess.southkesteven.gov.uk/online-applications/search.do?action=simple&amp;searchType=Application,Idox/PublicAccess,2026-05-01T08:29:17.945282
-E60000098,West Lindsey LPA,https://www.west-lindsey.gov.uk,https://www.west-lindsey.gov.uk/planning-building-control/planning/view-search-planning-applications,Unknown/Custom,2026-07-12T21:28:52 [platform-changed]
-E60000099,Corby LPA,https://www.northnorthants.gov.uk,https://www.northnorthants.gov.uk/planning-applications/view-planning-applications,Defunct/Merged,2026-07-12T21:28:52 [merged into North Northamptonshire (E60000332)]
-E60000100,Daventry LPA,https://www.westnorthants.gov.uk,https://www.westnorthants.gov.uk/planning-and-building/search-planning-applications,Defunct/Merged,2026-07-12T21:28:52 [merged into West Northamptonshire (E60000333)]
-E60000101,East Northamptonshire LPA,https://www.northnorthants.gov.uk,https://www.northnorthants.gov.uk/planning-applications/view-planning-applications,Defunct/Merged,2026-07-12T21:28:52 [merged into North Northamptonshire (E60000332)]
-E60000102,Kettering LPA,https://www.northnorthants.gov.uk,https://www.northnorthants.gov.uk/planning-applications/view-planning-applications,Defunct/Merged,2026-07-12T21:28:52 [merged into North Northamptonshire (E60000332)]
-E60000103,Northampton LPA,https://www.westnorthants.gov.uk,https://www.westnorthants.gov.uk/planning-and-building/search-planning-applications,Defunct/Merged,2026-07-12T21:28:52 [merged into West Northamptonshire (E60000333)]
+E60000098,West Lindsey LPA,https://www.west-lindsey.gov.uk,https://planning.west-lindsey.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849858 [manual]
+E60000099,Corby LPA,https://www.northnorthants.gov.uk,https://www.northnorthants.gov.uk/planning-applications/view-planning-applications,Idox/PublicAccess,2026-05-01T11:35:26.849867 [manual]
+E60000100,Daventry LPA,https://www.westnorthants.gov.uk,https://www.westnorthants.gov.uk/planning-and-building/search-planning-applications,Idox/PublicAccess,2026-05-01T11:35:26.849875 [manual]
+E60000101,East Northamptonshire LPA,https://www.northnorthants.gov.uk,https://www.northnorthants.gov.uk/planning-applications/view-planning-applications,Idox/PublicAccess,2026-05-01T11:35:26.849883 [manual]
+E60000102,Kettering LPA,https://www.northnorthants.gov.uk,https://www.northnorthants.gov.uk/planning-applications/view-planning-applications,Idox/PublicAccess,2026-05-01T11:35:26.849891 [manual]
+E60000103,Northampton LPA,https://www.westnorthants.gov.uk,https://www.westnorthants.gov.uk/planning-and-building/search-planning-applications,Idox/PublicAccess,2026-05-01T11:35:26.849898 [manual]
 E60000104,South Northamptonshire LPA,https://www.westnorthants.gov.uk,https://www.westnorthants.gov.uk/planning-and-building/search-planning-applications,Idox/PublicAccess,2026-05-01T11:35:26.849911 [manual]
 E60000105,Wellingborough LPA,https://www.northnorthants.gov.uk,https://www.northnorthants.gov.uk/planning-applications/view-planning-applications,Idox/PublicAccess,2026-05-01T11:35:26.849922 [manual]
 E60000106,Ashfield LPA,https://www.ashfield.gov.uk,https://planning.ashfield.gov.uk/planning-applications,Civica/OcellaWeb,2026-05-01T08:31:56.964279
@@ -330,9 +330,9 @@ E60000328,Ebbsfleet Development Corporation LPA,https://www.ebbsfleet-developmen
 E60000329,London Legacy Development Corporation LPA,https://www.london-legacy-development-corporation.gov.uk,https://www.queenelizabetholympicpark.co.uk/planning/planning-applications/search-the-planning-register,Idox/PublicAccess,2026-05-01T11:35:26.851133 [manual]
 E60000330,Old Oak and Park Royal Development Corporation LPA,https://www.old-oak-and-park-royal-development-corporation.gov.uk,https://www.opdc.london/planning/planning-applications/,Unknown/Custom,2026-05-01T11:35:26.851146 [manual]
 E60000331,Buckinghamshire LPA,https://www.buckinghamshire.gov.uk,https://publicaccess.buckinghamshire.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T10:54:49.406000
-E60000332,North Northamptonshire LPA,https://www.northnorthants.gov.uk,https://publicaccess.northnorthants.gov.uk/online-applications/,Idox/PublicAccess,2026-07-12T21:28:52 [rediscovered]
-E60000333,West Northamptonshire LPA,https://www.westnorthants.gov.uk,https://wnc.planning-register.co.uk/,Unknown/Custom,2026-07-12T21:28:52 [platform-changed]
-E60000334,Cumberland LPA,https://www.cumberland.gov.uk,https://cumberlandcouncil.my.site.com/pr/s/,Arcus/Salesforce,2026-07-12T21:28:52 [platform-changed]
-E60000335,Westmorland and Furness LPA,https://www.westmorland-furness.gov.uk,https://planningregister.westmorlandandfurness.gov.uk/,Unknown/Custom,2026-07-12T21:28:52 [platform-changed]
-E60000336,North Yorkshire LPA,https://www.northyorks.gov.uk,https://publicaccess.northyorks.gov.uk/online-applications/,Idox/PublicAccess,2026-07-12T21:28:52 [rediscovered]
+E60000332,North Northamptonshire LPA,https://www.northnorthants.gov.uk,https://www.northnorthants.gov.uk/planning-applications/view-planning-applications,Idox/PublicAccess,2026-05-01T11:35:26.851156 [manual]
+E60000333,West Northamptonshire LPA,https://www.westnorthants.gov.uk,https://www.westnorthants.gov.uk/planning-and-building/search-planning-applications,Idox/PublicAccess,2026-05-01T11:35:26.851164 [manual]
+E60000334,Cumberland LPA,https://www.cumberland.gov.uk,https://planning.cumberland.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.851172 [manual]
+E60000335,Westmorland and Furness LPA,https://www.westmorland-furness.gov.uk,https://planning.westmorland-furness.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.851179 [manual]
+E60000336,North Yorkshire LPA,https://www.northyorks.gov.uk,https://northyorks.gov.uk/planning-and-development/planning-applications/search-planning-applications,Idox/PublicAccess,2026-05-01T11:35:26.851187 [manual]
 E60000337,Somerset LPA,https://www.somerset.gov.uk,https://www.somerset.gov.uk/planning-and-land/planning-applications/search-for-planning-applications/,Idox/PublicAccess,2026-05-01T11:35:26.851194 [manual]

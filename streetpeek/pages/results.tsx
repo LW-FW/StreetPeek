@@ -7,6 +7,8 @@ import Badge from '../components/Badge';
 import { IconBuilding,IconWaves,IconShield,IconHouse,IconMap,IconTick,IconCross,IconCrime,IconAlert,IconDocument,IconCalendar } from '../components/icons';
 import { lookupPostcode,getCrimeData,getPlanningData,getEnvironmentalData,computeAreaScore,parsePoint,distanceMiles,formatDistance,PostcodeData,CrimeData,PlanningEntity } from '../lib/data';
 import styles from '../styles/Results.module.css';
+import SchoolsPanel from '../components/SchoolsPanel';
+import NearbyPanel from '../components/NearbyPanel';
 
 const AreaMap = dynamic(() => import('../components/AreaMap'), { ssr: false });
 type Tab = 'overview'|'planning'|'crime'|'environment'|'map';
@@ -171,6 +173,13 @@ export default function Results() {
                   </div>
                 )}
               </div>
+
+              {/* ── Schools & Nurseries ── */}
+              <SchoolsPanel lat={location.lat} lng={location.lng} />
+
+              {/* ── Nearby Amenities ── */}
+              <NearbyPanel lat={location.lat} lng={location.lng} />
+
               <UnlockBanner />
             </div>
           )}

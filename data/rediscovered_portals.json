@@ -1,0 +1,352 @@
+[
+  {
+    "reference": "E60000003",
+    "name": "Hartlepool",
+    "old_url": "https://eplanningconsultee.hartlepool.gov.uk/online-applications/",
+    "found_url": null,
+    "probed": 4
+  },
+  {
+    "reference": "E60000004",
+    "name": "Middlesbrough",
+    "old_url": "https://planningonline.middlesbrough.gov.uk/online-applications/",
+    "found_url": null,
+    "probed": 2
+  },
+  {
+    "reference": "E60000006",
+    "name": "Redcar and Cleveland",
+    "old_url": "https://planning.redcar-cleveland.gov.uk/online-applications/",
+    "found_url": null,
+    "probed": 3
+  },
+  {
+    "reference": "E60000007",
+    "name": "Stockton-on-Tees",
+    "old_url": "https://www.stockton.gov.uk/planning-and-development/planning-applications/search-for-planning-application/",
+    "found_url": null,
+    "probed": 4
+  },
+  {
+    "reference": "E60000009",
+    "name": "Newcastle upon Tyne",
+    "old_url": "https://publicaccess.newcastle.gov.uk/online-applications/",
+    "found_url": null,
+    "probed": 2
+  },
+  {
+    "reference": "E60000010",
+    "name": "North Tyneside",
+    "old_url": "https://planningportal.northtyneside.gov.uk/online-applications/",
+    "found_url": "https://idoxpublicaccess.northtyneside.gov.uk/online-applications/",
+    "probed": 1
+  },
+  {
+    "reference": "E60000011",
+    "name": "South Tyneside",
+    "old_url": "https://planning.southtyneside.gov.uk/online-applications/",
+    "found_url": null,
+    "probed": 0
+  },
+  {
+    "reference": "E60000013",
+    "name": "Blackburn with Darwen",
+    "old_url": "https://planning.blackburn.gov.uk/online-applications/",
+    "found_url": null,
+    "probed": 3
+  },
+  {
+    "reference": "E60000018",
+    "name": "Warrington",
+    "old_url": "https://planning.warrington.gov.uk/online-applications/",
+    "found_url": null,
+    "probed": 0
+  },
+  {
+    "reference": "E60000025",
+    "name": "Bolton",
+    "old_url": "https://www.taxandbenefits.bolton.gov.uk/publicaccesslive/selfservice/dashboard.htm",
+    "found_url": "https://paplanning.bolton.gov.uk/online-applications/",
+    "probed": 7
+  },
+  {
+    "reference": "E60000028",
+    "name": "Oldham",
+    "old_url": "https://planning.oldham.gov.uk/online-applications/",
+    "found_url": null,
+    "probed": 5
+  },
+  {
+    "reference": "E60000029",
+    "name": "Rochdale",
+    "old_url": "https://planning.rochdale.gov.uk/online-applications/",
+    "found_url": null,
+    "probed": 4
+  },
+  {
+    "reference": "E60000030",
+    "name": "Salford",
+    "old_url": "https://planning.salford.gov.uk/online-applications/",
+    "found_url": null,
+    "probed": 43
+  },
+  {
+    "reference": "E60000037",
+    "name": "Fylde",
+    "old_url": "https://fyldeselfservice.blackpool.gov.uk/publicaccesslive/selfservice/citizenportal/myservices.htm",
+    "found_url": null,
+    "probed": 6
+  },
+  {
+    "reference": "E60000038",
+    "name": "Hyndburn",
+    "old_url": "https://hyndburnbc.community.mrisoftware.com/publicaccesslive",
+    "found_url": null,
+    "probed": 6
+  },
+  {
+    "reference": "E60000040",
+    "name": "Pendle",
+    "old_url": "https://planning.pendle.gov.uk/online-applications/",
+    "found_url": "https://publicaccess.pendle.gov.uk/online-applications/",
+    "probed": 4
+  },
+  {
+    "reference": "E60000041",
+    "name": "Preston",
+    "old_url": "https://planning.preston.gov.uk/online-applications/",
+    "found_url": null,
+    "probed": 2
+  },
+  {
+    "reference": "E60000042",
+    "name": "Ribble Valley",
+    "old_url": "https://planning.ribblevalley.gov.uk/online-applications/",
+    "found_url": null,
+    "probed": 2
+  },
+  {
+    "reference": "E60000044",
+    "name": "South Ribble",
+    "old_url": "https://planning.southribble.gov.uk/online-applications/",
+    "found_url": "https://publicaccess.southribble.gov.uk/online-applications/",
+    "probed": 1
+  },
+  {
+    "reference": "E60000047",
+    "name": "Knowsley",
+    "old_url": "https://www.knowsley.gov.uk",
+    "found_url": "https://planapp.knowsley.gov.uk/online-applications/",
+    "probed": 8
+  },
+  {
+    "reference": "E60000048",
+    "name": "Liverpool",
+    "old_url": "https://planningpublicaccess.liverpool.gov.uk/online-applications/",
+    "found_url": null,
+    "probed": 4
+  },
+  {
+    "reference": "E60000051",
+    "name": "Wirral",
+    "old_url": "https://planning.wirral.gov.uk/online-applications/",
+    "found_url": null,
+    "probed": 3
+  },
+  {
+    "reference": "E60000054",
+    "name": "North East Lincolnshire",
+    "old_url": "https://planning.nelincs.gov.uk/online-applications/",
+    "found_url": null,
+    "probed": 3
+  },
+  {
+    "reference": "E60000056",
+    "name": "York",
+    "old_url": "https://www.york.gov.uk/SearchForPlanning",
+    "found_url": "https://planningaccess.york.gov.uk/online-applications/",
+    "probed": 5
+  },
+  {
+    "reference": "E60000064",
+    "name": "Barnsley",
+    "old_url": "https://www.barnsley.gov.uk/services/planning-and-development/planning-and-enforcement/planning-applications/search-for-a-planning-application/",
+    "found_url": null,
+    "probed": 4
+  },
+  {
+    "reference": "E60000066",
+    "name": "Rotherham",
+    "old_url": "https://planning.rotherham.gov.uk/online-applications/",
+    "found_url": null,
+    "probed": 3
+  },
+  {
+    "reference": "E60000067",
+    "name": "Sheffield",
+    "old_url": "https://planningregister.sheffield.gov.uk/",
+    "found_url": "https://planningapps.sheffield.gov.uk/online-applications/",
+    "probed": 5
+  },
+  {
+    "reference": "E60000069",
+    "name": "Calderdale",
+    "old_url": "https://publicaccess.calderdale.gov.uk/online-applications/",
+    "found_url": "https://portal.calderdale.gov.uk/online-applications/",
+    "probed": 1
+  },
+  {
+    "reference": "E60000070",
+    "name": "Kirklees",
+    "old_url": "https://www.kirklees.gov.uk/beta/planning-applications/search-for-planning-applications.aspx",
+    "found_url": null,
+    "probed": 4
+  },
+  {
+    "reference": "E60000074",
+    "name": "Leicester",
+    "old_url": "https://planningonline.leicester.gov.uk/online-applications/",
+    "found_url": null,
+    "probed": 6
+  },
+  {
+    "reference": "E60000075",
+    "name": "Nottingham",
+    "old_url": "https://planningportal.nottinghamcity.gov.uk/online-applications/",
+    "found_url": "https://publicaccess.nottinghamcity.gov.uk/online-applications/",
+    "probed": 1
+  },
+  {
+    "reference": "E60000077",
+    "name": "Amber Valley",
+    "old_url": "https://planning.ambervalley.gov.uk/online-applications/",
+    "found_url": null,
+    "probed": 0
+  },
+  {
+    "reference": "E60000081",
+    "name": "Erewash",
+    "old_url": "https://planning.erewash.gov.uk/online-applications/",
+    "found_url": null,
+    "probed": 5
+  },
+  {
+    "reference": "E60000082",
+    "name": "High Peak",
+    "old_url": "https://planning.highpeak.gov.uk/online-applications/",
+    "found_url": null,
+    "probed": 5
+  },
+  {
+    "reference": "E60000083",
+    "name": "North East Derbyshire",
+    "old_url": "https://publicaccess.ne-derbyshire.gov.uk/online-applications/",
+    "found_url": null,
+    "probed": 0
+  },
+  {
+    "reference": "E60000084",
+    "name": "South Derbyshire",
+    "old_url": "https://www.south-derbys.gov.uk/planning-and-building/planning-applications/search-for-planning-applications",
+    "found_url": null,
+    "probed": 0
+  },
+  {
+    "reference": "E60000087",
+    "name": "Harborough",
+    "old_url": "https://pa.harborough.gov.uk/online-applications/",
+    "found_url": null,
+    "probed": 3
+  },
+  {
+    "reference": "E60000089",
+    "name": "Melton",
+    "old_url": "https://publicaccess.meltonbc.gov.uk/online-applications/",
+    "found_url": null,
+    "probed": 0
+  },
+  {
+    "reference": "E60000090",
+    "name": "North West Leicestershire",
+    "old_url": "https://planning.nwleics.gov.uk/online-applications/",
+    "found_url": null,
+    "probed": 0
+  },
+  {
+    "reference": "E60000091",
+    "name": "Oadby and Wigston",
+    "old_url": "https://www.oadby-wigston.gov.uk/pages/planning",
+    "found_url": "https://pa.oadby-wigston.gov.uk/online-applications/",
+    "probed": 5
+  },
+  {
+    "reference": "E60000092",
+    "name": "Boston",
+    "old_url": "https://planning.boston.gov.uk/online-applications/",
+    "found_url": null,
+    "probed": 0
+  },
+  {
+    "reference": "E60000093",
+    "name": "East Lindsey",
+    "old_url": "https://pa.e-lindsey.gov.uk/online-applications/",
+    "found_url": "https://publicaccess.e-lindsey.gov.uk/online-applications/",
+    "probed": 1
+  },
+  {
+    "reference": "E60000095",
+    "name": "North Kesteven",
+    "old_url": "https://planningregister.n-kesteven.gov.uk/online-applications/",
+    "found_url": "https://planningonline.n-kesteven.gov.uk/online-applications/",
+    "probed": 1
+  },
+  {
+    "reference": "E60000096",
+    "name": "South Holland",
+    "old_url": "https://www.sholland.gov.uk/planning/planning-applications/search-for-planning-applications/",
+    "found_url": null,
+    "probed": 10
+  },
+  {
+    "reference": "E60000098",
+    "name": "West Lindsey",
+    "old_url": "https://planning.west-lindsey.gov.uk/online-applications/",
+    "found_url": null,
+    "probed": 3
+  },
+  {
+    "reference": "E60000332",
+    "name": "North Northamptonshire",
+    "old_url": "https://www.northnorthants.gov.uk/planning-applications/view-planning-applications",
+    "found_url": "https://publicaccess.northnorthants.gov.uk/online-applications/",
+    "probed": 5
+  },
+  {
+    "reference": "E60000333",
+    "name": "West Northamptonshire",
+    "old_url": "https://www.westnorthants.gov.uk/planning-and-building/search-planning-applications",
+    "found_url": null,
+    "probed": 4
+  },
+  {
+    "reference": "E60000334",
+    "name": "Cumberland",
+    "old_url": "https://planning.cumberland.gov.uk/online-applications/",
+    "found_url": null,
+    "probed": 0
+  },
+  {
+    "reference": "E60000335",
+    "name": "Westmorland and Furness",
+    "old_url": "https://planning.westmorland-furness.gov.uk/online-applications/",
+    "found_url": null,
+    "probed": 0
+  },
+  {
+    "reference": "E60000336",
+    "name": "North Yorkshire",
+    "old_url": "https://northyorks.gov.uk/planning-and-development/planning-applications/search-planning-applications",
+    "found_url": "https://publicaccess.northyorks.gov.uk/online-applications/",
+    "probed": 5
+  }
+]

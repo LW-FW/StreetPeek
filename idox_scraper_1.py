@@ -19,15 +19,7 @@ Run modes:
 Install: pip install requests beautifulsoup4
 """
 
-import sys
-
-# Windows console defaults to cp1252, which can't print ✓ ✗ → characters
-if sys.stdout.encoding and sys.stdout.encoding.lower() not in ("utf-8", "utf8"):
-    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
-
 import requests
-import urllib3
 import sqlite3
 import json
 import time
@@ -51,10 +43,6 @@ logging.basicConfig(level=logging.INFO,
     datefmt="%Y-%m-%d %H:%M:%S")
 log = logging.getLogger(__name__)
 DATA_DIR.mkdir(exist_ok=True)
-
-# Some councils have invalid/self-signed certs — we fall back to verify=False
-# per-council when we hit an SSLError, so silence the resulting warnings.
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -146,17 +134,6 @@ def extract_postcode(address):
     m = re.search(r'\b([A-Z]{1,2}\d{1,2}[A-Z]?\s*\d[A-Z]{2})\b', address.upper())
     return m.group(1) if m else ""
 
-def parse_idox_date(text):
-    """Idox renders dates like 'Thu 09 Jul 2026' — normalise to ISO, or pass
-    the raw text through if the format doesn't match (rather than dropping it)."""
-    text = text.strip()
-    for fmt in ("%a %d %b %Y", "%d %b %Y", "%d/%m/%Y"):
-        try:
-            return datetime.strptime(text, fmt).strftime("%Y-%m-%d")
-        except ValueError:
-            continue
-    return text
-
 
 # ── Idox Scraper ──────────────────────────────────────────────────────────────
 
@@ -172,7 +149,6 @@ class IdoxScraper:
         self.council_name = council_name
         self.base         = self._find_base()
         self.search_url   = f"{self.base}/search.do"
-        self.verify       = True  # flips to False on first SSLError for this council
 
     def _find_base(self):
         parsed = urlparse(self.portal_url)
@@ -185,47 +161,34 @@ class IdoxScraper:
         return f"{parsed.scheme}://{parsed.netloc}{base_path}"
 
     def _new_session(self):
-        """Create a fresh requests session."""
+        """Create a fresh requests session. SSL verification disabled to handle
+        councils with invalid/self-signed certificates."""
+        import urllib3
+        urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
         s = requests.Session()
         s.headers.update(HEADERS)
-        s.verify = self.verify
+        s.verify = False
         return s
-
-    def _get_with_ssl_fallback(self, s, url, **kwargs):
-        """GET a URL; on an SSL certificate error, disable verification for
-        this council and retry once. Other errors propagate to the caller so
-        they reach the scrape_log with a real message."""
-        try:
-            return s.get(url, **kwargs)
-        except requests.exceptions.SSLError:
-            if not self.verify:
-                raise  # already unverified — genuine SSL failure
-            log.warning("  SSL certificate error — retrying with verify=False")
-            self.verify = False
-            s.verify = False
-            return s.get(url, **kwargs)
 
     def _get_options(self, field_name, action="monthlyList"):
         """
         Fetch the list page and return available option values for a select field.
         e.g. field_name='month' returns ['May 26', 'Apr 26', ...]
-
-        Network/SSL/DNS errors propagate to the caller (so the scrape_log records
-        the real cause). Returns [] only when the page loads but has no dropdown.
         """
         s = self._new_session()
-        r = self._get_with_ssl_fallback(
-            s, f"{self.search_url}?action={action}&searchType=Application",
-            timeout=20)
-        if r.status_code != 200:
-            raise RuntimeError(f"HTTP {r.status_code} at {r.url}")
-        soup = BeautifulSoup(r.text, "html.parser")
-        sel = soup.find("select", {"name": field_name})
-        if not sel:
+        try:
+            r = s.get(f"{self.search_url}?action={action}&searchType=Application",
+                      timeout=20)
+            soup = BeautifulSoup(r.text, "html.parser")
+            sel = soup.find("select", {"name": field_name})
+            if not sel:
+                return []
+            return [o.get("value", o.get_text(strip=True))
+                    for o in sel.find_all("option")
+                    if o.get("value") or o.get_text(strip=True)]
+        except Exception as e:
+            log.warning(f"  Error getting {field_name} options: {e}")
             return []
-        return [o.get("value", o.get_text(strip=True))
-                for o in sel.find_all("option")
-                if o.get("value") or o.get_text(strip=True)]
 
     def get_available_months(self):
         return self._get_options("month", "monthlyList")
@@ -244,8 +207,8 @@ class IdoxScraper:
 
         try:
             # GET the list page to get CSRF token and cookies
-            r = self._get_with_ssl_fallback(
-                s, f"{self.search_url}?action={action}&searchType=Application",
+            r = s.get(
+                f"{self.search_url}?action={action}&searchType=Application",
                 timeout=20
             )
             csrf = re.search(r'name="_csrf"[^>]*value="([^"]+)"', r.text)
@@ -354,16 +317,6 @@ class IdoxScraper:
         return [app for item in items for app in [self._parse_item(item)] if app]
 
     def _parse_item(self, item):
-        """
-        Idox search-result <li> layout:
-          <a class="summaryLink" href="...keyVal=...">
-            <div class="summaryLinkTextClamp">PROPOSAL DESCRIPTION</div>
-          </a>
-          <p class="address">ADDRESS</p>
-          <p class="metaInfo">Ref. No: X | Validated: DATE | Status: Y</p>
-        There is no element classed "reference"/"status"/"proposal" — those
-        live as "Label: value" pairs inside metaInfo, separated by "|".
-        """
         link = item.find("a", href=re.compile(r"keyVal=", re.I))
         if not link:
             return None
@@ -372,31 +325,21 @@ class IdoxScraper:
             return None
         key_val = m.group(1)
 
-        desc_el = link.find(class_=re.compile(r"textClamp", re.I)) or link
-        description = desc_el.get_text(strip=True)
+        ref_el  = item.find(class_=re.compile(r"caseNo|reference", re.I))
+        reference = ref_el.get_text(strip=True) if ref_el else link.get_text(strip=True)
 
         addr_el = item.find(class_=re.compile(r"\baddress\b", re.I))
         address = addr_el.get_text(strip=True) if addr_el else ""
 
-        meta_el = item.find(class_=re.compile(r"metaInfo", re.I))
-        meta = {}
-        if meta_el:
-            for part in meta_el.get_text(" ", strip=True).split("|"):
-                if ":" in part:
-                    label, _, value = part.partition(":")
-                    meta[label.strip().lower()] = value.strip()
+        desc_el = item.find(class_=re.compile(r"proposal|description", re.I))
+        description = desc_el.get_text(strip=True) if desc_el else ""
 
-        reference = next((v for k, v in meta.items() if "ref" in k), "")
-        status = meta.get("status", "")
+        status_el = item.find(class_=re.compile(r"\bstatus\b", re.I))
+        status = status_el.get_text(strip=True) if status_el else ""
 
-        date_received = date_validated = date_decided = ""
-        for k, v in meta.items():
-            if "receiv" in k or "regist" in k:
-                date_received = parse_idox_date(v)
-            elif "valid" in k:
-                date_validated = parse_idox_date(v)
-            elif "decid" in k:
-                date_decided = parse_idox_date(v)
+        dates = re.findall(r'(Received|Validated|Decided)\s*:?\s*(\d{1,2}/\d{2}/\d{4})',
+                           item.get_text(), re.IGNORECASE)
+        date_map = {k.lower(): v for k, v in dates}
 
         if not reference:
             return None
@@ -422,9 +365,9 @@ class IdoxScraper:
             "postcode":        postcode,
             "status":          status[:100],
             "app_type":        app_type,
-            "date_received":   date_received,
-            "date_validated":  date_validated,
-            "date_decided":    date_decided,
+            "date_received":   date_map.get("received", ""),
+            "date_validated":  date_map.get("validated", ""),
+            "date_decided":    date_map.get("decided", ""),
             "lat":             lat,
             "lng":             lng,
             "portal_url":      self.portal_url,
@@ -482,8 +425,7 @@ def scrape_council(council, conn, mode, max_months=None, max_weeks=None):
                 weeks = scraper.get_available_weeks()
                 if not weeks:
                     log.warning(f"  No weeks either — skipping")
-                    log_scrape(conn, ref, mode, 0, False,
-                               "Page loaded OK but no month/week dropdown found")
+                    log_scrape(conn, ref, mode, 0, False, "No data available")
                     return 0
                 if max_weeks:
                     weeks = weeks[:max_weeks]
@@ -532,9 +474,8 @@ def scrape_council(council, conn, mode, max_months=None, max_weeks=None):
         return total
 
     except Exception as e:
-        err = f"{type(e).__name__}: {str(e)[:300]}"
-        log.error(f"  ✗ Failed: {err}")
-        log_scrape(conn, ref, mode, total, False, err)
+        log.error(f"  ✗ Failed: {e}")
+        log_scrape(conn, ref, mode, total, False, str(e))
         return total
 
 
@@ -552,8 +493,7 @@ def print_stats(conn):
     newest   = conn.execute("SELECT MAX(date_validated) FROM planning_applications").fetchone()[0]
     print(f"\n{'='*55}\n  DATABASE STATS\n{'='*55}")
     print(f"  Total applications: {total:,}")
-    total_idox = len(load_councils(COUNCILS_JSON)) if COUNCILS_JSON.exists() else "?"
-    print(f"  Councils covered:   {councils} / {total_idox}")
+    print(f"  Councils covered:   {councils} / 313")
     print(f"  Geocoded:           {geocoded:,} ({geocoded/max(total,1)*100:.0f}%)")
     print(f"  Date range:         {oldest} → {newest}")
     print(f"{'='*55}\n")

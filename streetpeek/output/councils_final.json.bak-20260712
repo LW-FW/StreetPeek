@@ -19,17 +19,17 @@
     "reference": "E60000003",
     "name": "Hartlepool LPA",
     "website": "https://www.hartlepool.gov.uk",
-    "portal_url": "https://planning.hartlepool.gov.uk/portal/servlets/ApplicationSearchServlet",
-    "platform": "Unknown/Custom",
-    "scanned_at": "2026-07-12T21:28:52 [platform-changed]"
+    "portal_url": "https://eplanningconsultee.hartlepool.gov.uk/online-applications/",
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849224 [manual]"
   },
   {
     "reference": "E60000004",
     "name": "Middlesbrough LPA",
     "website": "https://www.middlesbrough.gov.uk",
-    "portal_url": "https://planning.agileapplications.co.uk/middlesbrough",
-    "platform": "iApply/Agile",
-    "scanned_at": "2026-07-12T21:28:52 [platform-changed]"
+    "portal_url": "https://planningonline.middlesbrough.gov.uk/online-applications/",
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849305 [manual]"
   },
   {
     "reference": "E60000005",
@@ -43,17 +43,17 @@
     "reference": "E60000006",
     "name": "Redcar and Cleveland LPA",
     "website": "https://www.redcar-cleveland.gov.uk",
-    "portal_url": "https://planning.redcar-cleveland.gov.uk/",
-    "platform": "Unknown/Custom",
-    "scanned_at": "2026-07-12T21:28:52 [platform-changed]"
+    "portal_url": "https://planning.redcar-cleveland.gov.uk/online-applications/",
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849333 [manual]"
   },
   {
     "reference": "E60000007",
     "name": "Stockton-on-Tees LPA",
     "website": "https://www.stockton.gov.uk",
-    "portal_url": "https://www.developmentmanagement.stockton.gov.uk/online-applications/",
+    "portal_url": "https://www.stockton.gov.uk/planning-and-development/planning-applications/search-for-planning-application/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-07-12T21:28:52 [rediscovered]"
+    "scanned_at": "2026-05-01T11:35:26.849342 [manual]"
   },
   {
     "reference": "E60000008",
@@ -67,25 +67,25 @@
     "reference": "E60000009",
     "name": "Newcastle upon Tyne LPA",
     "website": "https://www.newcastle.gov.uk",
-    "portal_url": "https://www.newcastle.gov.uk/services/planning-building-and-development/search-view-and-comment-planning-applications",
-    "platform": "Unknown/Custom",
-    "scanned_at": "2026-07-12T21:28:52 [platform-changed]"
+    "portal_url": "https://publicaccess.newcastle.gov.uk/online-applications/",
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849359 [manual]"
   },
   {
     "reference": "E60000010",
     "name": "North Tyneside LPA",
     "website": "https://www.northtyneside.gov.uk",
-    "portal_url": "https://idoxpublicaccess.northtyneside.gov.uk/online-applications/",
+    "portal_url": "https://planningportal.northtyneside.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-07-12T21:28:52 [rediscovered]"
+    "scanned_at": "2026-05-01T11:35:26.849366 [manual]"
   },
   {
     "reference": "E60000011",
     "name": "South Tyneside LPA",
     "website": "https://www.southtyneside.gov.uk",
-    "portal_url": "https://planning.southtyneside.info/Northgate/PlanningExplorer/ApplicationSearch.aspx",
-    "platform": "Northgate/MasterGov",
-    "scanned_at": "2026-07-12T21:28:52 [platform-changed]"
+    "portal_url": "https://planning.southtyneside.gov.uk/online-applications/",
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849375 [manual]"
   },
   {
     "reference": "E60000012",
@@ -99,9 +99,9 @@
     "reference": "E60000013",
     "name": "Blackburn with Darwen LPA",
     "website": "https://www.blackburn.gov.uk",
-    "portal_url": "https://planning.blackburn.gov.uk/Northgate/PlanningExplorer/ApplicationSearch.aspx",
-    "platform": "Northgate/MasterGov",
-    "scanned_at": "2026-07-12T21:28:52 [platform-changed]"
+    "portal_url": "https://planning.blackburn.gov.uk/online-applications/",
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849385 [manual]"
   },
   {
     "reference": "E60000014",
@@ -139,25 +139,25 @@
     "reference": "E60000018",
     "name": "Warrington LPA",
     "website": "https://www.warrington.gov.uk",
-    "portal_url": "https://online.warrington.gov.uk/planning/",
-    "platform": "Unknown/Custom",
-    "scanned_at": "2026-07-12T21:28:52 [platform-changed]"
+    "portal_url": "https://planning.warrington.gov.uk/online-applications/",
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849408 [manual]"
   },
   {
     "reference": "E60000019",
     "name": "Allerdale LPA",
     "website": "https://www.allerdale.gov.uk",
     "portal_url": "https://planning.allerdale.gov.uk/online-applications/",
-    "platform": "Defunct/Merged",
-    "scanned_at": "2026-07-12T21:28:52 [merged into Cumberland (E60000334)]"
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849415 [manual]"
   },
   {
     "reference": "E60000020",
     "name": "Barrow-in-Furness LPA",
     "website": "https://www.barrow.gov.uk",
     "portal_url": "https://planning.barrowbc.gov.uk/online-applications/",
-    "platform": "Defunct/Merged",
-    "scanned_at": "2026-07-12T21:28:52 [merged into Westmorland and Furness (E60000335)]"
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849423 [manual]"
   },
   {
     "reference": "E60000021",
@@ -172,32 +172,32 @@
     "name": "Copeland LPA",
     "website": "https://www.copeland.gov.uk",
     "portal_url": "https://planning.copeland.gov.uk/online-applications/",
-    "platform": "Defunct/Merged",
-    "scanned_at": "2026-07-12T21:28:52 [merged into Cumberland (E60000334)]"
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849431 [manual]"
   },
   {
     "reference": "E60000023",
     "name": "Eden LPA",
     "website": "https://www.eden.gov.uk",
     "portal_url": "https://planning.eden.gov.uk/online-applications/",
-    "platform": "Defunct/Merged",
-    "scanned_at": "2026-07-12T21:28:52 [merged into Westmorland and Furness (E60000335)]"
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849440 [manual]"
   },
   {
     "reference": "E60000024",
     "name": "South Lakeland LPA",
     "website": "https://www.southlakeland.gov.uk",
     "portal_url": "https://planning.southlakeland.gov.uk/online-applications/",
-    "platform": "Defunct/Merged",
-    "scanned_at": "2026-07-12T21:28:52 [merged into Westmorland and Furness (E60000335)]"
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849447 [manual]"
   },
   {
     "reference": "E60000025",
     "name": "Bolton LPA",
     "website": "https://www.bolton.gov.uk",
-    "portal_url": "https://paplanning.bolton.gov.uk/online-applications/",
+    "portal_url": "https://www.taxandbenefits.bolton.gov.uk/publicaccesslive/selfservice/dashboard.htm",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-07-12T21:28:52 [rediscovered]"
+    "scanned_at": "2026-05-01T08:06:06.448772"
   },
   {
     "reference": "E60000026",
@@ -219,25 +219,25 @@
     "reference": "E60000028",
     "name": "Oldham LPA",
     "website": "https://www.oldham.gov.uk",
-    "portal_url": "https://planningpa.oldham.gov.uk/online-applications/",
+    "portal_url": "https://planning.oldham.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-07-12T21:28:52 [rediscovered]"
+    "scanned_at": "2026-05-01T11:35:26.849460 [manual]"
   },
   {
     "reference": "E60000029",
     "name": "Rochdale LPA",
     "website": "https://www.rochdale.gov.uk",
-    "portal_url": "https://publicaccess.rochdale.gov.uk/online-applications/",
+    "portal_url": "https://planning.rochdale.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-07-12T21:28:52 [rediscovered]"
+    "scanned_at": "2026-05-01T11:35:26.849468 [manual]"
   },
   {
     "reference": "E60000030",
     "name": "Salford LPA",
     "website": "https://www.salford.gov.uk",
-    "portal_url": "https://salfordcitycouncil.my.site.com/pr/s/",
-    "platform": "Arcus/Salesforce",
-    "scanned_at": "2026-07-12T21:28:52 [platform-changed]"
+    "portal_url": "https://planning.salford.gov.uk/online-applications/",
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849475 [manual]"
   },
   {
     "reference": "E60000031",
@@ -293,15 +293,15 @@
     "website": "https://www.fylde.gov.uk",
     "portal_url": "https://fyldeselfservice.blackpool.gov.uk/publicaccesslive/selfservice/citizenportal/myservices.htm",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-07-12T21:28:52 [unresolved: Fylde \u2014 portal host not found (www3.fylde.gov.uk dead, pa.fylde.gov.uk 404)]"
+    "scanned_at": "2026-05-01T08:08:37.798790"
   },
   {
     "reference": "E60000038",
     "name": "Hyndburn LPA",
     "website": "https://www.hyndburnbc.gov.uk",
-    "portal_url": "https://planning.hyndburnbc.gov.uk/Northgate/ES/Presentation/Planning/OnlinePlanning/OnlinePlanningSearch",
-    "platform": "Northgate/MasterGov",
-    "scanned_at": "2026-07-12T21:28:52 [platform-changed]"
+    "portal_url": "https://hyndburnbc.community.mrisoftware.com/publicaccesslive",
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T08:08:44.550492"
   },
   {
     "reference": "E60000039",
@@ -315,25 +315,25 @@
     "reference": "E60000040",
     "name": "Pendle LPA",
     "website": "https://www.pendle.gov.uk",
-    "portal_url": "https://publicaccess.pendle.gov.uk/online-applications/",
+    "portal_url": "https://planning.pendle.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-07-12T21:28:52 [rediscovered]"
+    "scanned_at": "2026-05-01T11:35:26.849489 [manual]"
   },
   {
     "reference": "E60000041",
     "name": "Preston LPA",
     "website": "https://www.preston.gov.uk",
-    "portal_url": "https://selfservice.preston.gov.uk/service/planning/ApplicationSearch.aspx",
-    "platform": "Unknown/Custom",
-    "scanned_at": "2026-07-12T21:28:52 [platform-changed]"
+    "portal_url": "https://planning.preston.gov.uk/online-applications/",
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849497 [manual]"
   },
   {
     "reference": "E60000042",
     "name": "Ribble Valley LPA",
     "website": "https://www.ribblevalley.gov.uk",
-    "portal_url": "https://webportal.ribblevalley.gov.uk/",
-    "platform": "Unknown/Custom",
-    "scanned_at": "2026-07-12T21:28:52 [platform-changed]"
+    "portal_url": "https://planning.ribblevalley.gov.uk/online-applications/",
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849505 [manual]"
   },
   {
     "reference": "E60000043",
@@ -347,9 +347,9 @@
     "reference": "E60000044",
     "name": "South Ribble LPA",
     "website": "https://www.southribble.gov.uk",
-    "portal_url": "https://publicaccess.southribble.gov.uk/online-applications/",
+    "portal_url": "https://planning.southribble.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-07-12T21:28:52 [rediscovered]"
+    "scanned_at": "2026-05-01T11:35:26.849515 [manual]"
   },
   {
     "reference": "E60000045",
@@ -371,17 +371,17 @@
     "reference": "E60000047",
     "name": "Knowsley LPA",
     "website": "https://www.knowsley.gov.uk",
-    "portal_url": "https://planapp.knowsley.gov.uk/online-applications/",
+    "portal_url": "https://www.knowsley.gov.uk",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-07-12T21:28:52 [rediscovered]"
+    "scanned_at": "2026-05-01T08:13:05.314091"
   },
   {
     "reference": "E60000048",
     "name": "Liverpool LPA",
     "website": "https://www.liverpool.gov.uk",
-    "portal_url": "https://liverpool.gov.uk/planning-and-building-control/search-and-track-planning-applications/",
-    "platform": "Unknown/Custom",
-    "scanned_at": "2026-07-12T21:28:52 [platform-changed]"
+    "portal_url": "https://planningpublicaccess.liverpool.gov.uk/online-applications/",
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849533 [manual]"
   },
   {
     "reference": "E60000049",
@@ -405,7 +405,7 @@
     "website": "https://www.wirral.gov.uk",
     "portal_url": "https://planning.wirral.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-07-12T21:28:52 [unresolved: Wirral \u2014 planning.wirral.gov.uk correct per council site but times out]"
+    "scanned_at": "2026-05-01T11:35:26.849559 [manual]"
   },
   {
     "reference": "E60000052",
@@ -427,9 +427,9 @@
     "reference": "E60000054",
     "name": "North East Lincolnshire LPA",
     "website": "https://www.nelincs.gov.uk",
-    "portal_url": "https://planninganddevelopment.nelincs.gov.uk/online-applications/",
+    "portal_url": "https://planning.nelincs.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-07-12T21:28:52 [rediscovered]"
+    "scanned_at": "2026-05-01T11:35:26.849588 [manual]"
   },
   {
     "reference": "E60000055",
@@ -443,9 +443,9 @@
     "reference": "E60000056",
     "name": "York LPA",
     "website": "https://www.york.gov.uk",
-    "portal_url": "https://planningaccess.york.gov.uk/online-applications/",
+    "portal_url": "https://www.york.gov.uk/SearchForPlanning",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-07-12T21:28:52 [rediscovered]"
+    "scanned_at": "2026-05-01T11:35:26.849603 [manual]"
   },
   {
     "reference": "E60000057",
@@ -460,16 +460,16 @@
     "name": "Hambleton LPA",
     "website": "https://www.hambleton.gov.uk",
     "portal_url": "https://planning.hambleton.gov.uk/online-applications/",
-    "platform": "Defunct/Merged",
-    "scanned_at": "2026-07-12T21:28:52 [merged into North Yorkshire (E60000336)]"
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849612 [manual]"
   },
   {
     "reference": "E60000059",
     "name": "Harrogate LPA",
     "website": "https://www.harrogate.gov.uk",
     "portal_url": "https://uniformonline.harrogate.gov.uk/online-applications/",
-    "platform": "Defunct/Merged",
-    "scanned_at": "2026-07-12T21:28:52 [merged into North Yorkshire (E60000336)]"
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849620 [manual]"
   },
   {
     "reference": "E60000060",
@@ -484,8 +484,8 @@
     "name": "Ryedale LPA",
     "website": "https://www.ryedale.gov.uk",
     "portal_url": "https://planning.ryedale.gov.uk/online-applications/",
-    "platform": "Defunct/Merged",
-    "scanned_at": "2026-07-12T21:28:52 [merged into North Yorkshire (E60000336)]"
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849630 [manual]"
   },
   {
     "reference": "E60000062",
@@ -507,9 +507,9 @@
     "reference": "E60000064",
     "name": "Barnsley LPA",
     "website": "https://www.barnsley.gov.uk",
-    "portal_url": "https://planningexplorer.barnsley.gov.uk/",
-    "platform": "Unknown/Custom",
-    "scanned_at": "2026-07-12T21:28:52 [platform-changed]"
+    "portal_url": "https://www.barnsley.gov.uk/services/planning-and-development/planning-and-enforcement/planning-applications/search-for-a-planning-application/",
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849639 [manual]"
   },
   {
     "reference": "E60000065",
@@ -523,17 +523,17 @@
     "reference": "E60000066",
     "name": "Rotherham LPA",
     "website": "https://www.rotherham.gov.uk",
-    "portal_url": "https://planning.rotherham.gov.uk/",
-    "platform": "Unknown/Custom",
-    "scanned_at": "2026-07-12T21:28:52 [platform-changed]"
+    "portal_url": "https://planning.rotherham.gov.uk/online-applications/",
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849648 [manual]"
   },
   {
     "reference": "E60000067",
     "name": "Sheffield LPA",
     "website": "https://www.sheffield.gov.uk",
-    "portal_url": "https://planningapps.sheffield.gov.uk/online-applications/",
+    "portal_url": "https://planningregister.sheffield.gov.uk/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-07-12T21:28:52 [rediscovered]"
+    "scanned_at": "2026-05-01T11:35:26.849657 [manual]"
   },
   {
     "reference": "E60000068",
@@ -547,17 +547,17 @@
     "reference": "E60000069",
     "name": "Calderdale LPA",
     "website": "https://www.calderdale.gov.uk",
-    "portal_url": "https://portal.calderdale.gov.uk/online-applications/",
+    "portal_url": "https://publicaccess.calderdale.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-07-12T21:28:52 [rediscovered]"
+    "scanned_at": "2026-05-01T11:35:26.849666 [manual]"
   },
   {
     "reference": "E60000070",
     "name": "Kirklees LPA",
     "website": "https://www.kirklees.gov.uk",
-    "portal_url": "https://www.kirklees.gov.uk/beta/planning-applications/search-for-planning-applications/default.aspx",
-    "platform": "Unknown/Custom",
-    "scanned_at": "2026-07-12T21:28:52 [platform-changed]"
+    "portal_url": "https://www.kirklees.gov.uk/beta/planning-applications/search-for-planning-applications.aspx",
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849675 [manual]"
   },
   {
     "reference": "E60000071",
@@ -587,17 +587,17 @@
     "reference": "E60000074",
     "name": "Leicester LPA",
     "website": "https://www.leicester.gov.uk",
-    "portal_url": "https://planning.leicester.gov.uk/",
-    "platform": "Unknown/Custom",
-    "scanned_at": "2026-07-12T21:28:52 [platform-changed]"
+    "portal_url": "https://planningonline.leicester.gov.uk/online-applications/",
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849697 [manual]"
   },
   {
     "reference": "E60000075",
     "name": "Nottingham LPA",
     "website": "https://www.nottinghamcity.gov.uk",
-    "portal_url": "https://publicaccess.nottinghamcity.gov.uk/online-applications/",
+    "portal_url": "https://planningportal.nottinghamcity.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-07-12T21:28:52 [rediscovered]"
+    "scanned_at": "2026-05-01T11:35:26.849705 [manual]"
   },
   {
     "reference": "E60000076",
@@ -611,9 +611,9 @@
     "reference": "E60000077",
     "name": "Amber Valley LPA",
     "website": "https://www.ambervalley.gov.uk",
-    "portal_url": "https://www.ambervalley.gov.uk/planning/development-management/view-a-planning-application/",
-    "platform": "Unknown/Custom",
-    "scanned_at": "2026-07-12T21:28:52 [platform-changed]"
+    "portal_url": "https://planning.ambervalley.gov.uk/online-applications/",
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849713 [manual]"
   },
   {
     "reference": "E60000078",
@@ -643,33 +643,33 @@
     "reference": "E60000081",
     "name": "Erewash LPA",
     "website": "https://www.erewash.gov.uk",
-    "portal_url": "https://myservice.erewash.gov.uk/Planning/lg/plansearch.page",
-    "platform": "Unknown/Custom",
-    "scanned_at": "2026-07-12T21:28:52 [platform-changed]"
+    "portal_url": "https://planning.erewash.gov.uk/online-applications/",
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849724 [manual]"
   },
   {
     "reference": "E60000082",
     "name": "High Peak LPA",
     "website": "https://www.highpeak.gov.uk",
-    "portal_url": "https://planning.highpeak.gov.uk/portal/servlets/ApplicationSearchServlet",
-    "platform": "Unknown/Custom",
-    "scanned_at": "2026-07-12T21:28:52 [platform-changed]"
+    "portal_url": "https://planning.highpeak.gov.uk/online-applications/",
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849733 [manual]"
   },
   {
     "reference": "E60000083",
     "name": "North East Derbyshire LPA",
     "website": "https://www.ne-derbyshire.gov.uk",
-    "portal_url": "https://planapps-online.ne-derbyshire.gov.uk/online-applications/",
+    "portal_url": "https://publicaccess.ne-derbyshire.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-07-12T21:28:52 [rediscovered]"
+    "scanned_at": "2026-05-01T11:35:26.849740 [manual]"
   },
   {
     "reference": "E60000084",
     "name": "South Derbyshire LPA",
     "website": "https://www.south-derbys.gov.uk",
-    "portal_url": "https://planning.southderbyshire.gov.uk/",
-    "platform": "Unknown/Custom",
-    "scanned_at": "2026-07-12T21:28:52 [platform-changed]"
+    "portal_url": "https://www.south-derbys.gov.uk/planning-and-building/planning-applications/search-for-planning-applications",
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849749 [manual]"
   },
   {
     "reference": "E60000085",
@@ -691,9 +691,9 @@
     "reference": "E60000087",
     "name": "Harborough LPA",
     "website": "https://www.harborough.gov.uk",
-    "portal_url": "https://pa2.harborough.gov.uk/online-applications/",
+    "portal_url": "https://pa.harborough.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-07-12T21:28:52 [rediscovered]"
+    "scanned_at": "2026-05-01T11:35:26.849790 [manual]"
   },
   {
     "reference": "E60000088",
@@ -707,25 +707,25 @@
     "reference": "E60000089",
     "name": "Melton LPA",
     "website": "https://www.meltonbc.gov.uk",
-    "portal_url": "https://pa.melton.gov.uk/online-applications/",
+    "portal_url": "https://publicaccess.meltonbc.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-07-12T21:28:52 [rediscovered]"
+    "scanned_at": "2026-05-01T11:35:26.849800 [manual]"
   },
   {
     "reference": "E60000090",
     "name": "North West Leicestershire LPA",
     "website": "https://www.nwleics.gov.uk",
-    "portal_url": "https://plans.nwleics.gov.uk/public-access/",
+    "portal_url": "https://planning.nwleics.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-07-12T21:28:52 [rediscovered]"
+    "scanned_at": "2026-05-01T11:35:26.849808 [manual]"
   },
   {
     "reference": "E60000091",
     "name": "Oadby and Wigston LPA",
     "website": "https://www.oadby-wigston.gov.uk",
-    "portal_url": "https://pa.oadby-wigston.gov.uk/online-applications/",
+    "portal_url": "https://www.oadby-wigston.gov.uk/pages/planning",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-07-12T21:28:52 [rediscovered]"
+    "scanned_at": "2026-05-01T08:27:39.988734"
   },
   {
     "reference": "E60000092",
@@ -733,15 +733,15 @@
     "website": "https://www.boston.gov.uk",
     "portal_url": "https://planning.boston.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-07-12T21:28:52 [unresolved: Boston \u2014 no current portal URL found (shares PSPS services with E. Lindsey / S. Holland)]"
+    "scanned_at": "2026-05-01T11:35:26.849817 [manual]"
   },
   {
     "reference": "E60000093",
     "name": "East Lindsey LPA",
     "website": "https://www.e-lindsey.gov.uk",
-    "portal_url": "https://publicaccess.e-lindsey.gov.uk/online-applications/",
+    "portal_url": "https://pa.e-lindsey.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-07-12T21:28:52 [rediscovered]"
+    "scanned_at": "2026-05-01T11:35:26.849828 [manual]"
   },
   {
     "reference": "E60000094",
@@ -755,17 +755,17 @@
     "reference": "E60000095",
     "name": "North Kesteven LPA",
     "website": "https://www.n-kesteven.gov.uk",
-    "portal_url": "https://planningonline.n-kesteven.gov.uk/online-applications/",
+    "portal_url": "https://planningregister.n-kesteven.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-07-12T21:28:52 [rediscovered]"
+    "scanned_at": "2026-05-01T11:35:26.849842 [manual]"
   },
   {
     "reference": "E60000096",
     "name": "South Holland LPA",
     "website": "https://www.sholland.gov.uk",
-    "portal_url": "https://planning.sholland.gov.uk/OcellaWeb/planningSearch",
-    "platform": "Civica/OcellaWeb",
-    "scanned_at": "2026-07-12T21:28:52 [platform-changed]"
+    "portal_url": "https://www.sholland.gov.uk/planning/planning-applications/search-for-planning-applications/",
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849849 [manual]"
   },
   {
     "reference": "E60000097",
@@ -779,49 +779,49 @@
     "reference": "E60000098",
     "name": "West Lindsey LPA",
     "website": "https://www.west-lindsey.gov.uk",
-    "portal_url": "https://www.west-lindsey.gov.uk/planning-building-control/planning/view-search-planning-applications",
-    "platform": "Unknown/Custom",
-    "scanned_at": "2026-07-12T21:28:52 [platform-changed]"
+    "portal_url": "https://planning.west-lindsey.gov.uk/online-applications/",
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849858 [manual]"
   },
   {
     "reference": "E60000099",
     "name": "Corby LPA",
     "website": "https://www.northnorthants.gov.uk",
     "portal_url": "https://www.northnorthants.gov.uk/planning-applications/view-planning-applications",
-    "platform": "Defunct/Merged",
-    "scanned_at": "2026-07-12T21:28:52 [merged into North Northamptonshire (E60000332)]"
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849867 [manual]"
   },
   {
     "reference": "E60000100",
     "name": "Daventry LPA",
     "website": "https://www.westnorthants.gov.uk",
     "portal_url": "https://www.westnorthants.gov.uk/planning-and-building/search-planning-applications",
-    "platform": "Defunct/Merged",
-    "scanned_at": "2026-07-12T21:28:52 [merged into West Northamptonshire (E60000333)]"
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849875 [manual]"
   },
   {
     "reference": "E60000101",
     "name": "East Northamptonshire LPA",
     "website": "https://www.northnorthants.gov.uk",
     "portal_url": "https://www.northnorthants.gov.uk/planning-applications/view-planning-applications",
-    "platform": "Defunct/Merged",
-    "scanned_at": "2026-07-12T21:28:52 [merged into North Northamptonshire (E60000332)]"
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849883 [manual]"
   },
   {
     "reference": "E60000102",
     "name": "Kettering LPA",
     "website": "https://www.northnorthants.gov.uk",
     "portal_url": "https://www.northnorthants.gov.uk/planning-applications/view-planning-applications",
-    "platform": "Defunct/Merged",
-    "scanned_at": "2026-07-12T21:28:52 [merged into North Northamptonshire (E60000332)]"
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849891 [manual]"
   },
   {
     "reference": "E60000103",
     "name": "Northampton LPA",
     "website": "https://www.westnorthants.gov.uk",
     "portal_url": "https://www.westnorthants.gov.uk/planning-and-building/search-planning-applications",
-    "platform": "Defunct/Merged",
-    "scanned_at": "2026-07-12T21:28:52 [merged into West Northamptonshire (E60000333)]"
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.849898 [manual]"
   },
   {
     "reference": "E60000104",
@@ -2651,41 +2651,41 @@
     "reference": "E60000332",
     "name": "North Northamptonshire LPA",
     "website": "https://www.northnorthants.gov.uk",
-    "portal_url": "https://publicaccess.northnorthants.gov.uk/online-applications/",
+    "portal_url": "https://www.northnorthants.gov.uk/planning-applications/view-planning-applications",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-07-12T21:28:52 [rediscovered]"
+    "scanned_at": "2026-05-01T11:35:26.851156 [manual]"
   },
   {
     "reference": "E60000333",
     "name": "West Northamptonshire LPA",
     "website": "https://www.westnorthants.gov.uk",
-    "portal_url": "https://wnc.planning-register.co.uk/",
-    "platform": "Unknown/Custom",
-    "scanned_at": "2026-07-12T21:28:52 [platform-changed]"
+    "portal_url": "https://www.westnorthants.gov.uk/planning-and-building/search-planning-applications",
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.851164 [manual]"
   },
   {
     "reference": "E60000334",
     "name": "Cumberland LPA",
     "website": "https://www.cumberland.gov.uk",
-    "portal_url": "https://cumberlandcouncil.my.site.com/pr/s/",
-    "platform": "Arcus/Salesforce",
-    "scanned_at": "2026-07-12T21:28:52 [platform-changed]"
+    "portal_url": "https://planning.cumberland.gov.uk/online-applications/",
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.851172 [manual]"
   },
   {
     "reference": "E60000335",
     "name": "Westmorland and Furness LPA",
     "website": "https://www.westmorland-furness.gov.uk",
-    "portal_url": "https://planningregister.westmorlandandfurness.gov.uk/",
-    "platform": "Unknown/Custom",
-    "scanned_at": "2026-07-12T21:28:52 [platform-changed]"
+    "portal_url": "https://planning.westmorland-furness.gov.uk/online-applications/",
+    "platform": "Idox/PublicAccess",
+    "scanned_at": "2026-05-01T11:35:26.851179 [manual]"
   },
   {
     "reference": "E60000336",
     "name": "North Yorkshire LPA",
     "website": "https://www.northyorks.gov.uk",
-    "portal_url": "https://publicaccess.northyorks.gov.uk/online-applications/",
+    "portal_url": "https://northyorks.gov.uk/planning-and-development/planning-applications/search-planning-applications",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-07-12T21:28:52 [rediscovered]"
+    "scanned_at": "2026-05-01T11:35:26.851187 [manual]"
   },
   {
     "reference": "E60000337",

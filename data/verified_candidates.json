@@ -1,0 +1,231 @@
+[
+  {
+    "reference": "E60000007",
+    "name": "Stockton-on-Tees",
+    "url": "https://www.developmentmanagement.stockton.gov.uk/online-applications/",
+    "source": "web",
+    "ok": true,
+    "detail": "12 months, newest: Jul 26",
+    "newest": "Jul 26"
+  },
+  {
+    "reference": "E60000028",
+    "name": "Oldham",
+    "url": "https://planningpa.oldham.gov.uk/online-applications/",
+    "source": "web",
+    "ok": true,
+    "detail": "12 months, newest: Jul 26",
+    "newest": "Jul 26"
+  },
+  {
+    "reference": "E60000029",
+    "name": "Rochdale",
+    "url": "https://publicaccess.rochdale.gov.uk/online-applications/",
+    "source": "web",
+    "ok": false,
+    "detail": "HTTP 503"
+  },
+  {
+    "reference": "E60000030",
+    "name": "Salford (legacy?)",
+    "url": "https://publicaccess.salford.gov.uk/publicaccess/",
+    "source": "web",
+    "ok": false,
+    "detail": "HTTP 502"
+  },
+  {
+    "reference": "E60000037",
+    "name": "Fylde",
+    "url": "https://pa.fylde.gov.uk/online-applications/",
+    "source": "web",
+    "ok": false,
+    "detail": "HTTP 404"
+  },
+  {
+    "reference": "E60000051",
+    "name": "Wirral",
+    "url": "https://planning.wirral.gov.uk/online-applications/",
+    "source": "web",
+    "ok": false,
+    "detail": "ConnectTimeout: HTTPSConnectionPool(host='planning.wirral.gov.uk', port=443): Max retries exceeded with url: /online-applications/search"
+  },
+  {
+    "reference": "E60000054",
+    "name": "North East Lincolnshire",
+    "url": "https://planninganddevelopment.nelincs.gov.uk/online-applications/",
+    "source": "web",
+    "ok": true,
+    "detail": "12 months, newest: Jul 26",
+    "newest": "Jul 26"
+  },
+  {
+    "reference": "E60000083",
+    "name": "North East Derbyshire",
+    "url": "https://planapps-online.ne-derbyshire.gov.uk/online-applications/",
+    "source": "web",
+    "ok": true,
+    "detail": "6 months, newest: Jul 26",
+    "newest": "Jul 26"
+  },
+  {
+    "reference": "E60000084",
+    "name": "South Derbyshire",
+    "url": "https://planning.southderbyshire.gov.uk/",
+    "source": "web",
+    "ok": false,
+    "detail": "HTTP 404"
+  },
+  {
+    "reference": "E60000087",
+    "name": "Harborough",
+    "url": "https://pa2.harborough.gov.uk/online-applications/",
+    "source": "web",
+    "ok": true,
+    "detail": "6 months, newest: Jul 26",
+    "newest": "Jul 26"
+  },
+  {
+    "reference": "E60000089",
+    "name": "Melton",
+    "url": "https://pa.melton.gov.uk/online-applications/",
+    "source": "web",
+    "ok": true,
+    "detail": "12 months, newest: Jul 26",
+    "newest": "Jul 26"
+  },
+  {
+    "reference": "E60000090",
+    "name": "North West Leicestershire",
+    "url": "https://plans.nwleics.gov.uk/public-access/",
+    "source": "web",
+    "ok": true,
+    "detail": "6 months, newest: Jul 26",
+    "newest": "Jul 26"
+  },
+  {
+    "reference": "E60000010",
+    "name": "North Tyneside",
+    "url": "https://idoxpublicaccess.northtyneside.gov.uk/online-applications/",
+    "source": "probe",
+    "ok": true,
+    "detail": "12 months, newest: Jul 26",
+    "newest": "Jul 26"
+  },
+  {
+    "reference": "E60000025",
+    "name": "Bolton",
+    "url": "https://paplanning.bolton.gov.uk/online-applications/",
+    "source": "probe",
+    "ok": true,
+    "detail": "6 months, newest: Jul 26",
+    "newest": "Jul 26"
+  },
+  {
+    "reference": "E60000040",
+    "name": "Pendle",
+    "url": "https://publicaccess.pendle.gov.uk/online-applications/",
+    "source": "probe",
+    "ok": true,
+    "detail": "6 months, newest: Jul 26",
+    "newest": "Jul 26"
+  },
+  {
+    "reference": "E60000044",
+    "name": "South Ribble",
+    "url": "https://publicaccess.southribble.gov.uk/online-applications/",
+    "source": "probe",
+    "ok": true,
+    "detail": "12 months, newest: Jul 26",
+    "newest": "Jul 26"
+  },
+  {
+    "reference": "E60000047",
+    "name": "Knowsley",
+    "url": "https://planapp.knowsley.gov.uk/online-applications/",
+    "source": "probe",
+    "ok": true,
+    "detail": "12 months, newest: Jul 26",
+    "newest": "Jul 26"
+  },
+  {
+    "reference": "E60000056",
+    "name": "York",
+    "url": "https://planningaccess.york.gov.uk/online-applications/",
+    "source": "probe",
+    "ok": true,
+    "detail": "6 months, newest: Jul 26",
+    "newest": "Jul 26"
+  },
+  {
+    "reference": "E60000067",
+    "name": "Sheffield",
+    "url": "https://planningapps.sheffield.gov.uk/online-applications/",
+    "source": "probe",
+    "ok": true,
+    "detail": "12 months, newest: Jul 26",
+    "newest": "Jul 26"
+  },
+  {
+    "reference": "E60000069",
+    "name": "Calderdale",
+    "url": "https://portal.calderdale.gov.uk/online-applications/",
+    "source": "probe",
+    "ok": true,
+    "detail": "6 months, newest: Jul 26",
+    "newest": "Jul 26"
+  },
+  {
+    "reference": "E60000075",
+    "name": "Nottingham",
+    "url": "https://publicaccess.nottinghamcity.gov.uk/online-applications/",
+    "source": "probe",
+    "ok": true,
+    "detail": "6 months, newest: Jul 26",
+    "newest": "Jul 26"
+  },
+  {
+    "reference": "E60000091",
+    "name": "Oadby and Wigston",
+    "url": "https://pa.oadby-wigston.gov.uk/online-applications/",
+    "source": "probe",
+    "ok": true,
+    "detail": "24 months, newest: Jul 26",
+    "newest": "Jul 26"
+  },
+  {
+    "reference": "E60000093",
+    "name": "East Lindsey",
+    "url": "https://publicaccess.e-lindsey.gov.uk/online-applications/",
+    "source": "probe",
+    "ok": true,
+    "detail": "6 months, newest: Jul 26",
+    "newest": "Jul 26"
+  },
+  {
+    "reference": "E60000095",
+    "name": "North Kesteven",
+    "url": "https://planningonline.n-kesteven.gov.uk/online-applications/",
+    "source": "probe",
+    "ok": true,
+    "detail": "6 months, newest: Jul 26",
+    "newest": "Jul 26"
+  },
+  {
+    "reference": "E60000332",
+    "name": "North Northamptonshire",
+    "url": "https://publicaccess.northnorthants.gov.uk/online-applications/",
+    "source": "probe",
+    "ok": true,
+    "detail": "6 months, newest: Jul 26",
+    "newest": "Jul 26"
+  },
+  {
+    "reference": "E60000336",
+    "name": "North Yorkshire",
+    "url": "https://publicaccess.northyorks.gov.uk/online-applications/",
+    "source": "probe",
+    "ok": true,
+    "detail": "6 months, newest: Jul 26",
+    "newest": "Jul 26"
+  }
+]
