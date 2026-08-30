@@ -1,0 +1,153 @@
+/* components/NearbySummary.module.css */
+/* Matches the StreetPeek design system — same tokens as SchoolsPanel/NearbyTab */
+
+.panel {
+  background: var(--bg);
+  border: 0.5px solid var(--border-mid);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.titleIcon {
+  display: flex;
+  align-items: center;
+  color: var(--text-secondary);
+}
+
+.title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.badge {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 999px;
+  letter-spacing: 0.01em;
+}
+.badgeWellServed { background: rgba(16, 185, 129, 0.1); color: #065f46; border: 0.5px solid rgba(16, 185, 129, 0.3); }
+.badgeModerate   { background: rgba(245, 158, 11, 0.1); color: #92400e; border: 0.5px solid rgba(245, 158, 11, 0.3); }
+.badgeLimited    { background: rgba(239, 68, 68, 0.1);  color: #991b1b; border: 0.5px solid rgba(239, 68, 68, 0.3); }
+
+.statsRow {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: var(--bg-secondary);
+  border: 0.5px solid var(--border-light, var(--border));
+  border-radius: var(--radius-md);
+  padding: 0.75rem 0;
+  margin-bottom: 1rem;
+  overflow-x: auto;
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  min-width: 70px;
+  padding: 0 0.5rem;
+}
+.statNum {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  white-space: nowrap;
+}
+.statNumMuted { color: var(--text-tertiary); font-size: 13px; font-weight: 500; }
+.statLabel {
+  font-size: 11px;
+  color: var(--text-tertiary);
+  text-align: center;
+  margin-top: 3px;
+  line-height: 1.3;
+}
+.statDivider { width: 0.5px; height: 36px; background: var(--border-mid); flex-shrink: 0; }
+
+.callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  border: 0.5px solid transparent;
+}
+.convenience_well-served { background: rgba(16, 185, 129, 0.06); border-color: rgba(16, 185, 129, 0.2); }
+.convenience_moderate    { background: rgba(245, 158, 11, 0.06); border-color: rgba(245, 158, 11, 0.2); }
+.convenience_limited     { background: rgba(239, 68, 68, 0.06);  border-color: rgba(239, 68, 68, 0.2); }
+.calloutIcon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+.calloutLabel { font-size: 12px; font-weight: 600; color: var(--text-primary); display: block; margin-bottom: 2px; }
+.calloutText { font-size: 12px; color: var(--text-secondary); margin: 0; line-height: 1.5; }
+
+.viewAllBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 9px;
+  margin-top: 0.85rem;
+  background: var(--bg-secondary);
+  border: 0.5px solid var(--border-mid);
+  border-radius: var(--radius-md);
+  font-size: 13px;
+  color: var(--orange);
+  font-weight: 500;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.15s;
+}
+.viewAllBtn:hover { background: var(--orange-light); }
+
+.loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text-tertiary);
+  font-size: 13px;
+  padding: 1rem 0;
+}
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--border-mid);
+  border-top-color: var(--orange);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.errorMsg { font-size: 13px; color: var(--text-tertiary); padding: 0.5rem 0; }
+.retryBtn {
+  font-family: inherit; font-size: 12.5px; font-weight: 500; padding: 7px 16px;
+  border-radius: var(--radius-pill); border: 0.5px solid var(--border-mid);
+  background: var(--bg); color: var(--text-primary); cursor: pointer;
+  margin-top: 4px; transition: background 0.15s, border-color 0.15s;
+}
+.retryBtn:hover { border-color: var(--orange); color: var(--orange); }
+
+@media (max-width: 480px) {
+  .statNum { font-size: 15px; }
+  .statLabel { font-size: 10px; }
+}

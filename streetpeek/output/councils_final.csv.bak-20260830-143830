@@ -107,10 +107,10 @@ E60000105,Wellingborough LPA,https://www.northnorthants.gov.uk,https://publicacc
 E60000106,Ashfield LPA,https://www.ashfield.gov.uk,https://planning.ashfield.gov.uk/planning-applications,Civica/OcellaWeb,2026-05-01T08:31:56.964279
 E60000107,Bassetlaw LPA,https://www.bassetlaw.gov.uk,https://publicaccess.bassetlaw.gov.uk/online-applications/,Idox/PublicAccess,2026-08-29T17:38:30.191053
 E60000108,Broxtowe LPA,https://www.broxtowe.gov.uk,https://publicaccess.broxtowe.gov.uk/online-applications/,Idox/PublicAccess,2026-08-29T17:38:31.828519
-E60000109,Gedling LPA,https://www.gedling.gov.uk,https://pawam.gedling.gov.uk/online-applications/,Idox/PublicAccess,2026-08-30T14:38:30.591887
+E60000109,Gedling LPA,https://www.gedling.gov.uk,https://pa.gedling.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849943 [manual]
 E60000110,Mansfield LPA,https://www.mansfield.gov.uk,https://planning.mansfield.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:33:16.568885
 E60000111,Newark and Sherwood LPA,https://www.newark-sherwooddc.gov.uk,https://publicaccess.newark-sherwooddc.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:33:20.412853
-E60000112,Rushcliffe LPA,https://www.rushcliffe.gov.uk,https://planningon-line.rushcliffe.gov.uk/online-applications/,Idox/PublicAccess,2026-08-30T14:38:30.591999
+E60000112,Rushcliffe LPA,https://www.rushcliffe.gov.uk,https://planningon.rushcliffe.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.849952 [manual]
 E60000113,"Herefordshire, County of LPA",https://www.herefordshire.gov.uk,https://www.herefordshire.gov.uk/planning-and-building-control/planning-applications/search-planning-applications,Idox/PublicAccess,2026-05-01T11:35:26.849959 [manual]
 E60000114,Shropshire LPA,https://www.shropshire.gov.uk,https://pa.shropshire.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:33:57.425345
 E60000115,Stoke-on-Trent LPA,https://www.stoke.gov.uk,https://www.stoke.gov.uk/planning/planning-applications/search,Idox/PublicAccess,2026-05-01T11:35:26.849967 [manual]
@@ -120,7 +120,7 @@ E60000118,East Staffordshire LPA,https://www.eaststaffsbc.gov.uk,https://plannin
 E60000119,Lichfield LPA,https://www.lichfielddc.gov.uk,https://planning.lichfielddc.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:35:59.574732
 E60000120,Newcastle-under-Lyme LPA,https://www.newcastle-staffs.gov.uk,https://publicaccess.newcastle-staffs.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.850002 [manual]
 E60000121,South Staffordshire LPA,https://www.sstaffs.gov.uk,https://planning.sstaffs.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:36:24.493204
-E60000122,Stafford LPA,https://www.staffordbc.gov.uk,https://www12.staffordbc.gov.uk/online-applications/,Idox/PublicAccess,2026-08-30T14:38:30.592185
+E60000122,Stafford LPA,https://www.staffordbc.gov.uk,https://www.staffordbc.gov.uk/planning,Idox/PublicAccess,2026-05-01T08:36:40.311226
 E60000123,Staffordshire Moorlands LPA,https://www.staffsmoorlands.gov.uk,https://planning.staffsmoorlands.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.850013 [manual]
 E60000124,Tamworth LPA,https://www.tamworth.gov.uk,https://publicaccess.tamworth.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.850020 [manual]
 E60000125,North Warwickshire LPA,https://www.northwarks.gov.uk,https://publicaccess.northwarks.gov.uk/,Idox/PublicAccess,2026-05-01T08:37:26.846478
@@ -131,7 +131,7 @@ E60000129,Warwick LPA,https://www.warwickdc.gov.uk,https://planningdocuments.war
 E60000130,Birmingham LPA,https://www.birmingham.gov.uk,https://eplanning.birmingham.gov.uk/northgate/planningexplorer/applicationsearch.aspx,Northgate/MasterGov,2026-05-01T11:35:26.850045 [manual]
 E60000131,Coventry LPA,https://www.coventry.gov.uk,https://planning.coventry.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.850054 [manual]
 E60000132,Dudley LPA,https://www.dudley.gov.uk,https://www.dudley.gov.uk/residents/planning/search-for-planning-applications/,Northgate/MasterGov,2026-05-01T11:35:26.850061 [manual]
-E60000133,Sandwell LPA,https://www.sandwell.gov.uk,https://webcaps.sandwell.gov.uk/publicaccess/,Idox/PublicAccess,2026-08-30T14:38:30.592307
+E60000133,Sandwell LPA,https://www.sandwell.gov.uk,https://sandwell.idoxcloud.com/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.850069 [manual]
 E60000134,Solihull LPA,https://www.solihull.gov.uk,https://publicaccess.solihull.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:39:55.303555
 E60000135,Walsall LPA,https://www.walsall.gov.uk,https://planning.walsall.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.850078 [manual]
 E60000136,Wolverhampton LPA,https://www.wolverhampton.gov.uk,https://www.wolverhampton.gov.uk/planning/planning-application-search,Northgate/MasterGov,2026-05-01T11:35:26.850087 [manual]
@@ -171,7 +171,7 @@ E60000169,Hertsmere LPA,https://www.hertsmere.gov.uk,https://publicaccess.hertsm
 E60000170,North Hertfordshire LPA,https://www.north-herts.gov.uk,https://publicaccess.north-herts.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.850246 [manual]
 E60000171,St Albans LPA,https://www.stalbans.gov.uk,https://publicaccess.stalbans.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.850254 [manual]
 E60000172,Stevenage LPA,https://www.stevenage.gov.uk,https://publicaccess.stevenage.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:50:07.617644
-E60000173,Three Rivers LPA,https://www.threerivers.gov.uk,https://www3.threerivers.gov.uk/online-applications/,Idox/PublicAccess,2026-08-30T14:38:30.592544
+E60000173,Three Rivers LPA,https://www.threerivers.gov.uk,https://www.threerivers.gov.uk/service/planning-applications,Idox/PublicAccess,2026-05-01T11:35:26.850262 [manual]
 E60000174,Watford LPA,https://www.watford.gov.uk,https://pa.watford.gov.uk/publicaccess/,Idox/PublicAccess,2026-05-01T08:50:34.422729
 E60000175,Welwyn Hatfield LPA,https://www.welhat.gov.uk,https://planning.welhat.gov.uk/Search/Basic?aspxerrorpath=/online-applications/,Idox/PublicAccess,2026-05-01T08:50:37.351980
 E60000176,Breckland LPA,https://www.breckland.gov.uk,https://planning.breckland.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.850273 [manual]
@@ -181,10 +181,10 @@ E60000179,King’s Lynn and West Norfolk LPA,https://www.king-s-lynn-and-west-no
 E60000180,North Norfolk LPA,https://www.north-norfolk.gov.uk,https://idoxpa.north-norfolk.gov.uk/online-applications/,Idox/PublicAccess,2026-08-29T17:44:25.442301
 E60000181,Norwich LPA,https://www.norwich.gov.uk,https://planning.norwich.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:51:55.959209
 E60000182,South Norfolk LPA,https://www.southnorfolkandbroadland.gov.uk,https://planning.southnorfolkandbroadland.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.850308 [manual]
-E60000183,Babergh LPA,https://www.babergh.gov.uk,https://planning.baberghmidsuffolk.gov.uk/online-applications/,Idox/PublicAccess,2026-08-30T14:38:30.592662
+E60000183,Babergh LPA,https://www.babergh.gov.uk,"https://www.babergh.gov.uk/{&quot;0&quot;:&quot;#&quot;,&quot;en_GB&quot;:&quot;https://planning.baberghmidsuffolk.gov.uk/online-applications/&quot;}",Idox/PublicAccess,2026-05-01T08:52:18.096231
 E60000184,East Suffolk LPA,https://www.eastsuffolk.gov.uk,https://publicaccess.eastsuffolk.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:52:22.047079
 E60000185,Ipswich LPA,https://www.ipswich.gov.uk,https://planning.ipswich.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.850318 [manual]
-E60000186,Mid Suffolk LPA,https://www.midsuffolk.gov.uk,https://planning.baberghmidsuffolk.gov.uk/online-applications/,Idox/PublicAccess,2026-08-30T14:38:30.592729
+E60000186,Mid Suffolk LPA,https://www.midsuffolk.gov.uk,"https://www.midsuffolk.gov.uk/{&quot;0&quot;:&quot;#&quot;,&quot;en_GB&quot;:&quot;https://planning.baberghmidsuffolk.gov.uk/online-applications/&quot;}",Idox/PublicAccess,2026-05-01T08:52:44.913065
 E60000187,West Suffolk LPA,https://www.westsuffolk.gov.uk,https://planning.westsuffolk.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T08:52:48.865212
 E60000188,Camden LPA,https://www.camden.gov.uk,https://planningrecords.camden.gov.uk/northgate/planningexplorer/home.aspx,Northgate/MasterGov,2026-05-01T11:35:26.850328 [manual]
 E60000189,City of London LPA,https://www.cityoflondon.gov.uk,https://www.planning2.cityoflondon.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.850337 [manual]
@@ -304,7 +304,7 @@ E60000302,Mid Devon LPA,https://www.middevon.gov.uk,https://planning.middevon.go
 E60000303,North Devon LPA,https://www.northdevon.gov.uk,https://planning.northdevon.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T11:35:26.850966 [manual]
 E60000304,South Hams LPA,https://www.southhams.gov.uk,https://www.southhams.gov.uk/planning,Idox/PublicAccess,2026-05-01T11:35:26.850976 [manual]
 E60000305,Teignbridge LPA,https://www.teignbridge.gov.uk,https://publicaccess.teignbridge.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T10:46:56.835282
-E60000306,Torridge LPA,https://www.torridge.gov.uk,https://publicaccess.torridge.gov.uk/online-applications/,Idox/PublicAccess,2026-08-30T14:38:30.593324
+E60000306,Torridge LPA,https://www.torridge.gov.uk,https://publicaccess.torridge.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T10:47:01.136869
 E60000307,West Devon LPA,https://www.westdevon.gov.uk,https://www.westdevon.gov.uk/planning,Idox/PublicAccess,2026-05-01T11:35:26.850985 [manual]
 E60000308,Cheltenham LPA,https://www.cheltenham.gov.uk,https://publicaccess.cheltenham.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T10:47:26.072244
 E60000309,Cotswold LPA,https://www.cotswold.gov.uk,https://publicaccess.cotswold.gov.uk/online-applications/,Idox/PublicAccess,2026-05-01T10:47:30.150331

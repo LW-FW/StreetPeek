@@ -1,0 +1,95 @@
+/* ── category colour system ── */
+.cat_gp          { --cat: var(--red);    --cat-light: var(--red-light); }
+.cat_dentist     { --cat: var(--blue);   --cat-light: var(--blue-light); }
+.cat_pharmacy    { --cat: var(--green);  --cat-light: var(--green-light); }
+.cat_supermarket { --cat: var(--orange); --cat-light: var(--orange-light); }
+.cat_convenience { --cat: var(--amber);  --cat-light: var(--amber-light); }
+.cat_gym         { --cat: var(--gray);   --cat-light: var(--gray-light); }
+
+/* ── filter row ── */
+.filterRow {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+.chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12.5px; font-weight: 500; padding: 6px 13px;
+  border-radius: var(--radius-pill); border: 1px solid var(--border-mid);
+  background: var(--bg); color: var(--text-secondary);
+  white-space: nowrap; cursor: pointer; font-family: inherit;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.chip:hover { border-color: var(--cat, var(--border-mid)); }
+.dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cat, var(--text-tertiary)); flex-shrink: 0; }
+.chipOn { background: var(--cat-light); border-color: var(--cat); color: var(--text-primary); }
+.chipCount { opacity: 0.65; font-weight: 400; }
+.chipAll { background: var(--bg); }
+.chipAllOn { background: var(--text-primary); color: var(--bg); border-color: var(--text-primary); }
+
+.radiusToggle {
+  display: inline-flex; border: 1px solid var(--border-mid); border-radius: var(--radius-pill);
+  overflow: hidden; margin-left: auto; flex-shrink: 0;
+}
+.radiusToggle button {
+  font-family: inherit; font-size: 12px; padding: 6px 13px; color: var(--text-secondary);
+  background: var(--bg); border: none; cursor: pointer; transition: background 0.15s, color 0.15s;
+}
+.radiusToggle button:hover { color: var(--text-primary); }
+.radiusOn { background: var(--orange) !important; color: #fff !important; font-weight: 500; }
+
+/* ── split layout ── */
+.splitWrap { display: flex; gap: 1.25rem; align-items: flex-start; }
+.splitList { width: 300px; flex-shrink: 0; max-height: 620px; overflow-y: auto; padding-right: 4px; }
+.splitMap { flex: 1; height: 620px; }
+
+@media (max-width: 760px) {
+  .splitWrap { flex-direction: column; }
+  .splitList { width: 100%; max-height: none; overflow-y: visible; }
+  .splitMap { width: 100%; height: 380px; }
+}
+
+/* ── section + place cards ── */
+.sectionLabel {
+  font-size: 10.5px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-tertiary);
+  font-weight: 600; margin: 1.25rem 0 0.4rem;
+}
+.sectionLabel:first-child { margin-top: 0; }
+
+.placeCard {
+  display: flex; align-items: flex-start; gap: 11px;
+  padding: 10px 0; border-bottom: 0.5px solid var(--border);
+}
+.placeCard:last-child { border-bottom: none; }
+.placeIcon {
+  width: 30px; height: 30px; border-radius: 8px; flex-shrink: 0;
+  background: var(--cat); display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 12px; font-weight: 600; margin-top: 1px;
+}
+.placeInfo { flex: 1; min-width: 0; }
+.placeName { font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 2px; line-height: 1.3; }
+.placeMeta { font-size: 11.5px; color: var(--text-tertiary); }
+.placeDist { text-align: right; flex-shrink: 0; }
+.placeDistNum { font-size: 13px; font-weight: 600; color: var(--text-primary); display: block; }
+.placeDistWalk { display: block; font-size: 11px; color: var(--text-tertiary); white-space: nowrap; }
+
+.noResults { font-size: 13px; color: var(--text-tertiary); padding: 1rem 0; }
+
+/* ── loading & error ── */
+.loading {
+  display: flex; align-items: center; gap: 10px;
+  color: var(--text-tertiary); font-size: 13px; padding: 2rem 0;
+}
+.spinner {
+  width: 16px; height: 16px; border: 2px solid var(--border-mid); border-top-color: var(--orange);
+  border-radius: 50%; animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.errorMsg { font-size: 13px; color: var(--text-tertiary); padding: 1rem 0; }
+.errorState { padding: 1rem 0; }
+.retryBtn {
+  font-family: inherit; font-size: 12.5px; font-weight: 500; padding: 7px 16px;
+  border-radius: var(--radius-pill); border: 1px solid var(--border-mid);
+  background: var(--bg); color: var(--text-primary); cursor: pointer;
+  margin-top: 4px; transition: background 0.15s, border-color 0.15s;
+}
+.retryBtn:hover { border-color: var(--orange); color: var(--orange); }

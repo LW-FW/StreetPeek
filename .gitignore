@@ -220,3 +220,15 @@ __marimo__/
 **/node_modules/
 **/.next/
 *.db
+
+# Raw downloaded source extracts for the education data pipeline (GIAS,
+# Ofsted, ONS NSPL) — large (100s of MB), re-downloaded on each refresh.
+# Only the processed data/schools.json and data/nurseries.json are committed.
+data/raw/
+
+# Personal ops dashboard (build_dashboard.py) — generated locally, re-run on
+# demand, never published. Full of timestamps that would churn every run.
+dashboard.html
+data/source_health.json
+data/portal_health.json
+data/portal_health_reports/

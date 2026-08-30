@@ -573,7 +573,7 @@
     "website": "https://www.wakefield.gov.uk",
     "portal_url": "https://planning.wakefield.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T17:44:07.383880"
+    "scanned_at": "2026-05-01T11:35:26.849688 [manual]"
   },
   {
     "reference": "E60000073",
@@ -835,9 +835,9 @@
     "reference": "E60000105",
     "name": "Wellingborough LPA",
     "website": "https://www.northnorthants.gov.uk",
-    "portal_url": "https://publicaccess.northnorthants.gov.uk/online-applications/",
+    "portal_url": "https://www.northnorthants.gov.uk/planning-applications/view-planning-applications",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T17:39:08.571423"
+    "scanned_at": "2026-05-01T11:35:26.849922 [manual]"
   },
   {
     "reference": "E60000106",
@@ -851,25 +851,25 @@
     "reference": "E60000107",
     "name": "Bassetlaw LPA",
     "website": "https://www.bassetlaw.gov.uk",
-    "portal_url": "https://publicaccess.bassetlaw.gov.uk/online-applications/",
+    "portal_url": "https://planning.bassetlaw.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T17:38:30.191053"
+    "scanned_at": "2026-05-01T11:35:26.849933 [manual]"
   },
   {
     "reference": "E60000108",
     "name": "Broxtowe LPA",
     "website": "https://www.broxtowe.gov.uk",
-    "portal_url": "https://publicaccess.broxtowe.gov.uk/online-applications/",
+    "portal_url": "https://planning.broxtowe.gov.uk/identity/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T17:38:31.828519"
+    "scanned_at": "2026-05-01T08:32:23.272491"
   },
   {
     "reference": "E60000109",
     "name": "Gedling LPA",
     "website": "https://www.gedling.gov.uk",
-    "portal_url": "https://pawam.gedling.gov.uk/online-applications/",
+    "portal_url": "https://pa.gedling.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-30T14:38:30.591887"
+    "scanned_at": "2026-05-01T11:35:26.849943 [manual]"
   },
   {
     "reference": "E60000110",
@@ -891,9 +891,9 @@
     "reference": "E60000112",
     "name": "Rushcliffe LPA",
     "website": "https://www.rushcliffe.gov.uk",
-    "portal_url": "https://planningon-line.rushcliffe.gov.uk/online-applications/",
+    "portal_url": "https://planningon.rushcliffe.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-30T14:38:30.591999"
+    "scanned_at": "2026-05-01T11:35:26.849952 [manual]"
   },
   {
     "reference": "E60000113",
@@ -971,9 +971,9 @@
     "reference": "E60000122",
     "name": "Stafford LPA",
     "website": "https://www.staffordbc.gov.uk",
-    "portal_url": "https://www12.staffordbc.gov.uk/online-applications/",
+    "portal_url": "https://www.staffordbc.gov.uk/planning",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-30T14:38:30.592185"
+    "scanned_at": "2026-05-01T08:36:40.311226"
   },
   {
     "reference": "E60000123",
@@ -1059,9 +1059,9 @@
     "reference": "E60000133",
     "name": "Sandwell LPA",
     "website": "https://www.sandwell.gov.uk",
-    "portal_url": "https://webcaps.sandwell.gov.uk/publicaccess/",
+    "portal_url": "https://sandwell.idoxcloud.com/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-30T14:38:30.592307"
+    "scanned_at": "2026-05-01T11:35:26.850069 [manual]"
   },
   {
     "reference": "E60000134",
@@ -1091,9 +1091,9 @@
     "reference": "E60000137",
     "name": "Bromsgrove LPA",
     "website": "https://www.bromsgrove.gov.uk",
-    "portal_url": "https://publicaccess.bromsgrove.gov.uk/online-applications/",
+    "portal_url": "https://www.bromsgrove.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T17:42:29.067616"
+    "scanned_at": "2026-05-01T08:41:00.832407"
   },
   {
     "reference": "E60000138",
@@ -1107,9 +1107,9 @@
     "reference": "E60000139",
     "name": "Redditch LPA",
     "website": "https://www.redditchbc.gov.uk",
-    "portal_url": "https://publicaccess.redditchbc.gov.uk/online-applications/",
+    "portal_url": "https://www.redditchbc.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T17:42:33.592862"
+    "scanned_at": "2026-05-01T08:41:10.300480"
   },
   {
     "reference": "E60000140",
@@ -1203,17 +1203,17 @@
     "reference": "E60000151",
     "name": "Fenland LPA",
     "website": "https://www.fenland.gov.uk",
-    "portal_url": "https://publicaccess.fenland.gov.uk/publicaccess/",
+    "portal_url": "https://planning.fenland.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T17:43:46.597744"
+    "scanned_at": "2026-05-01T11:35:26.850157 [manual]"
   },
   {
     "reference": "E60000152",
     "name": "Huntingdonshire LPA",
     "website": "https://www.huntingdonshire.gov.uk",
-    "portal_url": "https://publicaccess.huntingdonshire.gov.uk/online-applications/",
+    "portal_url": "https://public.huntingdonshire.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T17:43:48.279395"
+    "scanned_at": "2026-05-01T11:35:26.850170 [manual]"
   },
   {
     "reference": "E60000153",
@@ -1251,9 +1251,9 @@
     "reference": "E60000157",
     "name": "Castle Point LPA",
     "website": "https://www.castlepoint.gov.uk",
-    "portal_url": "https://publicaccess.castlepoint.gov.uk/online-applications/",
+    "portal_url": "https://planning.castlepoint.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T17:43:55.532709"
+    "scanned_at": "2026-05-01T11:35:26.850195 [manual]"
   },
   {
     "reference": "E60000158",
@@ -1267,9 +1267,9 @@
     "reference": "E60000159",
     "name": "Colchester LPA",
     "website": "https://www.colchester.gov.uk",
-    "portal_url": "https://pa.colchester.gov.uk/online-applications/",
+    "portal_url": "https://online.colchester.gov.uk/publicaccesslive/selfservice/citizenportal/login.htm?redirect_url=https://online.colchester.gov.uk/publicaccesslive/selfservice/dashboard.htm",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T17:44:04.794300"
+    "scanned_at": "2026-05-01T08:46:42.513376"
   },
   {
     "reference": "E60000160",
@@ -1283,9 +1283,9 @@
     "reference": "E60000161",
     "name": "Harlow LPA",
     "website": "https://www.harlow.gov.uk",
-    "portal_url": "https://planningonline.harlow.gov.uk/online-applications/",
+    "portal_url": "https://pa.harlow.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T17:43:58.778236"
+    "scanned_at": "2026-05-01T11:35:26.850212 [manual]"
   },
   {
     "reference": "E60000162",
@@ -1307,9 +1307,9 @@
     "reference": "E60000164",
     "name": "Tendring LPA",
     "website": "https://www.tendringdc.gov.uk",
-    "portal_url": "https://idox.tendringdc.gov.uk/online-applications/",
+    "portal_url": "https://www.tendringdc.gov.uk/services/planning",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T17:44:13.338327"
+    "scanned_at": "2026-05-01T08:48:30.373747"
   },
   {
     "reference": "E60000165",
@@ -1379,9 +1379,9 @@
     "reference": "E60000173",
     "name": "Three Rivers LPA",
     "website": "https://www.threerivers.gov.uk",
-    "portal_url": "https://www3.threerivers.gov.uk/online-applications/",
+    "portal_url": "https://www.threerivers.gov.uk/service/planning-applications",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-30T14:38:30.592544"
+    "scanned_at": "2026-05-01T11:35:26.850262 [manual]"
   },
   {
     "reference": "E60000174",
@@ -1435,9 +1435,9 @@
     "reference": "E60000180",
     "name": "North Norfolk LPA",
     "website": "https://www.north-norfolk.gov.uk",
-    "portal_url": "https://idoxpa.north-norfolk.gov.uk/online-applications/",
+    "portal_url": "https://planning.north-norfolk.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T17:44:25.442301"
+    "scanned_at": "2026-05-01T11:35:26.850297 [manual]"
   },
   {
     "reference": "E60000181",
@@ -1459,9 +1459,9 @@
     "reference": "E60000183",
     "name": "Babergh LPA",
     "website": "https://www.babergh.gov.uk",
-    "portal_url": "https://planning.baberghmidsuffolk.gov.uk/online-applications/",
+    "portal_url": "https://www.babergh.gov.uk/{&quot;0&quot;:&quot;#&quot;,&quot;en_GB&quot;:&quot;https://planning.baberghmidsuffolk.gov.uk/online-applications/&quot;}",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-30T14:38:30.592662"
+    "scanned_at": "2026-05-01T08:52:18.096231"
   },
   {
     "reference": "E60000184",
@@ -1483,9 +1483,9 @@
     "reference": "E60000186",
     "name": "Mid Suffolk LPA",
     "website": "https://www.midsuffolk.gov.uk",
-    "portal_url": "https://planning.baberghmidsuffolk.gov.uk/online-applications/",
+    "portal_url": "https://www.midsuffolk.gov.uk/{&quot;0&quot;:&quot;#&quot;,&quot;en_GB&quot;:&quot;https://planning.baberghmidsuffolk.gov.uk/online-applications/&quot;}",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-30T14:38:30.592729"
+    "scanned_at": "2026-05-01T08:52:44.913065"
   },
   {
     "reference": "E60000187",
@@ -1603,9 +1603,9 @@
     "reference": "E60000201",
     "name": "Westminster LPA",
     "website": "https://www.westminster.gov.uk",
-    "portal_url": "https://idoxpa.westminster.gov.uk/online-applications/",
+    "portal_url": "https://www.westminster.gov.uk/planning-building-control-and-licensing/planning/submit-search-and-track-planning-applications/search-planning-applications",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T17:45:16.216581"
+    "scanned_at": "2026-05-01T11:35:26.850408 [manual]"
   },
   {
     "reference": "E60000202",
@@ -1747,9 +1747,9 @@
     "reference": "E60000219",
     "name": "Sutton LPA",
     "website": "https://www.sutton.gov.uk",
-    "portal_url": "https://planningregister.sutton.gov.uk/online-applications/",
+    "portal_url": "https://planning2.sutton.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T17:46:55.180278"
+    "scanned_at": "2026-05-01T11:35:26.850504 [manual]"
   },
   {
     "reference": "E60000220",
@@ -1827,9 +1827,9 @@
     "reference": "E60000229",
     "name": "Southampton LPA",
     "website": "https://www.southampton.gov.uk",
-    "portal_url": "https://planningpublicaccess.southampton.gov.uk/online-applications/",
+    "portal_url": "https://pa.southampton.gov.uk/online-applications16/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T17:51:54.461970"
+    "scanned_at": "2026-05-01T09:08:23.462371"
   },
   {
     "reference": "E60000230",
@@ -1939,9 +1939,9 @@
     "reference": "E60000243",
     "name": "East Hampshire LPA",
     "website": "https://www.easthants.gov.uk",
-    "portal_url": "https://planningpublicaccess.easthants.gov.uk/online-applications/",
+    "portal_url": "https://publicaccess.easthants.gov.uk/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T17:52:46.924566"
+    "scanned_at": "2026-05-01T09:11:19.818891"
   },
   {
     "reference": "E60000244",
@@ -1987,9 +1987,9 @@
     "reference": "E60000249",
     "name": "New Forest LPA",
     "website": "https://www.newforest.gov.uk",
-    "portal_url": "https://planning.newforest.gov.uk/online-applications/",
+    "portal_url": "https://www.newforest.gov.uk/planning-applications",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T17:53:44.318500"
+    "scanned_at": "2026-05-01T11:35:26.850628 [manual]"
   },
   {
     "reference": "E60000250",
@@ -2027,9 +2027,9 @@
     "reference": "E60000254",
     "name": "Canterbury LPA",
     "website": "https://www.canterbury.gov.uk",
-    "portal_url": "https://pa.canterbury.gov.uk/online-applications/",
+    "portal_url": "https://planning.canterbury.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T17:55:05.004815"
+    "scanned_at": "2026-05-01T11:35:26.850655 [manual]"
   },
   {
     "reference": "E60000255",
@@ -2099,9 +2099,9 @@
     "reference": "E60000263",
     "name": "Tonbridge and Malling LPA",
     "website": "https://www.tmbc.gov.uk",
-    "portal_url": "https://publicaccess.tmbc.gov.uk/online-applications/",
+    "portal_url": "https://www.tmbc.gov.uk/planning/planning-applications/search-for-planning-applications",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T17:55:17.802857"
+    "scanned_at": "2026-05-01T11:35:26.850715 [manual]"
   },
   {
     "reference": "E60000264",
@@ -2203,17 +2203,17 @@
     "reference": "E60000276",
     "name": "Spelthorne LPA",
     "website": "https://www.spelthorne.gov.uk",
-    "portal_url": "https://publicaccess.spelthorne.gov.uk/online-applications/",
+    "portal_url": "https://pa.spelthorne.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T17:56:14.602926"
+    "scanned_at": "2026-05-01T11:35:26.850797 [manual]"
   },
   {
     "reference": "E60000277",
     "name": "Surrey Heath LPA",
     "website": "https://www.surreyheath.gov.uk",
-    "portal_url": "https://publicaccess.surreyheath.gov.uk/online-applications/",
+    "portal_url": "https://pa.surreyheath.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T17:56:16.275015"
+    "scanned_at": "2026-05-01T11:35:26.850805 [manual]"
   },
   {
     "reference": "E60000278",
@@ -2315,9 +2315,9 @@
     "reference": "E60000290",
     "name": "Bristol, City of LPA",
     "website": "https://www.bristol.gov.uk",
-    "portal_url": "https://pa.bristol.gov.uk/online-applications/",
+    "portal_url": "https://planningportal.bristol.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T17:57:58.460839"
+    "scanned_at": "2026-05-01T11:35:26.850886 [manual]"
   },
   {
     "reference": "E60000291",
@@ -2371,9 +2371,9 @@
     "reference": "E60000297",
     "name": "Swindon LPA",
     "website": "https://www.swindon.gov.uk",
-    "portal_url": "https://pa.swindon.gov.uk/publicaccess/",
+    "portal_url": "https://www.swindon.gov.uk/info/20027/planning_applications/1/search_for_a_planning_application",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T17:58:50.739869"
+    "scanned_at": "2026-05-01T11:35:26.850940 [manual]"
   },
   {
     "reference": "E60000298",
@@ -2445,7 +2445,7 @@
     "website": "https://www.torridge.gov.uk",
     "portal_url": "https://publicaccess.torridge.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-30T14:38:30.593324"
+    "scanned_at": "2026-05-01T10:47:01.136869"
   },
   {
     "reference": "E60000307",
@@ -2562,26 +2562,26 @@
   {
     "reference": "E60000321",
     "name": "New Forest National Park LPA",
-    "website": "https://www.newforestnpa.gov.uk",
+    "website": "https://www.newforest.gov.uk",
     "portal_url": "https://www.newforestnpa.gov.uk/planning/planning-applications/search-for-planning-applications",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T18:04:41.857233 [manual-correction: reverted false-positive shared-host auto-fix]"
+    "scanned_at": "2026-05-01T11:35:26.851068 [manual]"
   },
   {
     "reference": "E60000322",
     "name": "North York Moors National Park LPA",
-    "website": "https://www.northyorkmoors.org.uk",
+    "website": "https://www.york.gov.uk",
     "portal_url": "https://planning.northyorkmoors.org.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T18:04:41.857328 [manual-correction: reverted false-positive shared-host auto-fix]"
+    "scanned_at": "2026-05-01T11:35:26.851075 [manual]"
   },
   {
     "reference": "E60000323",
     "name": "Northumberland National Park LPA",
-    "website": "https://www.northumberlandnationalpark.org.uk",
+    "website": "https://www.northumberland.gov.uk",
     "portal_url": "https://www.northumberlandnationalpark.org.uk/planning/planning-applications/search-for-a-planning-application/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T18:04:41.857405 [manual-correction: reverted false-positive shared-host auto-fix]"
+    "scanned_at": "2026-05-01T11:35:26.851085 [manual]"
   },
   {
     "reference": "E60000324",
@@ -2610,10 +2610,10 @@
   {
     "reference": "E60000327",
     "name": "Yorkshire Dales National Park LPA",
-    "website": "https://www.yorkshiredales.org.uk",
+    "website": "https://www.york.gov.uk",
     "portal_url": "https://www.yorkshiredales.org.uk/living-and-working/planning/planning-search/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T18:04:41.857478 [manual-correction: reverted false-positive shared-host auto-fix]"
+    "scanned_at": "2026-05-01T11:35:26.851117 [manual]"
   },
   {
     "reference": "E60000328",

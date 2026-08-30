@@ -4,14 +4,18 @@ import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import Navbar from '../components/Navbar';
 import Badge from '../components/Badge';
-import { IconBuilding,IconWaves,IconShield,IconHouse,IconMap,IconTick,IconCross,IconCrime,IconAlert,IconDocument,IconCalendar } from '../components/icons';
+import { IconWaves,IconShield,IconHouse,IconMap,IconTick,IconCross,IconCrime,IconAlert,IconDocument,IconCalendar } from '../components/icons';
 import { lookupPostcode,getCrimeData,getPlanningData,getEnvironmentalData,computeAreaScore,parsePoint,distanceMiles,formatDistance,PostcodeData,CrimeData,PlanningEntity } from '../lib/data';
 import styles from '../styles/Results.module.css';
-import SchoolsPanel from '../components/SchoolsPanel';
-import NearbyPanel from '../components/NearbyPanel';
+import SchoolsSummary from '../components/SchoolsSummary';
+import SchoolsTab from '../components/SchoolsTab';
+import NearbyTab from '../components/NearbyTab';
+import NearbySummary from '../components/NearbySummary';
+import type { NearbyResponse } from './api/nearby';
+import type { EducationResponse } from './api/schools';
 
 const AreaMap = dynamic(() => import('../components/AreaMap'), { ssr: false });
-type Tab = 'overview'|'planning'|'crime'|'environment'|'map';
+type Tab = 'overview'|'nearby'|'schools'|'planning'|'crime'|'environment'|'map';
 
 export default function Results() {
   const router = useRouter();
@@ -23,6 +27,10 @@ export default function Results() {
   const [crimeData, setCrimeData] = useState<CrimeData[]>([]);
   const [planningData, setPlanningData] = useState<PlanningEntity[]>([]);
   const [envData, setEnvData] = useState<PlanningEntity[]>([]);
+  const [nearbyData, setNearbyData] = useState<NearbyResponse|null>(null);
+  const [nearbyLoading, setNearbyLoading] = useState(true);
+  const [schoolsData, setSchoolsData] = useState<EducationResponse|null>(null);
+  const [schoolsLoading, setSchoolsLoading] = useState(true);
 
   useEffect(() => {
     if (!postcode) return;
@@ -38,6 +46,32 @@ export default function Results() {
     }
     load();
   }, [postcode]);
+
+  // Fetched once per postcode by this always-mounted parent, not by the tab
+  // content itself — NearbySummary/NearbyTab used to fetch on their own
+  // mount, so switching tabs unmounted+remounted them and re-hit the
+  // (rate-limited, sometimes-flaky) Overpass API on every visit.
+  const loadNearby = () => {
+    if (!location) return;
+    setNearbyLoading(true);
+    fetch(`/api/nearby?lat=${location.lat}&lng=${location.lng}`)
+      .then(r => r.json())
+      .then(setNearbyData)
+      .catch(() => setNearbyData(null))
+      .finally(() => setNearbyLoading(false));
+  };
+  useEffect(loadNearby, [location?.lat, location?.lng]);
+
+  const loadSchools = () => {
+    if (!location) return;
+    setSchoolsLoading(true);
+    fetch(`/api/schools?lat=${location.lat}&lng=${location.lng}`)
+      .then(r => r.json())
+      .then(setSchoolsData)
+      .catch(() => setSchoolsData(null))
+      .finally(() => setSchoolsLoading(false));
+  };
+  useEffect(loadSchools, [location?.lat, location?.lng]);
 
   if (!postcode) return <div className={styles.page}><Navbar /><p className={styles.empty}>No postcode provided.</p></div>;
 
@@ -69,34 +103,36 @@ export default function Results() {
         {error && <div className={styles.errorWrap}><IconAlert size={24} color="var(--red)"/><p>{error}</p></div>}
         {!loading && !error && location && (<>
           <div className={styles.header}>
-            <div>
-              <h1 className={styles.postcode}>{location.postcode}</h1>
-              <p className={styles.areaName}>{[location.ward,location.admin_district].filter(Boolean).join(', ')}</p>
-            </div>
-            <div className={styles.scoreWrap}>
-              <div className={styles.scoreLabel}>Area outlook</div>
-              <div className={styles.score}><span className={styles.scoreNum}>{score.toFixed(1)}</span><span className={styles.scoreTag}>{label}</span></div>
-            </div>
+            <h1 className={styles.postcode}>{location.postcode}</h1>
+            <p className={styles.areaName}>{[location.ward,location.admin_district].filter(Boolean).join(', ')}</p>
           </div>
 
-          <div className={styles.summary}>
-            <div className={styles.summaryLabel}>Area summary</div>
-            <p>
-              {location.admin_district} —
-              {brownfield.length>0?` ${brownfield.length} brownfield site${brownfield.length>1?'s':''} with housing development within 1 mile.`:' No brownfield housing sites found within 1 mile.'}
-              {totalCrime>0?` ${totalCrime} crimes recorded in the last available month.`:''}
-              {hasFlood?' Flood risk zones present nearby — check before buying.':' No flood risk zones detected.'}
-              {hasConservation?' Area is within or near a conservation zone.':''}
-            </p>
+          <div className={styles.summaryWrap}>
+            <div className={styles.summary}>
+              <div className={styles.summaryLabel}>Area summary</div>
+              <div className={styles.outlookRow}>
+                <div className={styles.score}><span className={styles.scoreNum}>{score.toFixed(1)}</span><span className={styles.scoreTag}>{label}</span></div>
+              </div>
+              <p>
+                {location.admin_district} —
+                {brownfield.length>0?` ${brownfield.length} brownfield site${brownfield.length>1?'s':''} with housing development within 1 mile.`:' No brownfield housing sites found within 1 mile.'}
+                {totalCrime>0?` ${totalCrime} crimes recorded in the last available month.`:''}
+                {hasFlood?' Flood risk zones present nearby — check before buying.':' No flood risk zones detected.'}
+                {hasConservation?' Area is within or near a conservation zone.':''}
+              </p>
+              <a href="/data-sources" className={styles.methodLink}>Understand how we calculate your report and any limitations of the data →</a>
+            </div>
           </div>
 
           <div className={styles.tabs}>
             {([
-              {id:'overview',icon:<IconHouse size={14}/>,label:'Overview'},
-              {id:'planning',icon:<IconBuilding size={14}/>,label:'Planning'},
-              {id:'crime',icon:<IconCrime size={14}/>,label:'Crime'},
-              {id:'environment',icon:<IconWaves size={14}/>,label:'Environment'},
-              {id:'map',icon:<IconMap size={14}/>,label:'Map view'},
+              {id:'overview',icon:'🏠',label:'Overview'},
+              {id:'nearby',icon:'📍',label:'Nearby'},
+              {id:'schools',icon:'🏫',label:'Schools'},
+              {id:'planning',icon:'🏠',label:'Planning'},
+              {id:'crime',icon:'🚨',label:'Crime'},
+              {id:'environment',icon:'🌊',label:'Environment'},
+              {id:'map',icon:'🗺',label:'Map view'},
             ] as {id:Tab;icon:React.ReactNode;label:string}[]).map(t=>(
               <button key={t.id} className={`${styles.tab} ${tab===t.id?styles.tabActive:''}`} onClick={()=>setTab(t.id)}>
                 {t.icon} {t.label}
@@ -105,11 +141,12 @@ export default function Results() {
           </div>
 
           {tab==='overview' && (
+            <div className={styles.panelWrap}>
             <div className={styles.panel}>
               <div className={styles.grid}>
                 <div className={styles.card}>
                   <div className={styles.cardHeader}>
-                    <div className={styles.cardTitle}><IconBuilding size={15} color="var(--orange)"/> Housing developments</div>
+                    <div className={styles.cardTitle}>🏠 Housing developments</div>
                     <Badge variant={brownfield.length>0?'orange':'neutral'}>{brownfield.length>0?'Active':'None found'}</Badge>
                   </div>
                   <div className={styles.bigNum}>{brownfield.length}</div>
@@ -118,7 +155,7 @@ export default function Results() {
                 </div>
                 <div className={styles.card}>
                   <div className={styles.cardHeader}>
-                    <div className={styles.cardTitle}><IconCrime size={15} color="var(--amber)"/> Crime this month</div>
+                    <div className={styles.cardTitle}>🚨 Crime this month</div>
                     <Badge variant={totalCrime<50?'good':totalCrime<150?'warn':'red'}>{totalCrime<50?'Low':totalCrime<150?'Moderate':'High'}</Badge>
                   </div>
                   <div className={styles.bigNum}>{totalCrime}</div>
@@ -135,14 +172,14 @@ export default function Results() {
                 </div>
                 <div className={styles.card}>
                   <div className={styles.cardHeader}>
-                    <div className={styles.cardTitle}><IconWaves size={15} color="var(--blue)"/> Flood risk</div>
+                    <div className={styles.cardTitle}>🌊 Flood risk</div>
                     <Badge variant={hasFlood?'warn':'good'}>{hasFlood?'Risk present':'Low risk'}</Badge>
                   </div>
                   <CheckRow ok={!hasFlood}>{hasFlood?'Flood risk zone detected nearby':'No flood risk zones nearby'}</CheckRow>
                 </div>
                 <div className={styles.card}>
                   <div className={styles.cardHeader}>
-                    <div className={styles.cardTitle}><IconShield size={15} color="var(--gray)"/> Area protections</div>
+                    <div className={styles.cardTitle}>🛡️ Area protections</div>
                     <Badge variant={hasConservation||hasGreenBelt?'info':'neutral'}>{hasConservation||hasGreenBelt?'Protected':'Unrestricted'}</Badge>
                   </div>
                   <CheckRow ok={!hasConservation} neutral>Conservation area: {hasConservation?'Yes':'No'}</CheckRow>
@@ -152,7 +189,7 @@ export default function Results() {
                 {brownfield.length>0&&(
                   <div className={`${styles.card} ${styles.full}`}>
                     <div className={styles.cardHeader}>
-                      <div className={styles.cardTitle}><IconBuilding size={15} color="var(--orange)"/> Nearby sites</div>
+                      <div className={styles.cardTitle}>🏠 Nearby sites</div>
                       <Badge variant="orange">{brownfield.length} sites</Badge>
                     </div>
                     {brownfield.slice(0,4).map((e,i)=>{
@@ -161,7 +198,7 @@ export default function Results() {
                       const maxD=parseInt(e.maximum_net_dwellings||'0');
                       return (
                         <div key={i} className={styles.devItem}>
-                          <div className={styles.devIcon} style={{background:'var(--orange-light)'}}><IconHouse size={15} color="var(--orange)"/></div>
+                          <div className={styles.devIcon} style={{background:'var(--orange-light)'}}>🏠</div>
                           <div style={{flex:1}}>
                             <p className={styles.devTitle}>{e.name||'Unnamed site'}</p>
                             <p className={styles.devMeta}>{maxD>0?`Up to ${maxD} homes`:'Homes TBC'}{dist!=='—'?` · ${dist} away`:''}{e.hectares?` · ${e.hectares} ha`:''}</p>
@@ -174,17 +211,35 @@ export default function Results() {
                 )}
               </div>
 
-              {/* ── Schools & Nurseries ── */}
-              <SchoolsPanel lat={location.lat} lng={location.lng} />
+              {/* ── Schools & Nurseries summary (full detail in the Schools tab) ── */}
+              <SchoolsSummary data={schoolsData} loading={schoolsLoading} onViewAll={() => setTab('schools')} onRetry={loadSchools} />
 
-              {/* ── Nearby Amenities ── */}
-              <NearbyPanel lat={location.lat} lng={location.lng} />
+              {/* ── Nearby Amenities summary (full detail in the Nearby tab) ── */}
+              <NearbySummary data={nearbyData} loading={nearbyLoading} onViewAll={() => setTab('nearby')} onRetry={loadNearby} />
 
               <UnlockBanner />
+            </div>
+            </div>
+          )}
+
+          {tab==='nearby' && (
+            <div className={styles.panelWrap}>
+            <div className={styles.panel}>
+              <NearbyTab lat={location.lat} lng={location.lng} data={nearbyData} loading={nearbyLoading} onRetry={loadNearby} />
+            </div>
+            </div>
+          )}
+
+          {tab==='schools' && (
+            <div className={styles.panelWrap}>
+            <div className={styles.panel}>
+              <SchoolsTab lat={location.lat} lng={location.lng} data={schoolsData} loading={schoolsLoading} onRetry={loadSchools} />
+            </div>
             </div>
           )}
 
           {tab==='planning' && (
+            <div className={styles.panelWrap}>
             <div className={styles.panel}>
               <p className={styles.tabIntro}><IconDocument size={15} color="var(--orange)"/>&nbsp;Showing free preview — {Math.min(brownfield.length+applications.length,3)} of {brownfield.length+applications.length} results.{' '}<a href="/pricing" className={styles.orangeLink}>Unlock all →</a></p>
               <div className={styles.card} style={{marginBottom:'1rem'}}>
@@ -206,9 +261,11 @@ export default function Results() {
               </div>
               <UnlockBanner />
             </div>
+            </div>
           )}
 
           {tab==='crime' && (
+            <div className={styles.panelWrap}>
             <div className={styles.panel}>
               <div className={styles.card}>
                 <div className={styles.cardHeader}>
@@ -227,9 +284,11 @@ export default function Results() {
               </div>
               <UnlockBanner />
             </div>
+            </div>
           )}
 
           {tab==='environment' && (
+            <div className={styles.panelWrap}>
             <div className={styles.panel}>
               <div className={styles.grid}>
                 <div className={styles.card}>
@@ -247,12 +306,15 @@ export default function Results() {
               </div>
               <UnlockBanner />
             </div>
+            </div>
           )}
 
           {tab==='map' && (
+            <div className={styles.panelWrap}>
             <div className={styles.panel}>
               <p className={styles.tabIntro}><IconMap size={15} color="var(--orange)"/>&nbsp;Free view: 0.3 mile radius. <a href="/pricing" className={styles.orangeLink}>Unlock 2-mile view →</a></p>
               <AreaMap lat={location.lat} lng={location.lng} points={mapPoints} locked={true} freeRadiusMiles={0.3}/>
+            </div>
             </div>
           )}
         </>)}

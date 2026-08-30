@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Schools &amp; Nurseries — layout concepts</title>
+<style>
+  :root {
+    --orange:        #F26419;
+    --orange-dark:   #C04E08;
+    --orange-light:  #FEE4CF;
+    --orange-mid:    #FBCBA4;
+    --blue:          #378ADD;
+    --blue-light:    #E6F1FB;
+    --green:         #639922;
+    --green-deep:    #3E6B16;
+    --green-light:   #EAF3DE;
+    --amber:         #BA7517;
+    --amber-light:   #FAEEDA;
+    --red:           #E24B4A;
+    --red-light:     #FCEBEB;
+    --gray:          #888780;
+    --gray-light:    #F1EFE8;
+    --text-primary:   #1a1a18;
+    --text-secondary: #5f5e5a;
+    --text-tertiary:  #9a9991;
+    --bg:             #ffffff;
+    --bg-secondary:   #f8f7f4;
+    --bg-tertiary:    #f1efe8;
+    --border:         rgba(0,0,0,0.10);
+    --border-mid:     rgba(0,0,0,0.18);
+    --radius-sm:  6px;
+    --radius-md:  10px;
+    --radius-lg:  14px;
+    --radius-xl:  20px;
+    --radius-pill: 999px;
+    --font-serif: Georgia, 'Times New Roman', serif;
+    --font-sans:  -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --shadow-sm: 0 1px 4px rgba(0,0,0,0.06);
+    --shadow-md: 0 2px 16px rgba(0,0,0,0.10);
+    --map-bg: #f3f0e8;
+    --map-line: rgba(0,0,0,0.05);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --orange-light: #3a2416; --orange-mid: #5c3418;
+      --blue-light: #1c2a35; --green-light: #22301a; --green-deep: #7bbf4a; --amber-light: #332510; --red-light: #3a1e1e;
+      --gray-light: #2a2a26;
+      --text-primary: #f2f1ec; --text-secondary: #b8b6ac; --text-tertiary: #7d7b72;
+      --bg: #171613; --bg-secondary: #1e1d19; --bg-tertiary: #26251f;
+      --border: rgba(255,255,255,0.09); --border-mid: rgba(255,255,255,0.16);
+      --map-bg: #21201b; --map-line: rgba(255,255,255,0.05);
+    }
+  }
+  :root[data-theme="dark"] {
+    --orange-light: #3a2416; --orange-mid: #5c3418;
+    --blue-light: #1c2a35; --green-light: #22301a; --green-deep: #7bbf4a; --amber-light: #332510; --red-light: #3a1e1e;
+    --gray-light: #2a2a26;
+    --text-primary: #f2f1ec; --text-secondary: #b8b6ac; --text-tertiary: #7d7b72;
+    --bg: #171613; --bg-secondary: #1e1d19; --bg-tertiary: #26251f;
+    --border: rgba(255,255,255,0.09); --border-mid: rgba(255,255,255,0.16);
+    --map-bg: #21201b; --map-line: rgba(255,255,255,0.05);
+  }
+
+  * , *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+  body { font-family: var(--font-sans); color: var(--text-primary); background: var(--bg-secondary); line-height: 1.5; }
+  button { font-family: inherit; cursor: pointer; }
+
+  /* ── Review chrome (not part of the product) ─────────────────────── */
+  .reviewHeader {
+    background: var(--bg);
+    border-bottom: 0.5px solid var(--border-mid);
+    padding: 1.5rem 1.5rem 0;
+    position: sticky; top: 0; z-index: 20;
+  }
+  .reviewInner { max-width: 900px; margin: 0 auto; }
+  .reviewTitle { font-family: var(--font-serif); font-size: 22px; letter-spacing: -0.3px; margin-bottom: 4px; }
+  .reviewSub { font-size: 13.5px; color: var(--text-secondary); margin-bottom: 1.1rem; max-width: 68ch; }
+  .tabs { display: flex; gap: 4px; }
+  .tabBtn {
+    background: none; border: none; border-bottom: 2.5px solid transparent;
+    padding: 10px 4px 12px; margin-right: 22px;
+    font-size: 13.5px; font-weight: 500; color: var(--text-tertiary);
+    transition: color .15s, border-color .15s;
+  }
+  .tabBtn:hover { color: var(--text-primary); }
+  .tabBtn.active { color: var(--orange-dark); border-bottom-color: var(--orange); }
+  .tabDesc { font-size: 12px; color: var(--text-tertiary); display: block; margin-top: 1px; font-weight: 400; }
+
+  .stage { padding: 2rem 1.25rem 4rem; }
+  .stageCaption {
+    max-width: 900px; margin: 0 auto 14px; font-size: 12px; color: var(--text-tertiary);
+    display: flex; align-items: center; gap: 6px; justify-content: center;
+  }
+  .stageCaption .pin { color: var(--orange); }
+
+  .frame { max-width: 700px; margin: 0 auto; }
+  .frame.wide { max-width: 900px; }
+  .concept { display: none; }
+  .concept.active { display: block; animation: fade .25s ease; }
+  @keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ── Shared panel scaffold (mirrors the real embedded product panel) ── */
+  .panel {
+    background: var(--bg);
+    border: 0.5px solid var(--border-mid);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+  .pHeader { display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; margin-bottom: 1rem; }
+  .pTitleRow { display: flex; align-items: center; gap: 9px; }
+  .pTitleIcon { color: var(--text-secondary); display: flex; }
+  .pTitle { font-family: var(--font-serif); font-size: 19px; letter-spacing: -0.2px; }
+
+  .statsRow {
+    display: flex; background: var(--bg-secondary); border: 0.5px solid var(--border);
+    border-radius: var(--radius-md); padding: 0.7rem 0; margin-bottom: 1rem;
+  }
+  .stat { flex: 1; display: flex; flex-direction: column; align-items: center; padding: 0 6px; }
+  .stat b { font-size: 20px; font-weight: 700; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .stat span { font-size: 10.5px; color: var(--text-tertiary); margin-top: 2px; text-align: center; line-height: 1.25; }
+  .statDiv { width: 0.5px; background: var(--border-mid); }
+
+  /* rating pills — shared 4-grade legacy vocabulary */
+  .gradePill { font-size: 10.5px; font-weight: 600; padding: 3px 8px; border-radius: var(--radius-pill); white-space: nowrap; }
+  .g1 { background: rgba(99,153,34,0.14); color: var(--green-deep); }
+  .g2 { background: rgba(55,138,221,0.14); color: #1e5f9e; }
+  .g3 { background: rgba(186,117,23,0.16); color: var(--amber); }
+  .g4 { background: rgba(226,75,74,0.14); color: var(--red); }
+  .gNone { font-size: 11px; color: var(--text-tertiary); }
+  .gUngraded { font-size: 10.5px; font-weight: 600; padding: 3px 8px; border-radius: var(--radius-pill); background: var(--bg-tertiary); color: var(--text-secondary); }
+
+  .phaseIcon { width: 30px; height: 30px; border-radius: 8px; display:flex; align-items:center; justify-content:center; color:#fff; flex-shrink:0; font-size:13px; font-weight:700; }
+  .icon-primary   { background: #4f46e5; }
+  .icon-secondary { background: #0891b2; }
+  .icon-nurseryschool { background: #b45309; }
+
+  /* ══════════════════════ Overview summary card ══════════════════════ */
+  .callout { display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px; border-radius: var(--radius-md); background: var(--blue-light); border: 0.5px solid rgba(55,138,221,0.25); margin-bottom: 0.9rem; }
+  .callout .ci { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+  .calloutLabel { font-size: 12px; font-weight: 600; display: block; margin-bottom: 2px; }
+  .calloutText { font-size: 12px; color: var(--text-secondary); line-height: 1.55; }
+
+  .nearList { list-style: none; display: flex; flex-direction: column; margin-bottom: 0.9rem; }
+  .nearRow { display: flex; align-items: center; gap: 9px; padding: 8px 0; border-bottom: 0.5px solid var(--border); }
+  .nearRow:last-child { border-bottom: none; }
+  .nearName { font-size: 12.5px; font-weight: 550; flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .nearDist { font-size: 11px; color: var(--text-tertiary); flex-shrink: 0; }
+
+  .viewAllBtn {
+    display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%;
+    padding: 9px; background: var(--bg-secondary); border: 0.5px solid var(--border-mid);
+    border-radius: var(--radius-md); font-size: 13px; color: var(--orange); font-weight: 500;
+    transition: background 0.15s;
+  }
+  .viewAllBtn:hover { background: var(--orange-light); }
+
+  /* ══════════════════════ Schools tab — split list + map ══════════════════════ */
+  .topBanner {
+    display: flex; gap: 9px; align-items: flex-start; background: var(--orange-light); border: 0.5px solid var(--orange-mid);
+    border-radius: var(--radius-md); padding: 11px 13px; font-size: 11.5px; color: var(--orange-dark); line-height: 1.55; margin-bottom: 1rem;
+  }
+  .filterRow { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-bottom: 1.1rem; }
+  .filterChip {
+    font-size: 12px; font-weight: 500; padding: 5px 12px; border-radius: var(--radius-pill);
+    border: 0.5px solid var(--border-mid); background: var(--bg); color: var(--text-secondary);
+  }
+  .filterChip.on { background: var(--text-primary); color: var(--bg); border-color: var(--text-primary); }
+  .radiusToggle { margin-left: auto; display: flex; border: 0.5px solid var(--border-mid); border-radius: var(--radius-pill); overflow: hidden; }
+  .radiusToggle button { font-size: 11.5px; padding: 5px 12px; border: none; background: var(--bg); color: var(--text-secondary); }
+  .radiusToggle button.on { background: var(--orange); color: #fff; }
+
+  .splitWrap { display: flex; gap: 1.25rem; align-items: flex-start; }
+  .splitList { width: 300px; flex-shrink: 0; max-height: 560px; overflow-y: auto; padding-right: 4px; }
+  .splitMap { flex: 1; height: 560px; border-radius: var(--radius-md); overflow: hidden; position: relative; }
+  @media (max-width: 760px) {
+    .splitWrap { flex-direction: column; }
+    .splitList { width: 100%; max-height: none; overflow-y: visible; }
+    .splitMap { width: 100%; height: 320px; }
+  }
+
+  .cGroup { margin-bottom: 1.1rem; }
+  .cGroupHead { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 2px; }
+  .cGroupTitle { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--text-tertiary); }
+  .cGroupNote { font-size: 10.5px; color: var(--text-tertiary); }
+  .cRow { display: flex; align-items: center; gap: 9px; padding: 8px; border-bottom: 0.5px solid var(--border); cursor: pointer; border-radius: 6px; margin: 0 -8px; }
+  .cRow:last-child { border-bottom: none; }
+  .cRow:hover { background: var(--bg-secondary); }
+  .cRow.selected { background: var(--orange-light); }
+  .cName { font-size: 13px; font-weight: 550; flex: 1; min-width: 0; }
+  .cRatingPill { font-size: 10.5px; font-weight: 600; padding: 3px 9px; border-radius: var(--radius-pill); background: var(--bg-tertiary); color: var(--text-secondary); flex-shrink: 0; }
+  .cDist { font-size: 11.5px; color: var(--text-tertiary); font-variant-numeric: tabular-nums; flex-shrink: 0; width: 40px; text-align: right; }
+
+  /* ── fake map (Artifact CSP blocks real map tiles — this is a static stand-in for review) ── */
+  .mapCanvas {
+    position: absolute; inset: 0; background: var(--map-bg);
+    background-image:
+      repeating-linear-gradient(0deg, var(--map-line) 0 1px, transparent 1px 64px),
+      repeating-linear-gradient(90deg, var(--map-line) 0 1px, transparent 1px 64px);
+  }
+  .mapNote {
+    position: absolute; bottom: 10px; left: 10px; font-size: 10.5px; color: var(--text-tertiary);
+    background: var(--bg); border: 0.5px solid var(--border-mid); border-radius: var(--radius-sm); padding: 3px 8px;
+  }
+  .mapCentre {
+    position: absolute; width: 14px; height: 14px; border-radius: 50%; background: var(--orange);
+    border: 3px solid var(--bg); box-shadow: 0 2px 6px rgba(242,100,25,0.5); transform: translate(-50%,-50%); z-index: 2;
+  }
+  .mapPin {
+    position: absolute; width: 11px; height: 11px; border-radius: 50%; border: 2px solid var(--bg);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.25); transform: translate(-50%,-50%); transition: all .18s ease; cursor: pointer; z-index: 1;
+  }
+  .mapPin.dim { opacity: 0.35; }
+  .mapPin.selected { width: 18px; height: 18px; z-index: 3; box-shadow: 0 2px 10px rgba(0,0,0,0.35); }
+  .mapLabel {
+    position: absolute; transform: translate(-50%, -130%); background: var(--text-primary); color: var(--bg);
+    font-size: 11px; font-weight: 600; padding: 4px 9px; border-radius: var(--radius-sm); white-space: nowrap;
+    box-shadow: var(--shadow-md); z-index: 4; pointer-events: none;
+  }
+  .mapLabel::after {
+    content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+    border: 5px solid transparent; border-top-color: var(--text-primary);
+  }
+</style>
+</head>
+<body>
+
+<div class="reviewHeader">
+  <div class="reviewInner">
+    <div class="reviewTitle">Schools &amp; Nurseries — layout concepts</div>
+    <div class="reviewSub">Overview card (trimmed to three stats) and the Schools tab now split list + map, same pattern as the existing Nearby tab — click a row to see it on the map. Real data throughout, NW5 within 2 miles.</div>
+    <div class="tabs">
+      <button class="tabBtn active" data-tab="overview">Overview card<span class="tabDesc">Compact summary, links to the tab</span></button>
+      <button class="tabBtn" data-tab="schools">Schools tab<span class="tabDesc">List + map, click to locate</span></button>
+    </div>
+  </div>
+</div>
+
+<div class="stage">
+  <div class="stageCaption"><span class="pin">📍</span> NW5, Kentish Town &nbsp;·&nbsp; within 2 miles</div>
+
+  <!-- ══════════════════════════════════════ OVERVIEW SUMMARY CARD ══════════════════════════════════════ -->
+  <div class="concept active" id="concept-overview">
+    <div class="frame">
+      <div class="panel">
+        <div class="pHeader">
+          <div class="pTitleRow">
+            <span class="pTitleIcon"><svg width="19" height="19" viewBox="0 0 18 18" fill="none"><path d="M2 16V8L9 2L16 8V16" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><rect x="6" y="10" width="6" height="6" rx="0.5" stroke="currentColor" stroke-width="1.4"/></svg></span>
+            <span class="pTitle">Schools &amp; Nurseries</span>
+          </div>
+        </div>
+
+        <div class="statsRow">
+          <div class="stat"><b>10</b><span>Schools</span></div><div class="statDiv"></div>
+          <div class="stat"><b>6</b><span>Nurseries</span></div><div class="statDiv"></div>
+          <div class="stat"><b>0.01mi</b><span>Nearest school</span></div><div class="statDiv"></div>
+          <div class="stat"><b>0.19mi</b><span>Nearest nursery</span></div>
+        </div>
+
+        <div class="callout">
+          <span class="ci">ℹ️</span>
+          <div>
+            <span class="calloutLabel">Ofsted ratings are mid-change</span>
+            <p class="calloutText">Schools show either an old single grade or Ofsted's new category-by-category report card, whichever they last received. Nurseries stay on the old scale and refresh monthly.</p>
+          </div>
+        </div>
+
+        <ul class="nearList" id="ov-list"></ul>
+
+        <button class="viewAllBtn" onclick="document.querySelector('[data-tab=schools]').click(); window.scrollTo({top:0,behavior:'smooth'});">
+          View all Schools &amp; Nurseries
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M4.5 2.5L8 6l-3.5 3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════ SCHOOLS TAB (list + map) ══════════════════════════════════════ -->
+  <div class="concept" id="concept-schools">
+    <div class="frame wide">
+      <div class="panel">
+        <div class="pHeader">
+          <div class="pTitleRow">
+            <span class="pTitleIcon"><svg width="19" height="19" viewBox="0 0 18 18" fill="none"><path d="M2 16V8L9 2L16 8V16" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><rect x="6" y="10" width="6" height="6" rx="0.5" stroke="currentColor" stroke-width="1.4"/></svg></span>
+            <span class="pTitle">Schools &amp; Nurseries</span>
+          </div>
+        </div>
+
+        <div class="topBanner">
+          <span>🔄</span>
+          <span>
+            <strong>Ofsted is partway through replacing the old single grade with a category-by-category "report card"</strong> — each school below shows whichever one it last received, so you'll see a mix. Nurseries stay on the old single-grade scale and <strong>refresh monthly</strong>. Only registered nurseries &amp; preschools are shown here, not childminders or out-of-school clubs.
+          </span>
+        </div>
+
+        <div class="filterRow">
+          <button class="filterChip on">All</button>
+          <button class="filterChip">Nurseries</button>
+          <button class="filterChip">Primary</button>
+          <button class="filterChip">Secondary</button>
+          <div class="radiusToggle"><button>1mi</button><button class="on">2mi</button></div>
+        </div>
+
+        <div class="splitWrap">
+          <div class="splitList">
+            <div class="cGroup">
+              <div class="cGroupHead">
+                <span class="cGroupTitle">Nurseries</span>
+                <span class="cGroupNote">registered only</span>
+              </div>
+              <div id="c-nurseries"></div>
+            </div>
+            <div class="cGroup">
+              <div class="cGroupHead"><span class="cGroupTitle">Primary schools</span></div>
+              <div id="c-primary"></div>
+            </div>
+            <div class="cGroup">
+              <div class="cGroupHead"><span class="cGroupTitle">Secondary schools</span></div>
+              <div id="c-secondary"></div>
+            </div>
+          </div>
+
+          <div class="splitMap">
+            <div class="mapCanvas"></div>
+            <div id="map-pins"></div>
+            <div class="mapNote">Static preview — real map uses Leaflet, as in the Nearby tab</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  // ─── Real sample data (from data/schools.json + data/nurseries.json) ───
+  const CATS = [
+    ['inclusion','Inclusion'], ['curriculumAndTeaching','Curriculum & teaching'], ['achievement','Achievement'],
+    ['attendanceAndBehaviour','Attendance & behaviour'], ['personalDevelopment','Personal development'],
+    ['earlyYears','Early years'], ['leadershipAndGovernance','Leadership & governance'],
+  ];
+  const GRADE_LABEL = {1:'Outstanding',2:'Good',3:'Requires improvement',4:'Inadequate'};
+  const PIN_COLOR = { Primary:'#4f46e5', Secondary:'#0891b2', Nursery:'#b45309' };
+  const CENTRE = { lat: 51.5548, lng: -0.1529 };
+
+  const schools = [
+    { name:'Gospel Oak Primary School', phase:'Primary', dist:0.01, pupils:421, lat:51.554641, lng:-0.152864, rating:{framework:'report-card',
+      categories:{safeguardingStandards:'Met',inclusion:'Strong standard',curriculumAndTeaching:'Strong standard',achievement:'Strong standard',attendanceAndBehaviour:'Expected standard',personalDevelopment:'Strong standard',earlyYears:'Strong standard',leadershipAndGovernance:'Strong standard'}, date:'13 Jan 2026'} },
+    { name:'Parliament Hill School', phase:'Secondary', dist:0.29, pupils:1180, lat:51.558448, lng:-0.149623, rating:{framework:'legacy', grade:1, date:'22 May 2024'} },
+    { name:'William Ellis School', phase:'Secondary', dist:0.29, pupils:771, lat:51.558701, lng:-0.150262, rating:{framework:'none'} },
+    { name:'Fleet Primary School', phase:'Primary', dist:0.36, pupils:410, lat:51.553464, lng:-0.160918, rating:{framework:'ungraded-only', date:'4 Mar 2025'} },
+    { name:'La Sainte Union Catholic Secondary School', phase:'Secondary', dist:0.39, pupils:890, lat:51.56, lng:-0.149416, rating:{framework:'ungraded-only', date:'11 Nov 2024'} },
+    { name:'Rhyl Community Primary School', phase:'Primary', dist:0.50, pupils:233, lat:51.547717, lng:-0.150563, rating:{framework:'legacy', grade:1, date:'7 Feb 2024'} },
+    { name:"St Patrick's Catholic Primary School", phase:'Primary', dist:0.58, pupils:246, lat:51.549203, lng:-0.142786, rating:{framework:'ungraded-only', date:'19 Sep 2024'} },
+    { name:'Hargrave Park Primary School', phase:'Primary', dist:0.86, pupils:355, lat:51.564286, lng:-0.140051, rating:{framework:'legacy', grade:2, date:'2 Oct 2023'} },
+    { name:'Acland Burghley School', phase:'Secondary', dist:0.60, pupils:1340, lat:51.557418, lng:-0.139624, rating:{framework:'ungraded-only', date:'14 Mar 2025'} },
+    { name:'Rosary Catholic Primary School', phase:'Primary', dist:0.61, pupils:210, lat:51.55162, lng:-0.166055, rating:{framework:'ungraded-only', date:'6 Jun 2024'} },
+  ];
+  const nurseries = [
+    { name:'The North London Forest School Nursery', subtype:'Sessional day care', places:28, dist:0.19, lat:51.555876, lng:-0.15707, grade:1, date:'15 Jun 2022' },
+    { name:'Puss in Boots Nursery School', subtype:'Sessional day care', places:20, dist:0.26, lat:51.553653, lng:-0.15866, grade:1, date:'28 Sep 2022' },
+    { name:'Polkadots', subtype:'Full day care', places:25, dist:0.31, lat:51.5512, lng:-0.148503, grade:2, date:'25 Jun 2021' },
+    { name:'Le Jardin Des Dyvrande', subtype:'Full day care', places:17, dist:0.32, lat:51.550242, lng:-0.151629, grade:2, date:'27 Apr 2023' },
+    { name:'Chaston Nursery School', subtype:'Full day care', places:60, dist:0.37, lat:51.549514, lng:-0.154514, grade:2, date:'28 Jan 2025' },
+    { name:"The Spanish Nursery and Children's Centre", subtype:'Full day care', places:37, dist:0.39, lat:51.556141, lng:-0.144191, grade:2, date:'5 Feb 2025' },
+  ];
+
+  function fmtDist(mi) { return mi < 0.1 ? Math.round(mi*1760)+'yds' : mi.toFixed(2)+'mi'; }
+  function iconLetter(phase) { return phase === 'Secondary' ? 'S' : phase === 'Primary' ? 'P' : 'N'; }
+  function iconClass(phase) { return phase === 'Secondary' ? 'icon-secondary' : phase === 'Primary' ? 'icon-primary' : 'icon-nurseryschool'; }
+
+  // ═══ Overview summary — top 3 nearest across both lists ═══
+  const combined = [
+    ...schools.map(s => ({ ...s, isNursery:false })),
+    ...nurseries.map(n => ({ ...n, isNursery:true, phase:'Nursery' })),
+  ].sort((a,b) => a.dist - b.dist).slice(0,3);
+  document.getElementById('ov-list').innerHTML = combined.map(item => `
+    <li class="nearRow">
+      <div class="phaseIcon ${iconClass(item.phase)}" style="width:26px;height:26px;font-size:11px;border-radius:7px">${iconLetter(item.phase)}</div>
+      <span class="nearName">${item.name}</span>
+      <span class="nearDist">${fmtDist(item.dist)}</span>
+    </li>`).join('');
+
+  // ═══ Schools tab — grouped rows, each wired to the map ═══
+  const allItems = [
+    ...schools.map(s => ({ ...s, isNursery:false, id:'s-'+s.name })),
+    ...nurseries.map(n => ({ ...n, isNursery:true, phase:'Nursery', id:'n-'+n.name })),
+  ];
+
+  function rowC(item) {
+    let pillText, pillCls = '';
+    if (item.isNursery) {
+      pillText = item.grade ? GRADE_LABEL[item.grade] : 'Not yet inspected';
+      pillCls = item.grade ? `g${item.grade}` : '';
+    } else if (item.rating.framework === 'legacy') { pillText = GRADE_LABEL[item.rating.grade]; pillCls = `g${item.rating.grade}`; }
+    else if (item.rating.framework === 'report-card') { pillText = 'Report card'; }
+    else if (item.rating.framework === 'ungraded-only') { pillText = 'Not graded'; }
+    else { pillText = 'Not yet inspected'; }
+
+    return `<div class="cRow" id="row-${item.id}" onclick="selectItem('${item.id}')">
+        <div class="phaseIcon ${iconClass(item.phase)}" style="width:24px;height:24px;font-size:11px;border-radius:6px">${iconLetter(item.phase)}</div>
+        <span class="cName">${item.name}</span>
+        <span class="cRatingPill ${pillCls}">${pillText}</span>
+        <span class="cDist">${fmtDist(item.dist)}</span>
+      </div>`;
+  }
+  document.getElementById('c-nurseries').innerHTML = nurseries.map(n => rowC({...n, isNursery:true, phase:'Nursery', id:'n-'+n.name})).join('');
+  document.getElementById('c-primary').innerHTML = schools.filter(s=>s.phase==='Primary').map(s => rowC({...s, isNursery:false, id:'s-'+s.name})).join('');
+  document.getElementById('c-secondary').innerHTML = schools.filter(s=>s.phase==='Secondary').map(s => rowC({...s, isNursery:false, id:'s-'+s.name})).join('');
+
+  // ═══ Map — project real lat/lng to a % position within the panel ═══
+  const allLats = [CENTRE.lat, ...allItems.map(i=>i.lat)];
+  const allLngs = [CENTRE.lng, ...allItems.map(i=>i.lng)];
+  const latPad = (Math.max(...allLats) - Math.min(...allLats)) * 0.18;
+  const lngPad = (Math.max(...allLngs) - Math.min(...allLngs)) * 0.18;
+  const latMin = Math.min(...allLats) - latPad, latMax = Math.max(...allLats) + latPad;
+  const lngMin = Math.min(...allLngs) - lngPad, lngMax = Math.max(...allLngs) + lngPad;
+  function project(lat, lng) {
+    return { x: ((lng - lngMin) / (lngMax - lngMin)) * 100, y: ((latMax - lat) / (latMax - latMin)) * 100 };
+  }
+
+  const centreP = project(CENTRE.lat, CENTRE.lng);
+  let pinsHtml = `<div class="mapCentre" style="left:${centreP.x}%; top:${centreP.y}%"></div>`;
+  allItems.forEach(item => {
+    const p = project(item.lat, item.lng);
+    pinsHtml += `<div class="mapPin" id="pin-${item.id}" style="left:${p.x}%; top:${p.y}%; background:${PIN_COLOR[item.phase]}" onclick="selectItem('${item.id}')"></div>`;
+  });
+  document.getElementById('map-pins').innerHTML = pinsHtml;
+
+  let selected = null;
+  function selectItem(id) {
+    if (selected) {
+      document.getElementById('row-'+selected)?.classList.remove('selected');
+      document.getElementById('pin-'+selected)?.classList.remove('selected');
+    }
+    document.querySelectorAll('.mapLabel').forEach(el => el.remove());
+    if (selected === id) { selected = null; document.querySelectorAll('.mapPin').forEach(p => p.classList.remove('dim')); return; }
+    selected = id;
+    const item = allItems.find(i => i.id === id);
+    document.getElementById('row-'+id)?.classList.add('selected');
+    const pin = document.getElementById('pin-'+id);
+    pin?.classList.add('selected');
+    document.querySelectorAll('.mapPin').forEach(p => { if (p.id !== 'pin-'+id) p.classList.add('dim'); else p.classList.remove('dim'); });
+    if (pin) {
+      const label = document.createElement('div');
+      label.className = 'mapLabel';
+      label.style.left = pin.style.left; label.style.top = pin.style.top;
+      label.textContent = `${item.name} · ${fmtDist(item.dist)}`;
+      document.getElementById('map-pins').appendChild(label);
+    }
+    document.getElementById('row-'+id)?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }
+
+  // ─── Tab switcher ───
+  document.querySelectorAll('.tabBtn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tabBtn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.concept').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('concept-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "generatedAt": "2026-08-30T15:09:33",
+  "schoolsCount": 20710,
+  "nurseriesCount": 19666,
+  "sources": {
+    "gias": "gias_20260830.csv",
+    "ofstedSchools": "https://assets.publishing.service.gov.uk/media/6a54efeba6586e258d371d9c/Management_information_-_state-funded_schools_-_latest_inspections_as_at_30_June_2026.csv",
+    "ofstedChildcare": "https://assets.publishing.service.gov.uk/media/6973934c67ae94b3280137b4/Management_information_-_childcare_providers_and_inspections_-_most_recent_inspections_data_as_at_31_December_2025.csv",
+    "nspl": "https://www.arcgis.com/sharing/rest/content/items/077631e063eb4e1ab43575d01381ec33/data"
+  },
+  "refreshCadence": "monthly (matches Ofsted's own publication cadence; nursery ratings only change ~twice a year)"
+}

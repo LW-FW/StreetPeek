@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Where our data comes from — layout concepts</title>
+<style>
+  :root {
+    --orange:        #F26419;
+    --orange-dark:   #C04E08;
+    --orange-light:  #FEE4CF;
+    --orange-mid:    #FBCBA4;
+    --blue:          #378ADD;
+    --blue-light:    #E6F1FB;
+    --green:         #639922;
+    --green-deep:    #3E6B16;
+    --green-light:   #EAF3DE;
+    --amber:         #BA7517;
+    --amber-light:   #FAEEDA;
+    --red:           #E24B4A;
+    --red-light:     #FCEBEB;
+    --gray:          #888780;
+    --gray-light:    #F1EFE8;
+    --text-primary:   #1a1a18;
+    --text-secondary: #5f5e5a;
+    --text-tertiary:  #9a9991;
+    --bg:             #ffffff;
+    --bg-secondary:   #f8f7f4;
+    --bg-tertiary:    #f1efe8;
+    --border:         rgba(0,0,0,0.10);
+    --border-mid:     rgba(0,0,0,0.18);
+    --radius-sm:  6px;
+    --radius-md:  10px;
+    --radius-lg:  14px;
+    --radius-xl:  20px;
+    --radius-pill: 999px;
+    --font-serif: Georgia, 'Times New Roman', serif;
+    --font-sans:  -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --shadow-sm: 0 1px 4px rgba(0,0,0,0.06);
+    --shadow-md: 0 2px 16px rgba(0,0,0,0.10);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --orange-light: #3a2416; --orange-mid: #5c3418;
+      --blue-light: #1c2a35; --green-light: #22301a; --green-deep: #7bbf4a; --amber-light: #332510; --red-light: #3a1e1e;
+      --gray-light: #2a2a26;
+      --text-primary: #f2f1ec; --text-secondary: #b8b6ac; --text-tertiary: #7d7b72;
+      --bg: #171613; --bg-secondary: #1e1d19; --bg-tertiary: #26251f;
+      --border: rgba(255,255,255,0.09); --border-mid: rgba(255,255,255,0.16);
+    }
+  }
+  :root[data-theme="dark"] {
+    --orange-light: #3a2416; --orange-mid: #5c3418;
+    --blue-light: #1c2a35; --green-light: #22301a; --green-deep: #7bbf4a; --amber-light: #332510; --red-light: #3a1e1e;
+    --gray-light: #2a2a26;
+    --text-primary: #f2f1ec; --text-secondary: #b8b6ac; --text-tertiary: #7d7b72;
+    --bg: #171613; --bg-secondary: #1e1d19; --bg-tertiary: #26251f;
+    --border: rgba(255,255,255,0.09); --border-mid: rgba(255,255,255,0.16);
+  }
+
+  * , *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+  body { font-family: var(--font-sans); color: var(--text-primary); background: var(--bg-secondary); line-height: 1.5; }
+  button { font-family: inherit; cursor: pointer; }
+  a { color: inherit; }
+
+  /* ── Review chrome (not part of the product) ─────────────────────── */
+  .reviewHeader {
+    background: var(--bg);
+    border-bottom: 0.5px solid var(--border-mid);
+    padding: 1.5rem 1.5rem 0;
+    position: sticky; top: 0; z-index: 30;
+  }
+  .reviewInner { max-width: 980px; margin: 0 auto; }
+  .reviewTitle { font-family: var(--font-serif); font-size: 22px; letter-spacing: -0.3px; margin-bottom: 4px; }
+  .reviewSub { font-size: 13.5px; color: var(--text-secondary); margin-bottom: 1.1rem; max-width: 68ch; }
+  .tabs { display: flex; gap: 4px; flex-wrap: wrap; }
+  .tabBtn {
+    background: none; border: none; border-bottom: 2.5px solid transparent;
+    padding: 10px 4px 12px; margin-right: 22px;
+    font-size: 13.5px; font-weight: 500; color: var(--text-tertiary);
+    transition: color .15s, border-color .15s;
+  }
+  .tabBtn:hover { color: var(--text-primary); }
+  .tabBtn.active { color: var(--orange-dark); border-bottom-color: var(--orange); }
+  .tabDesc { font-size: 12px; color: var(--text-tertiary); display: block; margin-top: 1px; font-weight: 400; }
+
+  .stage { padding: 2rem 1.25rem 4rem; }
+  .concept { display: none; }
+  .concept.active { display: block; animation: fade .25s ease; }
+  @keyframes fade { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+  @media (prefers-reduced-motion: reduce) { .concept.active { animation: none; } }
+
+  /* ── Shared: disclaimer banner ── */
+  .disclaimer {
+    display: flex; gap: 12px; align-items: flex-start;
+    background: var(--amber-light); border: 0.5px solid var(--border-mid);
+    border-radius: var(--radius-lg); padding: 1rem 1.2rem;
+  }
+  .disclaimer .dIcon { flex-shrink: 0; color: var(--amber); margin-top: 1px; }
+  .disclaimer p { font-size: 13.5px; color: var(--text-primary); line-height: 1.6; }
+  .disclaimer b { font-weight: 600; }
+
+  /* ── Shared: source card bits ── */
+  .tag {
+    display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 500;
+    padding: 3px 9px; border-radius: var(--radius-pill); white-space: nowrap;
+  }
+  .tag.live { background: var(--green-light); color: var(--green-deep); }
+  .tag.partial { background: var(--amber-light); color: var(--amber); }
+  .tag.crowd { background: var(--blue-light); color: var(--blue); }
+
+  .miniList { list-style: none; margin-top: 8px; }
+  .miniList li { font-size: 13px; color: var(--text-secondary); padding: 3px 0 3px 15px; position: relative; line-height: 1.5; }
+  .miniList li::before { content: "–"; position: absolute; left: 0; color: var(--text-tertiary); }
+
+  .srcLink { font-size: 12.5px; color: var(--blue); text-decoration: none; border-bottom: 1px solid transparent; }
+  .srcLink:hover { border-bottom-color: var(--blue); }
+
+  /* =========================================================
+     CONCEPT 1 — "Editorial letter": single-column narrative
+     ========================================================= */
+  .c1 .frame { max-width: 640px; margin: 0 auto; }
+  .c1 .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; }
+  .c1 h1 { font-family: var(--font-serif); font-size: 34px; line-height: 1.15; letter-spacing: -0.5px; margin-bottom: 14px; text-wrap: balance; }
+  .c1 .lede { font-size: 16px; color: var(--text-secondary); line-height: 1.65; font-weight: 300; margin-bottom: 1.6rem; }
+  .c1 .disclaimer { margin-bottom: 2.2rem; }
+  .c1 .prose { font-size: 15px; line-height: 1.75; color: var(--text-primary); margin-bottom: 1rem; }
+  .c1 .prose + .prose { margin-top: -0.4rem; }
+  .c1 .sectionBreak { margin: 2.6rem 0 1.6rem; }
+  .c1 .sectionBreak h2 { font-family: var(--font-serif); font-size: 22px; letter-spacing: -0.3px; margin-bottom: 6px; }
+  .c1 .sectionBreak p { font-size: 13.5px; color: var(--text-secondary); }
+  .c1 .srcEntry { padding: 1.3rem 0; border-top: 0.5px solid var(--border); }
+  .c1 .srcEntry:first-of-type { border-top: none; }
+  .c1 .srcHead { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-bottom: 6px; flex-wrap: wrap; }
+  .c1 .srcName { font-size: 16px; font-weight: 600; }
+  .c1 .srcWhat { font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 4px; }
+  .c1 .srcMeta { font-size: 12.5px; color: var(--text-tertiary); }
+  .c1 .scoreBox {
+    background: var(--bg); border: 0.5px solid var(--border-mid); border-radius: var(--radius-lg);
+    padding: 1.4rem 1.5rem; margin: 1.4rem 0 0.6rem;
+  }
+  .c1 .scoreBox h3 { font-family: var(--font-serif); font-size: 17px; margin-bottom: 10px; }
+  .c1 .scoreBox ul { margin: 8px 0 10px 18px; font-size: 13.5px; line-height: 1.85; color: var(--text-secondary); }
+  .c1 .scoreBox ul b { color: var(--text-primary); font-weight: 600; }
+  .c1 .closing {
+    margin-top: 2.4rem; padding-top: 1.8rem; border-top: 0.5px solid var(--border);
+    font-family: var(--font-serif); font-size: 18px; line-height: 1.6; color: var(--text-primary); font-style: italic;
+  }
+  .c1 .sig { font-family: var(--font-sans); font-style: normal; font-size: 12.5px; color: var(--text-tertiary); margin-top: 10px; }
+
+  /* =========================================================
+     CONCEPT 2 — "Reference doc": sticky nav + content
+     ========================================================= */
+  .c2 .layout { max-width: 980px; margin: 0 auto; display: grid; grid-template-columns: 200px 1fr; gap: 2.6rem; align-items: start; }
+  .c2 .side { position: sticky; top: 108px; }
+  .c2 .sideTitle { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text-tertiary); margin-bottom: 10px; }
+  .c2 .sideLink { display: block; font-size: 13px; color: var(--text-secondary); padding: 6px 0 6px 10px; border-left: 2px solid var(--border); text-decoration: none; }
+  .c2 .sideLink.current { color: var(--orange-dark); border-left-color: var(--orange); font-weight: 500; }
+  .c2 h1 { font-family: var(--font-serif); font-size: 30px; letter-spacing: -0.4px; margin-bottom: 8px; }
+  .c2 .lede { font-size: 14.5px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.4rem; max-width: 62ch; }
+  .c2 .disclaimer { margin-bottom: 2rem; }
+  .c2 .docSection { margin-bottom: 2.4rem; scroll-margin-top: 110px; }
+  .c2 .docSection h2 { font-family: var(--font-serif); font-size: 21px; letter-spacing: -0.2px; margin-bottom: 4px; }
+  .c2 .docSection > p.intro { font-size: 13.5px; color: var(--text-secondary); margin-bottom: 1rem; max-width: 62ch; }
+  .c2 .cardGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .c2 .srcCard { background: var(--bg); border: 0.5px solid var(--border-mid); border-radius: var(--radius-md); padding: 1rem 1.1rem; box-shadow: var(--shadow-sm); }
+  .c2 .srcCardHead { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 6px; }
+  .c2 .srcCardName { font-size: 14px; font-weight: 600; }
+  .c2 .srcCard p { font-size: 12.5px; color: var(--text-secondary); line-height: 1.55; }
+  .c2 .srcCard .srcLink { display: inline-block; margin-top: 8px; }
+  .c2 .fullWidth { grid-column: 1 / -1; }
+  .c2 .scoreTable { width: 100%; border-collapse: collapse; font-size: 13px; background: var(--bg); border: 0.5px solid var(--border-mid); border-radius: var(--radius-md); overflow: hidden; }
+  .c2 .scoreTable th, .c2 .scoreTable td { text-align: left; padding: 9px 14px; border-bottom: 0.5px solid var(--border); }
+  .c2 .scoreTable th { background: var(--bg-tertiary); font-weight: 600; font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.4px; color: var(--text-tertiary); }
+  .c2 .scoreTable tr:last-child td { border-bottom: none; }
+  .c2 .scoreTable td:last-child { font-variant-numeric: tabular-nums; color: var(--text-secondary); white-space: nowrap; }
+  @media (max-width: 860px) { .c2 .layout { grid-template-columns: 1fr; } .c2 .side { position: static; display: none; } }
+  @media (max-width: 620px) { .c2 .cardGrid { grid-template-columns: 1fr; } }
+
+  /* =========================================================
+     CONCEPT 3 — "Pipeline": visual flow + accordion cards
+     ========================================================= */
+  .c3 .frame { max-width: 860px; margin: 0 auto; }
+  .c3 .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 1.6px; text-transform: uppercase; color: var(--orange); margin-bottom: 10px; text-align: center; }
+  .c3 h1 { font-family: var(--font-serif); font-size: 32px; letter-spacing: -0.5px; margin-bottom: 10px; text-align: center; text-wrap: balance; }
+  .c3 .lede { font-size: 14.5px; color: var(--text-secondary); line-height: 1.6; text-align: center; max-width: 56ch; margin: 0 auto 1.6rem; }
+  .c3 .disclaimer { margin-bottom: 2.2rem; }
+
+  .flow { background: var(--bg); border: 0.5px solid var(--border-mid); border-radius: var(--radius-lg); padding: 1.8rem 1.6rem; box-shadow: var(--shadow-sm); margin-bottom: 2.4rem; }
+  .flow .flowLabel { text-align: center; font-size: 12px; color: var(--text-tertiary); margin-bottom: 1.1rem; }
+  .flowRow { display: flex; align-items: center; justify-content: center; gap: 0; flex-wrap: wrap; }
+  .flowStep { background: var(--bg-secondary); border: 0.5px solid var(--border); border-radius: var(--radius-md); padding: 10px 14px; font-size: 12.5px; font-weight: 500; text-align: center; min-width: 92px; }
+  .flowArrow { color: var(--text-tertiary); font-size: 16px; padding: 0 10px; }
+  .sourceCluster { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; max-width: 480px; margin: 0 auto; }
+  .sourceCluster .flowStep { min-width: 0; font-size: 11.5px; padding: 9px 8px; }
+  .flowStack { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+  .flowDown { color: var(--text-tertiary); font-size: 16px; }
+  .flowResult { background: var(--orange-light); border: 0.5px solid var(--orange-mid); color: var(--orange-dark); font-weight: 600; }
+
+  .accWrap { display: flex; flex-direction: column; gap: 10px; }
+  .acc { background: var(--bg); border: 0.5px solid var(--border-mid); border-radius: var(--radius-md); box-shadow: var(--shadow-sm); overflow: hidden; }
+  .accHead { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 14px 16px; cursor: pointer; user-select: none; }
+  .accHead:hover { background: var(--bg-secondary); }
+  .accTitleRow { display: flex; align-items: center; gap: 10px; }
+  .accName { font-size: 14.5px; font-weight: 600; }
+  .accChevron { color: var(--text-tertiary); transition: transform .18s ease; flex-shrink: 0; }
+  .acc.open .accChevron { transform: rotate(180deg); }
+  .accBody { display: none; padding: 0 16px 16px; }
+  .acc.open .accBody { display: block; animation: fade .18s ease; }
+  .accBody p { font-size: 13.5px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 8px; }
+  .c3 .methodCard { background: var(--bg); border: 0.5px solid var(--border-mid); border-radius: var(--radius-lg); padding: 1.4rem 1.6rem; margin-top: 2.2rem; box-shadow: var(--shadow-sm); }
+  .c3 .methodCard h3 { font-family: var(--font-serif); font-size: 18px; margin-bottom: 10px; }
+  .c3 .methodCard ul { margin: 8px 0 10px 18px; font-size: 13.5px; line-height: 1.85; color: var(--text-secondary); }
+  .c3 .methodCard ul b { color: var(--text-primary); font-weight: 600; }
+  @media (max-width: 560px) { .sourceCluster { grid-template-columns: repeat(2,1fr); } }
+</style>
+</head>
+<body>
+
+  <div class="reviewHeader">
+    <div class="reviewInner">
+      <div class="reviewTitle">Where our data comes from — layout concepts</div>
+      <div class="reviewSub">Three structural directions for the new transparency page. Same content and copy in each — pick the shape, not the words (copy is easy to tweak after).</div>
+      <div class="tabs">
+        <button class="tabBtn active" data-target="c1">Editorial letter<span class="tabDesc">One-column, reads like a note from the team</span></button>
+        <button class="tabBtn" data-target="c2">Reference doc<span class="tabDesc">Sticky nav, scannable card grid</span></button>
+        <button class="tabBtn" data-target="c3">Pipeline<span class="tabDesc">Visual flow diagram + expandable sources</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="stage">
+
+    <!-- ============ CONCEPT 1 ============ -->
+    <div class="concept c1 active" id="c1">
+      <div class="frame">
+        <div class="eyebrow">Data &amp; methodology</div>
+        <h1>Where we get our data, and how we turn it into your report</h1>
+        <p class="lede">Every figure on a StreetPeek report traces back to an official, public source. Here's exactly which ones, how fresh they are, and where they fall short — so you can check our workings, not just trust them.</p>
+
+        <div class="disclaimer">
+          <svg class="dIcon" width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M12 3L2 20h20L12 3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 10v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="17.5" r="0.9" fill="currentColor"/></svg>
+          <p><b>StreetPeek is a research tool, not professional advice.</b> It's not a substitute for a solicitor's local searches, a RICS survey, or independent legal advice before you buy. Always get the proper professional checks done — use us to know what to ask them.</p>
+        </div>
+
+        <p class="prose">We built StreetPeek because pulling this picture together yourself means separate trips to a police API, a planning portal, a schools register and an OS map — and most people don't have time to do that for every house they view.</p>
+        <p class="prose">So we do the legwork and hand you the summary. But a summary is only useful if you can see underneath it, so this page exists to show our workings: what each part of your report is built from, how current it is, and where the gaps are. Dig into the primary source yourself, and use it to learn what to check on the next home even if you never open StreetPeek again. We hope you'll come back because it's convenient — not because it's the only way to find this out.</p>
+
+        <div class="sectionBreak">
+          <h2>The sources, one by one</h2>
+          <p>Everything below is public-sector or open-community data. Nothing is scraped from forums, estate agent copy, or guesswork.</p>
+        </div>
+
+        <div class="srcEntry">
+          <div class="srcHead"><span class="srcName">Postcode &amp; boundaries</span><span class="tag live">Live lookup</span></div>
+          <p class="srcWhat">Turns the postcode you search into a map point, plus its ward, district and constituency.</p>
+          <p class="srcMeta">Source: postcodes.io, built on ONS (Office for National Statistics) postcode data · queried fresh on every search</p>
+        </div>
+
+        <div class="srcEntry">
+          <div class="srcHead"><span class="srcName">Crime</span><span class="tag live">Live lookup</span></div>
+          <p class="srcWhat">Street-level crimes reported near the address, grouped by category.</p>
+          <p class="srcMeta">Source: data.police.uk, the Home Office's official crime API · figures are for the latest month the police have published, which typically lags today's date by 4–8 weeks, and locations are anonymised to a nearby point rather than an exact address</p>
+        </div>
+
+        <div class="srcEntry">
+          <div class="srcHead"><span class="srcName">Planning applications &amp; brownfield land</span><span class="tag partial">Coverage varies</span></div>
+          <p class="srcWhat">Nearby planning applications, brownfield housing sites, and infrastructure projects.</p>
+          <p class="srcMeta">Source: planning.data.gov.uk, the government's national planning data platform, which aggregates what individual councils choose to publish in a standard format</p>
+          <ul class="miniList">
+            <li>Some councils publish rich, current data; others publish very little — a "no results" here can mean "clear" or "this council hasn't published," and today we can't always tell you which</li>
+            <li>We're separately building direct connections into individual council planning portals to close these gaps — not all of the 300+ we're mapping are wired in yet, so treat today's coverage as improving rather than complete</li>
+          </ul>
+        </div>
+
+        <div class="srcEntry">
+          <div class="srcHead"><span class="srcName">Environment &amp; heritage constraints</span><span class="tag partial">Coverage varies</span></div>
+          <p class="srcWhat">Flood risk zones, conservation areas, green belt, listed buildings, tree preservation orders, ancient woodland and similar designations.</p>
+          <p class="srcMeta">Source: planning.data.gov.uk, same platform and same council-by-council coverage caveat as above</p>
+        </div>
+
+        <div class="srcEntry">
+          <div class="srcHead"><span class="srcName">Local amenities</span><span class="tag crowd">Community-mapped</span></div>
+          <p class="srcWhat">Nearby GPs, dentists, pharmacies, supermarkets and gyms.</p>
+          <p class="srcMeta">Source: OpenStreetMap, via the Overpass API · maintained by volunteer mappers — coverage is generally strong in the UK but can be patchy or out of date in a specific street</p>
+        </div>
+
+        <div class="srcEntry">
+          <div class="srcHead"><span class="srcName">Schools &amp; nurseries</span><span class="tag live">Refreshed monthly</span></div>
+          <p class="srcWhat">Nearby schools and nurseries, their type, and their latest Ofsted rating.</p>
+          <p class="srcMeta">Sources: GIAS (the DfE's official schools register), Ofsted's published inspection outcomes for schools and childcare providers, and ONS postcode data for locations</p>
+          <ul class="miniList">
+            <li>Ofsted's published figures can lag the actual inspection by a few weeks</li>
+            <li>Schools are mid-transition to Ofsted's new rating system, so most schools still carry a rating under the old one — we show whichever is current and label which system it's from</li>
+            <li>Independent schools appear in the register but aren't Ofsted-rated (they're inspected by the ISI instead)</li>
+          </ul>
+        </div>
+
+        <div class="scoreBox">
+          <h3>How the area score is calculated</h3>
+          <p style="font-size:13.5px;color:var(--text-secondary);">Every area starts at a baseline of <b>7.0</b>, then is adjusted:</p>
+          <ul>
+            <li><b>Crime:</b> −2 if over 200 crimes/month, −1 if over 100, +1 if under 30</li>
+            <li><b>Flood risk:</b> −1 if a flood risk zone is nearby</li>
+            <li><b>Conservation area:</b> +0.5 if nearby</li>
+            <li><b>Brownfield housing:</b> +0.5 if a site is nearby</li>
+          </ul>
+          <p style="font-size:13.5px;color:var(--text-secondary);">The score is capped between 1 and 10. It's a rough compass, not a verdict — it only reflects the handful of signals above, not everything that makes a place a good fit for you.</p>
+        </div>
+
+        <p class="closing">"We'd rather you double-check us and trust the report, than trust us and never check."</p>
+        <p class="sig">— The StreetPeek team</p>
+      </div>
+    </div>
+
+    <!-- ============ CONCEPT 2 ============ -->
+    <div class="concept c2" id="c2">
+      <div class="layout">
+        <div class="side">
+          <div class="sideTitle">On this page</div>
+          <a class="sideLink current">Overview</a>
+          <a class="sideLink">Location &amp; crime</a>
+          <a class="sideLink">Planning &amp; environment</a>
+          <a class="sideLink">Amenities</a>
+          <a class="sideLink">Schools &amp; nurseries</a>
+          <a class="sideLink">Area score method</a>
+          <a class="sideLink">Known limitations</a>
+        </div>
+
+        <div>
+          <h1>Data &amp; methodology</h1>
+          <p class="lede">A reference sheet for every source behind a StreetPeek report — what it covers, how fresh it is, and where it falls short. If a number on your report looks off, this is where to check it against the original.</p>
+
+          <div class="disclaimer">
+            <svg class="dIcon" width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M12 3L2 20h20L12 3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 10v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="17.5" r="0.9" fill="currentColor"/></svg>
+            <p><b>StreetPeek is a research tool, not professional advice.</b> It doesn't replace a solicitor's local searches, a RICS survey, or independent legal advice before you buy — use it to know what to ask a professional, not instead of one.</p>
+          </div>
+
+          <div class="docSection">
+            <h2>Why we publish this</h2>
+            <p class="intro">Every layer of a report links back to a public source, on purpose — so you can double-check anything on your report, learn how to vet a home yourself, and use StreetPeek because it's convenient rather than because it's the only way to see this. We'd rather you verify us than just trust us.</p>
+          </div>
+
+          <div class="docSection">
+            <h2>Location &amp; crime</h2>
+            <p class="intro">The foundation of every report: where the postcode sits, and what's been reported nearby.</p>
+            <div class="cardGrid">
+              <div class="srcCard">
+                <div class="srcCardHead"><span class="srcCardName">Postcode lookup</span><span class="tag live">Live</span></div>
+                <p>Postcode → map point, ward, district, constituency.</p>
+                <a class="srcLink">postcodes.io (ONS data) ↗</a>
+              </div>
+              <div class="srcCard">
+                <div class="srcCardHead"><span class="srcCardName">Crime</span><span class="tag live">Live</span></div>
+                <p>Street-level crime counts by category, latest published month. Locations are anonymised to a nearby point.</p>
+                <a class="srcLink">data.police.uk ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="docSection">
+            <h2>Planning &amp; environment</h2>
+            <p class="intro">National planning data, aggregated from what individual councils publish — so coverage is only as good as each council's own open-data feed.</p>
+            <div class="cardGrid">
+              <div class="srcCard">
+                <div class="srcCardHead"><span class="srcCardName">Planning applications</span><span class="tag partial">Varies by council</span></div>
+                <p>Nearby applications, brownfield sites, infrastructure projects.</p>
+                <a class="srcLink">planning.data.gov.uk ↗</a>
+              </div>
+              <div class="srcCard">
+                <div class="srcCardHead"><span class="srcCardName">Environment &amp; heritage</span><span class="tag partial">Varies by council</span></div>
+                <p>Flood zones, conservation areas, green belt, listed buildings, TPOs, ancient woodland.</p>
+                <a class="srcLink">planning.data.gov.uk ↗</a>
+              </div>
+              <div class="srcCard fullWidth">
+                <div class="srcCardHead"><span class="srcCardName">In progress: direct council portal data</span><span class="tag partial">Not all live yet</span></div>
+                <p>We're building direct connections into individual council planning portals to fill the gaps national data misses. Not all 300+ councils we're mapping are wired in today — a blank result can mean "nothing found" or "not connected yet," and we're working to close that gap.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="docSection">
+            <h2>Amenities</h2>
+            <p class="intro">Community-maintained map data — strong UK coverage overall, but quality depends on local volunteer mapping.</p>
+            <div class="cardGrid">
+              <div class="srcCard fullWidth">
+                <div class="srcCardHead"><span class="srcCardName">GPs, dentists, pharmacies, supermarkets, gyms</span><span class="tag crowd">Community-mapped</span></div>
+                <p>Sourced from OpenStreetMap via the Overpass API. Can be patchy or out of date on a specific street even where the wider area is well mapped.</p>
+                <a class="srcLink">openstreetmap.org ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="docSection">
+            <h2>Schools &amp; nurseries</h2>
+            <p class="intro">Official DfE and Ofsted registers, refreshed monthly to match Ofsted's own publishing cycle.</p>
+            <div class="cardGrid">
+              <div class="srcCard fullWidth">
+                <div class="srcCardHead"><span class="srcCardName">GIAS + Ofsted + ONS NSPL</span><span class="tag live">Refreshed monthly</span></div>
+                <p>School/nursery register, latest Ofsted rating, and postcode-to-location matching. Ofsted's published figures can lag a few weeks behind the actual inspection; independent schools appear but aren't Ofsted-rated. Schools are mid-transition to Ofsted's new rating system — most still carry a rating under the old one, and we label which applies.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="docSection">
+            <h2>Area score method</h2>
+            <p class="intro">A single number meant as a rough compass, not a verdict — built transparently from the sources above.</p>
+            <table class="scoreTable">
+              <thead><tr><th>Signal</th><th>Adjustment</th></tr></thead>
+              <tbody>
+                <tr><td>Baseline</td><td>7.0</td></tr>
+                <tr><td>Crime over 200/month</td><td>−2</td></tr>
+                <tr><td>Crime over 100/month</td><td>−1</td></tr>
+                <tr><td>Crime under 30/month</td><td>+1</td></tr>
+                <tr><td>Flood risk zone nearby</td><td>−1</td></tr>
+                <tr><td>Conservation area nearby</td><td>+0.5</td></tr>
+                <tr><td>Brownfield housing site nearby</td><td>+0.5</td></tr>
+                <tr><td>Final score, capped</td><td>1–10</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="docSection">
+            <h2>Known limitations</h2>
+            <ul class="miniList" style="font-size:13.5px;">
+              <li>Council-published planning &amp; environment data is uneven — silence isn't proof of "clear"</li>
+              <li>Crime figures are roughly a month or more behind today, and locations are approximate by design</li>
+              <li>Amenity data quality depends on volunteer mapping in that specific area</li>
+              <li>The area score reflects only crime, flood, conservation and brownfield signals — not schools, transport, or amenities yet</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ CONCEPT 3 ============ -->
+    <div class="concept c3" id="c3">
+      <div class="frame">
+        <div class="eyebrow">Data &amp; methodology</div>
+        <h1>From your postcode to your report</h1>
+        <p class="lede">Six official sources, queried live and combined into one summary. Open any card below to see exactly what it covers and where it falls short.</p>
+
+        <div class="disclaimer">
+          <svg class="dIcon" width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M12 3L2 20h20L12 3z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 10v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="12" cy="17.5" r="0.9" fill="currentColor"/></svg>
+          <p><b>StreetPeek is a research tool, not professional advice.</b> It's not a substitute for a solicitor's local searches, a RICS survey, or independent legal advice before you buy — use it to know what to check, not as the final word.</p>
+        </div>
+
+        <div class="flow">
+          <div class="flowLabel">HOW ONE SEARCH BECOMES A REPORT</div>
+          <div class="flowStack">
+            <div class="flowStep">Your postcode</div>
+            <div class="flowDown">↓</div>
+            <div class="sourceCluster">
+              <div class="flowStep">Police API</div>
+              <div class="flowStep">planning.data<br/>.gov.uk</div>
+              <div class="flowStep">OpenStreetMap</div>
+              <div class="flowStep">GIAS / Ofsted</div>
+              <div class="flowStep">ONS postcodes</div>
+              <div class="flowStep">Council portals*</div>
+            </div>
+            <div class="flowDown">↓</div>
+            <div class="flowStep flowResult">Your report + area score</div>
+          </div>
+        </div>
+
+        <div class="accWrap">
+          <div class="acc open">
+            <div class="accHead" onclick="toggleAcc(this)">
+              <div class="accTitleRow"><span class="accName">Crime</span><span class="tag live">Live lookup</span></div>
+              <svg class="accChevron" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="accBody">
+              <p>Street-level crimes near the address, grouped by category, from <b>data.police.uk</b> — the Home Office's official API. Figures are for the latest month police have published, typically 4–8 weeks behind today, and locations are anonymised to a nearby point rather than an exact address.</p>
+            </div>
+          </div>
+
+          <div class="acc">
+            <div class="accHead" onclick="toggleAcc(this)">
+              <div class="accTitleRow"><span class="accName">Planning applications &amp; brownfield land</span><span class="tag partial">Coverage varies</span></div>
+              <svg class="accChevron" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="accBody">
+              <p>From <b>planning.data.gov.uk</b>, the government's national planning platform — itself built from what each council chooses to publish. Some councils publish rich data, others very little, so "no results" can mean "clear" or "not published." We're separately building direct connections into individual council portals (marked * in the diagram above) to close this gap — not all are live yet.</p>
+            </div>
+          </div>
+
+          <div class="acc">
+            <div class="accHead" onclick="toggleAcc(this)">
+              <div class="accTitleRow"><span class="accName">Environment &amp; heritage constraints</span><span class="tag partial">Coverage varies</span></div>
+              <svg class="accChevron" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="accBody">
+              <p>Flood risk zones, conservation areas, green belt, listed buildings, tree preservation orders and ancient woodland — same <b>planning.data.gov.uk</b> platform, same per-council coverage caveat as above.</p>
+            </div>
+          </div>
+
+          <div class="acc">
+            <div class="accHead" onclick="toggleAcc(this)">
+              <div class="accTitleRow"><span class="accName">Local amenities</span><span class="tag crowd">Community-mapped</span></div>
+              <svg class="accChevron" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="accBody">
+              <p>GPs, dentists, pharmacies, supermarkets and gyms from <b>OpenStreetMap</b>, via the Overpass API. Maintained by volunteer mappers — generally strong UK coverage, but can be patchy on a specific street.</p>
+            </div>
+          </div>
+
+          <div class="acc">
+            <div class="accHead" onclick="toggleAcc(this)">
+              <div class="accTitleRow"><span class="accName">Schools &amp; nurseries</span><span class="tag live">Refreshed monthly</span></div>
+              <svg class="accChevron" width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div class="accBody">
+              <p>From <b>GIAS</b> (the DfE's schools register) and <b>Ofsted's</b> published inspection outcomes. Ratings can lag the actual inspection by a few weeks. Independent schools appear but aren't Ofsted-rated. Most schools still carry a rating under Ofsted's old single-grade system, mid-transition to their new one — we label which applies.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="methodCard">
+          <h3>How the area score is calculated</h3>
+          <p style="font-size:13.5px;color:var(--text-secondary);">Every area starts at a baseline of <b>7.0</b>, then is adjusted:</p>
+          <ul>
+            <li><b>Crime:</b> −2 if over 200 crimes/month, −1 if over 100, +1 if under 30</li>
+            <li><b>Flood risk:</b> −1 if a flood risk zone is nearby</li>
+            <li><b>Conservation area:</b> +0.5 if nearby</li>
+            <li><b>Brownfield housing:</b> +0.5 if a site is nearby</li>
+          </ul>
+          <p style="font-size:13.5px;color:var(--text-secondary);">Capped between 1 and 10. It's a compass built from the signals above, not a verdict on the whole area.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    document.querySelectorAll('.tabBtn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tabBtn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.concept').forEach(c => c.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.target).classList.add('active');
+      });
+    });
+    function toggleAcc(head) {
+      head.parentElement.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

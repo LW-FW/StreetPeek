@@ -1,0 +1,617 @@
+<title>Nearby tab — layout concepts</title>
+<style>
+  :root {
+    --orange:        #F26419;
+    --orange-dark:   #C04E08;
+    --orange-light:  #FEE4CF;
+    --orange-mid:    #FBCBA4;
+    --blue:          #378ADD;
+    --blue-light:    #E6F1FB;
+    --green:         #639922;
+    --green-light:   #EAF3DE;
+    --amber:         #BA7517;
+    --amber-light:   #FAEEDA;
+    --red:           #E24B4A;
+    --red-light:     #FCEBEB;
+    --gray:          #888780;
+    --gray-light:    #F1EFE8;
+    --text-primary:   #1a1a18;
+    --text-secondary: #5f5e5a;
+    --text-tertiary:  #9a9991;
+    --bg:             #ffffff;
+    --bg-secondary:   #f8f7f4;
+    --bg-tertiary:    #f1efe8;
+    --border:         rgba(0,0,0,0.10);
+    --border-mid:     rgba(0,0,0,0.18);
+    --radius-sm:  6px;
+    --radius-md:  10px;
+    --radius-lg:  14px;
+    --radius-xl:  20px;
+    --radius-pill: 999px;
+    --font-serif: Georgia, 'Times New Roman', serif;
+    --font-sans:  -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --shadow-sm: 0 1px 4px rgba(0,0,0,0.06);
+    --shadow-md: 0 2px 16px rgba(0,0,0,0.10);
+    --map-bg: #f3f0e8;
+    --map-line: rgba(0,0,0,0.05);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --orange-light: #3a2416; --orange-mid: #5c3418;
+      --blue-light: #1c2a35; --green-light: #22301a; --amber-light: #332510; --red-light: #3a1e1e;
+      --gray-light: #2a2a26;
+      --text-primary: #f2f1ec; --text-secondary: #b8b6ac; --text-tertiary: #7d7b72;
+      --bg: #171613; --bg-secondary: #1e1d19; --bg-tertiary: #26251f;
+      --border: rgba(255,255,255,0.09); --border-mid: rgba(255,255,255,0.16);
+      --map-bg: #21201b; --map-line: rgba(255,255,255,0.05);
+    }
+  }
+  :root[data-theme="dark"] {
+    --orange-light: #3a2416; --orange-mid: #5c3418;
+    --blue-light: #1c2a35; --green-light: #22301a; --amber-light: #332510; --red-light: #3a1e1e;
+    --gray-light: #2a2a26;
+    --text-primary: #f2f1ec; --text-secondary: #b8b6ac; --text-tertiary: #7d7b72;
+    --bg: #171613; --bg-secondary: #1e1d19; --bg-tertiary: #26251f;
+    --border: rgba(255,255,255,0.09); --border-mid: rgba(255,255,255,0.16);
+    --map-bg: #21201b; --map-line: rgba(255,255,255,0.05);
+  }
+  :root[data-theme="light"] {
+    --orange-light: #FEE4CF; --orange-mid: #FBCBA4;
+    --blue-light: #E6F1FB; --green-light: #EAF3DE; --amber-light: #FAEEDA; --red-light: #FCEBEB;
+    --gray-light: #F1EFE8;
+    --text-primary: #1a1a18; --text-secondary: #5f5e5a; --text-tertiary: #9a9991;
+    --bg: #ffffff; --bg-secondary: #f8f7f4; --bg-tertiary: #f1efe8;
+    --border: rgba(0,0,0,0.10); --border-mid: rgba(0,0,0,0.18);
+    --map-bg: #f3f0e8; --map-line: rgba(0,0,0,0.05);
+  }
+
+  * { box-sizing: border-box; }
+  html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+  body {
+    font-family: var(--font-sans);
+    color: var(--text-primary);
+    background: var(--bg-tertiary);
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  /* ── intro / switcher chrome (not part of the product itself) ── */
+  .intro {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 1rem;
+  }
+  .intro h1 {
+    font-family: var(--font-serif);
+    font-size: 26px;
+    letter-spacing: -0.3px;
+    margin: 0 0 6px;
+  }
+  .intro p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0;
+    max-width: 640px;
+  }
+  .switcher {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--bg-tertiary);
+    padding: 1rem 1.5rem 1.25rem;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto;
+    border-bottom: 0.5px solid var(--border-mid);
+  }
+  .switchBtn {
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 9px 16px;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--border-mid);
+    background: var(--bg);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.15s;
+    text-align: left;
+  }
+  .switchBtn small { display: block; font-weight: 400; font-size: 11px; color: var(--text-tertiary); margin-top: 2px; }
+  .switchBtn:hover { border-color: var(--orange); color: var(--text-primary); }
+  .switchBtn.active { background: var(--orange); border-color: var(--orange); color: #fff; }
+  .switchBtn.active small { color: rgba(255,255,255,0.85); }
+
+  .stage { max-width: 1100px; margin: 0 auto; padding: 1.5rem; }
+  .mock { display: none; }
+  .mock.active { display: block; }
+
+  /* ── replica of StreetPeek page chrome ── */
+  .device {
+    background: var(--bg);
+    border-radius: var(--radius-xl);
+    border: 0.5px solid var(--border-mid);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+  }
+  .navbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 24px; border-bottom: 0.5px solid var(--border);
+  }
+  .brand { font-family: var(--font-serif); font-size: 17px; font-weight: 400; letter-spacing: -0.2px; }
+  .brand b { color: var(--orange); font-weight: 400; }
+  .navlinks { display: flex; gap: 22px; font-size: 13px; color: var(--text-secondary); }
+
+  .pageHeader {
+    padding: 1.5rem 2rem 1rem;
+    border-bottom: 0.5px solid var(--border);
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem;
+  }
+  .postcode { font-family: var(--font-serif); font-size: 30px; letter-spacing: -0.5px; margin-bottom: 4px; }
+  .areaName { font-size: 13px; color: var(--text-secondary); }
+  .scoreWrap { text-align: right; }
+  .scoreLabel { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-tertiary); margin-bottom: 5px; }
+  .score { display: inline-flex; align-items: center; gap: 8px; background: var(--orange-light); color: var(--orange-dark); border-radius: var(--radius-md); padding: 7px 14px; }
+  .scoreNum { font-family: var(--font-serif); font-size: 22px; line-height: 1; }
+  .scoreTag { font-size: 12px; font-weight: 500; }
+
+  .summaryBar {
+    margin: 1rem 2rem; padding: 0.85rem 1.1rem;
+    background: var(--bg-secondary); border-radius: var(--radius-lg); border-left: 3px solid var(--orange);
+    font-size: 13px; color: var(--text-secondary); line-height: 1.6;
+  }
+
+  .tabs { display: flex; padding: 0 2rem; border-bottom: 0.5px solid var(--border); overflow-x: auto; }
+  .tab {
+    display: flex; align-items: center; gap: 6px; font-size: 13px; padding: 0.65rem 1rem;
+    border: none; border-bottom: 2px solid transparent; margin-bottom: -0.5px;
+    background: transparent; color: var(--text-secondary); white-space: nowrap;
+  }
+  .tab svg { opacity: 0.8; }
+  .tab.tabActive { color: var(--orange); border-bottom-color: var(--orange); font-weight: 500; }
+
+  .panel { padding: 1.25rem 2rem 2rem; }
+
+  /* ── category system (shared across concepts) ── */
+  .cat-gp          { --cat: var(--red); }
+  .cat-dentist      { --cat: var(--blue); }
+  .cat-pharmacy     { --cat: var(--green); }
+  .cat-supermarket  { --cat: var(--orange); }
+  .cat-convenience  { --cat: var(--amber); }
+
+  .filterRow { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 1rem; }
+  .chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 12.5px; font-weight: 500; padding: 6px 13px;
+    border-radius: var(--radius-pill); border: 1px solid var(--border-mid);
+    background: var(--bg); color: var(--text-secondary); white-space: nowrap;
+  }
+  .chip .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--cat, var(--text-tertiary)); }
+  .chip.chipAll { background: var(--text-primary); color: var(--bg); border-color: var(--text-primary); }
+  .chip.chipOn { background: var(--cat-light, var(--bg-secondary)); border-color: var(--cat); color: var(--text-primary); }
+  .cat-gp.chipOn { --cat-light: var(--red-light); }
+  .cat-dentist.chipOn { --cat-light: var(--blue-light); }
+  .cat-pharmacy.chipOn { --cat-light: var(--green-light); }
+  .cat-supermarket.chipOn { --cat-light: var(--orange-light); }
+  .cat-convenience.chipOn { --cat-light: var(--amber-light); }
+  .chipCount { opacity: 0.65; font-weight: 400; }
+
+  .radiusToggle {
+    display: inline-flex; border: 1px solid var(--border-mid); border-radius: var(--radius-pill);
+    overflow: hidden; margin-left: auto; flex-shrink: 0;
+  }
+  .radiusToggle span {
+    font-size: 12px; padding: 6px 13px; color: var(--text-secondary);
+  }
+  .radiusToggle span.on { background: var(--orange); color: #fff; font-weight: 500; }
+
+  /* ── place card (shared) ── */
+  .placeCard {
+    display: flex; align-items: flex-start; gap: 11px;
+    padding: 11px 0; border-bottom: 0.5px solid var(--border);
+  }
+  .placeCard:last-child { border-bottom: none; }
+  .placeIcon {
+    width: 30px; height: 30px; border-radius: 8px; flex-shrink: 0;
+    background: var(--cat); display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 13px; font-weight: 600; margin-top: 1px;
+  }
+  .placeInfo { flex: 1; min-width: 0; }
+  .placeName { font-size: 13.5px; font-weight: 600; margin-bottom: 2px; }
+  .placeMeta { font-size: 11.5px; color: var(--text-tertiary); }
+  .placeDist { text-align: right; flex-shrink: 0; }
+  .placeDistNum { font-size: 13px; font-weight: 600; }
+  .placeDistWalk { display: block; font-size: 11px; color: var(--text-tertiary); }
+
+  .sectionLabel {
+    font-size: 10.5px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-tertiary);
+    font-weight: 600; margin: 1.25rem 0 0.4rem;
+  }
+  .sectionLabel:first-child { margin-top: 0; }
+
+  /* ── faux map ── */
+  .fauxMap {
+    position: relative; overflow: hidden;
+    background:
+      repeating-linear-gradient(0deg, var(--map-line) 0 1px, transparent 1px 64px),
+      repeating-linear-gradient(90deg, var(--map-line) 0 1px, transparent 1px 88px),
+      var(--map-bg);
+    border-radius: var(--radius-lg);
+    border: 0.5px solid var(--border);
+  }
+  .fauxMap .road {
+    position: absolute; background: var(--border-mid);
+  }
+  .marker {
+    position: absolute; width: 13px; height: 13px; border-radius: 50%;
+    background: var(--cat); border: 2px solid var(--bg); box-shadow: var(--shadow-sm);
+    transform: translate(-50%, -50%);
+  }
+  .marker.dim { opacity: 0.25; }
+  .marker.you {
+    width: 15px; height: 15px; background: var(--orange); border: 3px solid var(--bg);
+    box-shadow: 0 0 0 5px rgba(242,100,25,0.18);
+  }
+  .mapLegend {
+    position: absolute; top: 12px; right: 12px; background: var(--bg);
+    border: 0.5px solid var(--border-mid); border-radius: var(--radius-md);
+    padding: 8px 11px; font-size: 10.5px; box-shadow: var(--shadow-sm);
+    display: flex; flex-direction: column; gap: 5px;
+  }
+  .mapLegend .row { display: flex; align-items: center; gap: 6px; color: var(--text-secondary); }
+  .mapLegend .dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  /* ═══════════════ CONCEPT A — split view ═══════════════ */
+  .splitWrap { display: flex; gap: 1.25rem; align-items: flex-start; }
+  .splitList { width: 340px; flex-shrink: 0; max-height: 560px; overflow-y: auto; }
+  .splitMap { flex: 1; height: 560px; }
+
+  /* ═══════════════ CONCEPT B — map-first ═══════════════ */
+  .bigMap { height: 420px; position: relative; margin-bottom: -60px; }
+  .floatChips {
+    position: absolute; top: 14px; left: 14px; right: 130px;
+    display: flex; gap: 7px; flex-wrap: wrap;
+    background: var(--bg); padding: 8px; border-radius: var(--radius-pill);
+    box-shadow: var(--shadow-md); border: 0.5px solid var(--border-mid);
+  }
+  .sheet {
+    position: relative; background: var(--bg); border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.08); border: 0.5px solid var(--border-mid); border-bottom: none;
+    padding: 10px 1.5rem 1.5rem; z-index: 2;
+  }
+  .sheetHandle { width: 36px; height: 4px; border-radius: 2px; background: var(--border-mid); margin: 0 auto 14px; }
+  .sheetRow { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+  .sheetTitle { font-size: 13px; font-weight: 600; }
+
+  /* ═══════════════ CONCEPT C — stacked ═══════════════ */
+  .stackMap { height: 320px; margin-bottom: 1.25rem; }
+  .groupGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2.5rem; }
+  @media (max-width: 720px) { .groupGrid { grid-template-columns: 1fr; } }
+
+  .rationale {
+    margin-top: 1.5rem; padding: 1rem 1.25rem; background: var(--bg-secondary);
+    border-radius: var(--radius-lg); font-size: 12.5px; color: var(--text-secondary); line-height: 1.6;
+  }
+  .rationale b { color: var(--text-primary); }
+</style>
+
+<div class="intro">
+  <h1>Nearby tab — three layout directions</h1>
+  <p>Static mockups only — nothing here is wired up. Same data, same colours, three different structures for turning the Nearby panel into its own tab with a map and filters. Pick the one to build.</p>
+</div>
+
+<div class="switcher">
+  <button class="switchBtn active" data-target="a">Split view<small>List + sticky map, side by side</small></button>
+  <button class="switchBtn" data-target="b">Map-first<small>Full map, floating filters, list as a sheet</small></button>
+  <button class="switchBtn" data-target="c">Stacked<small>Matches the existing Map tab pattern</small></button>
+</div>
+
+<div class="stage">
+
+  <!-- ═══════════════════════ CONCEPT A ═══════════════════════ -->
+  <section id="mock-a" class="mock active">
+    <div class="device">
+      <div class="navbar">
+        <div class="brand">Street<b>Peek</b></div>
+        <div class="navlinks"><span>Search</span><span>Pricing</span></div>
+      </div>
+      <div class="pageHeader">
+        <div>
+          <div class="postcode">LS1 4DY</div>
+          <div class="areaName">Leeds City Centre, Leeds</div>
+        </div>
+        <div class="scoreWrap">
+          <div class="scoreLabel">Area outlook</div>
+          <div class="score"><span class="scoreNum">7.2</span><span class="scoreTag">Improving</span></div>
+        </div>
+      </div>
+      <div class="tabs">
+        <span class="tab">Overview</span>
+        <span class="tab tabActive">Nearby</span>
+        <span class="tab">Planning</span>
+        <span class="tab">Crime</span>
+        <span class="tab">Environment</span>
+        <span class="tab">Map view</span>
+      </div>
+      <div class="panel">
+        <div class="filterRow">
+          <span class="chip chipAll">All · 12</span>
+          <span class="chip chipOn cat-gp"><span class="dot"></span>GP <span class="chipCount">2</span></span>
+          <span class="chip chipOn cat-dentist"><span class="dot"></span>Dentist <span class="chipCount">1</span></span>
+          <span class="chip chipOn cat-pharmacy"><span class="dot"></span>Pharmacy <span class="chipCount">3</span></span>
+          <span class="chip chipOn cat-supermarket"><span class="dot"></span>Supermarket <span class="chipCount">2</span></span>
+          <span class="chip chipOn cat-convenience"><span class="dot"></span>Shops <span class="chipCount">4</span></span>
+          <span class="radiusToggle"><span>1mi</span><span class="on">2mi</span></span>
+        </div>
+
+        <div class="splitWrap">
+          <div class="splitList">
+            <div class="sectionLabel">GPs</div>
+            <div class="placeCard cat-gp"><div class="placeIcon">GP</div>
+              <div class="placeInfo"><div class="placeName">The Private Clinic of Harley Street</div><div class="placeMeta">45 Park Square North</div></div>
+              <div class="placeDist"><span class="placeDistNum">0.14mi</span><span class="placeDistWalk">3 min walk</span></div></div>
+            <div class="placeCard cat-gp"><div class="placeIcon">GP</div>
+              <div class="placeInfo"><div class="placeName">The Light Surgery</div><div class="placeMeta">The Headrow, Leeds</div></div>
+              <div class="placeDist"><span class="placeDistNum">0.16mi</span><span class="placeDistWalk">3 min walk</span></div></div>
+
+            <div class="sectionLabel">Dentists</div>
+            <div class="placeCard cat-dentist"><div class="placeIcon">D</div>
+              <div class="placeInfo"><div class="placeName">White 32 Dental</div><div class="placeMeta">1 Wormald Row, Leeds</div></div>
+              <div class="placeDist"><span class="placeDistNum">0.19mi</span><span class="placeDistWalk">4 min walk</span></div></div>
+
+            <div class="sectionLabel">Pharmacies</div>
+            <div class="placeCard cat-pharmacy"><div class="placeIcon">Rx</div>
+              <div class="placeInfo"><div class="placeName">Superdrug</div><div class="placeMeta">Merrion Centre, Leeds</div></div>
+              <div class="placeDist"><span class="placeDistNum">0.20mi</span><span class="placeDistWalk">4 min walk</span></div></div>
+            <div class="placeCard cat-pharmacy"><div class="placeIcon">Rx</div>
+              <div class="placeInfo"><div class="placeName">Boots</div><div class="placeMeta">Albion Street, Leeds</div></div>
+              <div class="placeDist"><span class="placeDistNum">0.40mi</span><span class="placeDistWalk">9 min walk</span></div></div>
+
+            <div class="sectionLabel">Supermarkets</div>
+            <div class="placeCard cat-supermarket"><div class="placeIcon">S</div>
+              <div class="placeInfo"><div class="placeName">Sing Kee Supermarket</div><div class="placeMeta">26-28 Woodhouse Lane</div></div>
+              <div class="placeDist"><span class="placeDistNum">0.18mi</span><span class="placeDistWalk">4 min walk</span></div></div>
+
+            <div class="sectionLabel">Shops</div>
+            <div class="placeCard cat-convenience"><div class="placeIcon">C</div>
+              <div class="placeInfo"><div class="placeName">Tesco Express</div><div class="placeMeta">57 Portland Crescent</div></div>
+              <div class="placeDist"><span class="placeDistNum">0.18mi</span><span class="placeDistWalk">4 min walk</span></div></div>
+            <div class="placeCard cat-convenience"><div class="placeIcon">C</div>
+              <div class="placeInfo"><div class="placeName">Londis</div><div class="placeMeta">Woodhouse Lane, Leeds</div></div>
+              <div class="placeDist"><span class="placeDistNum">0.34mi</span><span class="placeDistWalk">7 min walk</span></div></div>
+          </div>
+
+          <div class="splitMap fauxMap">
+            <div class="road" style="top:22%;left:0;right:0;height:2px;"></div>
+            <div class="road" style="top:58%;left:0;right:0;height:2px;"></div>
+            <div class="road" style="left:35%;top:0;bottom:0;width:2px;"></div>
+            <div class="road" style="left:72%;top:0;bottom:0;width:2px;"></div>
+            <div class="marker you" style="left:45%;top:48%;"></div>
+            <div class="marker cat-gp" style="left:38%;top:30%;"></div>
+            <div class="marker cat-gp" style="left:60%;top:34%;"></div>
+            <div class="marker cat-dentist" style="left:63%;top:44%;"></div>
+            <div class="marker cat-supermarket" style="left:30%;top:44%;"></div>
+            <div class="marker cat-convenience" style="left:52%;top:60%;"></div>
+            <div class="marker cat-pharmacy" style="left:57%;top:52%;"></div>
+            <div class="marker cat-convenience" style="left:22%;top:60%;"></div>
+            <div class="marker cat-pharmacy" style="left:70%;top:66%;"></div>
+            <div class="mapLegend">
+              <div class="row"><span class="dot" style="background:var(--red)"></span>GP</div>
+              <div class="row"><span class="dot" style="background:var(--blue)"></span>Dentist</div>
+              <div class="row"><span class="dot" style="background:var(--green)"></span>Pharmacy</div>
+              <div class="row"><span class="dot" style="background:var(--orange)"></span>Supermarket</div>
+              <div class="row"><span class="dot" style="background:var(--amber)"></span>Shops</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rationale">
+      <b>Split view, grouped.</b> List and map are always both visible — hovering a card would highlight its marker (not wired here). Results are grouped into labelled sections (GPs, Dentists, Pharmacies, Supermarkets, Shops) rather than one flat distance-sorted list, each still sorted nearest-first within its section. Reads best on a wide screen; the list column would move below the map on mobile.
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ CONCEPT B ═══════════════════════ -->
+  <section id="mock-b" class="mock">
+    <div class="device">
+      <div class="navbar">
+        <div class="brand">Street<b>Peek</b></div>
+        <div class="navlinks"><span>Search</span><span>Pricing</span></div>
+      </div>
+      <div class="pageHeader">
+        <div>
+          <div class="postcode">LS1 4DY</div>
+          <div class="areaName">Leeds City Centre, Leeds</div>
+        </div>
+        <div class="scoreWrap">
+          <div class="scoreLabel">Area outlook</div>
+          <div class="score"><span class="scoreNum">7.2</span><span class="scoreTag">Improving</span></div>
+        </div>
+      </div>
+      <div class="tabs">
+        <span class="tab">Overview</span>
+        <span class="tab tabActive">Nearby</span>
+        <span class="tab">Planning</span>
+        <span class="tab">Crime</span>
+        <span class="tab">Environment</span>
+        <span class="tab">Map view</span>
+      </div>
+
+      <div class="bigMap fauxMap">
+        <div class="road" style="top:20%;left:0;right:0;height:2px;"></div>
+        <div class="road" style="top:52%;left:0;right:0;height:2px;"></div>
+        <div class="road" style="top:80%;left:0;right:0;height:2px;"></div>
+        <div class="road" style="left:28%;top:0;bottom:0;width:2px;"></div>
+        <div class="road" style="left:64%;top:0;bottom:0;width:2px;"></div>
+        <div class="marker you" style="left:46%;top:50%;"></div>
+        <div class="marker cat-gp" style="left:36%;top:28%;"></div>
+        <div class="marker cat-gp" style="left:58%;top:32%;"></div>
+        <div class="marker cat-dentist" style="left:62%;top:42%;"></div>
+        <div class="marker cat-supermarket" style="left:28%;top:42%;"></div>
+        <div class="marker cat-convenience dim" style="left:50%;top:62%;"></div>
+        <div class="marker cat-pharmacy" style="left:55%;top:50%;"></div>
+        <div class="marker cat-convenience dim" style="left:20%;top:60%;"></div>
+        <div class="marker cat-pharmacy dim" style="left:72%;top:68%;"></div>
+
+        <div class="floatChips">
+          <span class="chip chipAll">All</span>
+          <span class="chip chipOn cat-gp"><span class="dot"></span>GP</span>
+          <span class="chip chipOn cat-dentist"><span class="dot"></span>Dentist</span>
+          <span class="chip chipOn cat-pharmacy"><span class="dot"></span>Pharmacy</span>
+          <span class="chip cat-supermarket"><span class="dot"></span>Supermarket</span>
+          <span class="chip cat-convenience"><span class="dot"></span>Shops</span>
+        </div>
+        <div class="mapLegend" style="top:14px;">
+          <div class="row" style="font-weight:600;color:var(--text-primary);margin-bottom:2px;">Radius</div>
+          <div class="row"><span style="color:var(--text-tertiary);">1mi</span></div>
+          <div class="row"><span style="color:var(--orange);font-weight:600;">2mi ✓</span></div>
+        </div>
+      </div>
+
+      <div class="sheet">
+        <div class="sheetHandle"></div>
+        <div class="sheetRow">
+          <span class="sheetTitle">12 places nearby</span>
+          <span style="font-size:12px;color:var(--text-tertiary);">Nearest first</span>
+        </div>
+        <div class="placeCard cat-gp"><div class="placeIcon">GP</div>
+          <div class="placeInfo"><div class="placeName">The Private Clinic of Harley Street</div><div class="placeMeta">45 Park Square North</div></div>
+          <div class="placeDist"><span class="placeDistNum">0.14mi</span><span class="placeDistWalk">3 min walk</span></div></div>
+        <div class="placeCard cat-gp"><div class="placeIcon">GP</div>
+          <div class="placeInfo"><div class="placeName">The Light Surgery</div><div class="placeMeta">The Headrow, Leeds</div></div>
+          <div class="placeDist"><span class="placeDistNum">0.16mi</span><span class="placeDistWalk">3 min walk</span></div></div>
+        <div class="placeCard cat-dentist"><div class="placeIcon">D</div>
+          <div class="placeInfo"><div class="placeName">White 32 Dental</div><div class="placeMeta">1 Wormald Row, Leeds</div></div>
+          <div class="placeDist"><span class="placeDistNum">0.19mi</span><span class="placeDistWalk">4 min walk</span></div></div>
+        <div style="text-align:center;padding-top:10px;">
+          <span style="font-size:12px;color:var(--orange);font-weight:500;">↑ drag up for all 12</span>
+        </div>
+      </div>
+    </div>
+    <div class="rationale">
+      <b>Map-first.</b> The map is the hero; filters and radius float on top of it, the list lives in a sheet you'd drag up (partial state shown). Feels the most like a native maps app and suits mobile well, but the list is secondary until you pull it up.
+    </div>
+  </section>
+
+  <!-- ═══════════════════════ CONCEPT C ═══════════════════════ -->
+  <section id="mock-c" class="mock">
+    <div class="device">
+      <div class="navbar">
+        <div class="brand">Street<b>Peek</b></div>
+        <div class="navlinks"><span>Search</span><span>Pricing</span></div>
+      </div>
+      <div class="pageHeader">
+        <div>
+          <div class="postcode">LS1 4DY</div>
+          <div class="areaName">Leeds City Centre, Leeds</div>
+        </div>
+        <div class="scoreWrap">
+          <div class="scoreLabel">Area outlook</div>
+          <div class="score"><span class="scoreNum">7.2</span><span class="scoreTag">Improving</span></div>
+        </div>
+      </div>
+      <div class="tabs">
+        <span class="tab">Overview</span>
+        <span class="tab tabActive">Nearby</span>
+        <span class="tab">Planning</span>
+        <span class="tab">Crime</span>
+        <span class="tab">Environment</span>
+        <span class="tab">Map view</span>
+      </div>
+      <div class="panel">
+        <div class="filterRow">
+          <span class="chip chipAll">All · 12</span>
+          <span class="chip chipOn cat-gp"><span class="dot"></span>GP <span class="chipCount">2</span></span>
+          <span class="chip chipOn cat-dentist"><span class="dot"></span>Dentist <span class="chipCount">1</span></span>
+          <span class="chip chipOn cat-pharmacy"><span class="dot"></span>Pharmacy <span class="chipCount">3</span></span>
+          <span class="chip chipOn cat-supermarket"><span class="dot"></span>Supermarket <span class="chipCount">2</span></span>
+          <span class="chip chipOn cat-convenience"><span class="dot"></span>Shops <span class="chipCount">4</span></span>
+          <span class="radiusToggle"><span>1mi</span><span class="on">2mi</span></span>
+        </div>
+
+        <div class="stackMap fauxMap">
+          <div class="road" style="top:25%;left:0;right:0;height:2px;"></div>
+          <div class="road" style="top:65%;left:0;right:0;height:2px;"></div>
+          <div class="road" style="left:40%;top:0;bottom:0;width:2px;"></div>
+          <div class="marker you" style="left:45%;top:48%;"></div>
+          <div class="marker cat-gp" style="left:36%;top:28%;"></div>
+          <div class="marker cat-gp" style="left:60%;top:34%;"></div>
+          <div class="marker cat-dentist" style="left:63%;top:44%;"></div>
+          <div class="marker cat-supermarket" style="left:28%;top:42%;"></div>
+          <div class="marker cat-convenience" style="left:52%;top:62%;"></div>
+          <div class="marker cat-pharmacy" style="left:57%;top:52%;"></div>
+          <div class="mapLegend">
+            <div class="row"><span class="dot" style="background:var(--red)"></span>GP</div>
+            <div class="row"><span class="dot" style="background:var(--blue)"></span>Dentist</div>
+            <div class="row"><span class="dot" style="background:var(--green)"></span>Pharmacy</div>
+            <div class="row"><span class="dot" style="background:var(--orange)"></span>Supermarket</div>
+            <div class="row"><span class="dot" style="background:var(--amber)"></span>Shops</div>
+          </div>
+        </div>
+
+        <div class="groupGrid">
+          <div>
+            <div class="sectionLabel">GPs</div>
+            <div class="placeCard cat-gp"><div class="placeIcon">GP</div>
+              <div class="placeInfo"><div class="placeName">The Private Clinic of Harley Street</div><div class="placeMeta">45 Park Square North</div></div>
+              <div class="placeDist"><span class="placeDistNum">0.14mi</span></div></div>
+            <div class="placeCard cat-gp"><div class="placeIcon">GP</div>
+              <div class="placeInfo"><div class="placeName">The Light Surgery</div><div class="placeMeta">The Headrow, Leeds</div></div>
+              <div class="placeDist"><span class="placeDistNum">0.16mi</span></div></div>
+
+            <div class="sectionLabel">Dentists</div>
+            <div class="placeCard cat-dentist"><div class="placeIcon">D</div>
+              <div class="placeInfo"><div class="placeName">White 32 Dental</div><div class="placeMeta">1 Wormald Row, Leeds</div></div>
+              <div class="placeDist"><span class="placeDistNum">0.19mi</span></div></div>
+
+            <div class="sectionLabel">Pharmacies</div>
+            <div class="placeCard cat-pharmacy"><div class="placeIcon">Rx</div>
+              <div class="placeInfo"><div class="placeName">Superdrug</div><div class="placeMeta">Merrion Centre, Leeds</div></div>
+              <div class="placeDist"><span class="placeDistNum">0.20mi</span></div></div>
+            <div class="placeCard cat-pharmacy"><div class="placeIcon">Rx</div>
+              <div class="placeInfo"><div class="placeName">Boots</div><div class="placeMeta">Albion Street, Leeds</div></div>
+              <div class="placeDist"><span class="placeDistNum">0.40mi</span></div></div>
+          </div>
+          <div>
+            <div class="sectionLabel">Supermarkets</div>
+            <div class="placeCard cat-supermarket"><div class="placeIcon">S</div>
+              <div class="placeInfo"><div class="placeName">Sing Kee Supermarket</div><div class="placeMeta">26-28 Woodhouse Lane</div></div>
+              <div class="placeDist"><span class="placeDistNum">0.18mi</span></div></div>
+            <div class="placeCard cat-supermarket"><div class="placeIcon">S</div>
+              <div class="placeInfo"><div class="placeName">Morrisons</div><div class="placeMeta">Merrion Centre, Leeds</div></div>
+              <div class="placeDist"><span class="placeDistNum">0.19mi</span></div></div>
+
+            <div class="sectionLabel">Shops</div>
+            <div class="placeCard cat-convenience"><div class="placeIcon">C</div>
+              <div class="placeInfo"><div class="placeName">Around The Clock</div><div class="placeMeta">35 Great George Street</div></div>
+              <div class="placeDist"><span class="placeDistNum">0.06mi</span></div></div>
+            <div class="placeCard cat-convenience"><div class="placeIcon">C</div>
+              <div class="placeInfo"><div class="placeName">Tesco Express</div><div class="placeMeta">57 Portland Crescent</div></div>
+              <div class="placeDist"><span class="placeDistNum">0.18mi</span></div></div>
+            <div class="placeCard cat-convenience"><div class="placeIcon">C</div>
+              <div class="placeInfo"><div class="placeName">Londis</div><div class="placeMeta">Woodhouse Lane, Leeds</div></div>
+              <div class="placeDist"><span class="placeDistNum">0.34mi</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rationale">
+      <b>Stacked.</b> Reuses the exact map size/legend style already on your Map view tab, with filter chips above and results grouped by category below (two-column on desktop, stacks to one on mobile). Closest to your current patterns — lowest build risk, least visually novel.
+    </div>
+  </section>
+
+</div>
+
+<script>
+  document.querySelectorAll('.switchBtn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      document.querySelectorAll('.switchBtn').forEach(function (b) { b.classList.remove('active'); });
+      document.querySelectorAll('.mock').forEach(function (m) { m.classList.remove('active'); });
+      btn.classList.add('active');
+      document.getElementById('mock-' + btn.dataset.target).classList.add('active');
+    });
+  });
+</script>

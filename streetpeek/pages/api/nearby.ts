@@ -9,7 +9,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 export interface NearbyPlace {
   id: string;
   name: string;
-  type: 'gp' | 'dentist' | 'pharmacy' | 'supermarket' | 'convenience';
+  type: 'gp' | 'dentist' | 'pharmacy' | 'supermarket' | 'convenience' | 'gym';
   address: string;
   lat: number;
   lng: number;
@@ -17,6 +17,10 @@ export interface NearbyPlace {
 }
 
 export interface NearbyResponse {
+  // False only when every Overpass endpoint failed outright (network/host
+  // down) — distinguishes "couldn't fetch" from "fetched fine, nothing
+  // nearby" so the UI can offer a retry instead of silently showing empty.
+  ok: boolean;
   places: NearbyPlace[];
   summary: {
     radiusMiles: number;
@@ -24,43 +28,70 @@ export interface NearbyResponse {
     nearestDentist: NearbyPlace | null;
     nearestPharmacy: NearbyPlace | null;
     supermarketsNearby: number;
+    gymsNearby: number;
     convenienceScore: 'well-served' | 'moderate' | 'limited';
     convenienceReason: string;
   };
 }
 
-const OVERPASS_ENDPOINT = 'https://overpass-api.de/api/interpreter';
+// Three independently-run Overpass instances, deliberately on different
+// hosting/network paths (Hetzner, Private.coffee/Austria, OSM France) —
+// when one is unreachable (host down, or a network path specifically
+// blocking that operator's IPs) a same-host retry just fails the same way,
+// so we fall through to a different operator entirely instead.
+const OVERPASS_ENDPOINTS = [
+  'https://overpass-api.de/api/interpreter',
+  'https://overpass.kumi.systems/api/interpreter',
+  'https://overpass.openstreetmap.fr/api/interpreter',
+];
 const RADIUS_MILES = 2;
 const RADIUS_METRES = Math.round(RADIUS_MILES * 1609.34);
-const MAX_ATTEMPTS = 3;
+const ATTEMPTS_PER_ENDPOINT = 1;
 
-// The public Overpass instance is a shared, rate-limited resource and
-// frequently returns 504s under load even for small queries — retrying
-// is the normal way to use it, not a sign something is wrong.
+// These are shared, rate-limited resources and frequently return 504s
+// under load even for small queries — that's the normal cost of using them,
+// not a sign something is wrong. One attempt per endpoint before moving to
+// the next keeps total latency bounded (3 endpoints, ~30s worst case each)
+// while still giving a transient failure on one operator a real chance via
+// a completely different one, rather than hammering the same host twice.
 async function fetchOverpass(query: string): Promise<any> {
   let lastError: unknown;
-  for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
-    try {
-      // Overpass's Apache front-end 406s Node's default fetch headers (no
-      // real User-Agent) and is flaky over compressed responses — Overpass's
-      // own usage policy asks for a descriptive User-Agent, so send one.
-      const res = await fetch(OVERPASS_ENDPOINT, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'User-Agent': 'StreetPeek/1.0 (property research tool; contact via streetpeek app)',
-          'Accept-Encoding': 'identity',
-        },
-        body: `data=${encodeURIComponent(query)}`,
-        signal: AbortSignal.timeout(15000),
-      });
-      if (res.ok) return res.json();
-      lastError = new Error(`Overpass API error: ${res.status}`);
-    } catch (err) {
-      lastError = err;
-    }
-    if (attempt < MAX_ATTEMPTS) {
-      await new Promise(r => setTimeout(r, 800 * attempt));
+  for (const endpoint of OVERPASS_ENDPOINTS) {
+    for (let attempt = 1; attempt <= ATTEMPTS_PER_ENDPOINT; attempt++) {
+      try {
+        // Overpass's Apache front-end 406s Node's default fetch headers (no
+        // real User-Agent) and is flaky over compressed responses — Overpass's
+        // own usage policy asks for a descriptive User-Agent, so send one.
+        const res = await fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'User-Agent': 'StreetPeek/1.0 (property research tool; contact via streetpeek app)',
+            'Accept-Encoding': 'identity',
+          },
+          body: `data=${encodeURIComponent(query)}`,
+          // Must stay longer than the query's own [timeout:25] below, or we
+          // abort a request that Overpass was still legitimately working on.
+          signal: AbortSignal.timeout(30000),
+        });
+        if (res.ok) {
+          const json = await res.json();
+          // Overpass reports query errors (a malformed filter, or its own
+          // internal timeout) with HTTP 200 and a `remark` field, not an
+          // error status — treat that as a failed attempt, not zero results,
+          // so it gets retried like any other transient failure.
+          if (json?.remark || !Array.isArray(json?.elements)) {
+            throw new Error(`Overpass reported an error: ${json?.remark ?? 'missing elements array'}`);
+          }
+          return json;
+        }
+        lastError = new Error(`Overpass API error: ${res.status}`);
+      } catch (err) {
+        lastError = err;
+      }
+      if (attempt < ATTEMPTS_PER_ENDPOINT) {
+        await new Promise(r => setTimeout(r, 800 * attempt));
+      }
     }
   }
   throw lastError;
@@ -79,11 +110,19 @@ function distanceMiles(lat1: number, lon1: number, lat2: number, lon2: number): 
 }
 
 function classify(tags: Record<string, string>): NearbyPlace['type'] | null {
-  if (tags.amenity === 'doctors' || tags.amenity === 'clinic') return 'gp';
-  if (tags.amenity === 'dentist') return 'dentist';
-  if (tags.amenity === 'pharmacy') return 'pharmacy';
+  // OSM has two parallel tagging schemes for healthcare — the older `amenity=*`
+  // and the newer `healthcare=*` — and mappers use one, the other, or both.
+  // Checking only one silently drops anything tagged the other way.
+  if (tags.amenity === 'doctors' || tags.amenity === 'clinic'
+      || tags.healthcare === 'doctor' || tags.healthcare === 'clinic') return 'gp';
+  if (tags.amenity === 'dentist' || tags.healthcare === 'dentist') return 'dentist';
+  if (tags.amenity === 'pharmacy' || tags.healthcare === 'pharmacy') return 'pharmacy';
   if (tags.shop === 'supermarket') return 'supermarket';
-  if (tags.shop === 'convenience') return 'convenience';
+  // Small independent shops get tagged inconsistently — convenience is the
+  // "correct" tag but general/grocery/variety_store show up just as often.
+  if (tags.shop === 'convenience' || tags.shop === 'general'
+      || tags.shop === 'grocery' || tags.shop === 'variety_store') return 'convenience';
+  if (tags.leisure === 'fitness_centre' || tags.leisure === 'sports_centre') return 'gym';
   return null;
 }
 
@@ -101,12 +140,21 @@ function overpassQuery(lat: number, lng: number): string {
   const filters = [
     'node["amenity"="doctors"]', 'way["amenity"="doctors"]',
     'node["amenity"="clinic"]', 'way["amenity"="clinic"]',
+    'node["healthcare"="doctor"]', 'way["healthcare"="doctor"]',
+    'node["healthcare"="clinic"]', 'way["healthcare"="clinic"]',
     'node["amenity"="dentist"]', 'way["amenity"="dentist"]',
+    'node["healthcare"="dentist"]', 'way["healthcare"="dentist"]',
     'node["amenity"="pharmacy"]', 'way["amenity"="pharmacy"]',
+    'node["healthcare"="pharmacy"]', 'way["healthcare"="pharmacy"]',
     'node["shop"="supermarket"]', 'way["shop"="supermarket"]',
     'node["shop"="convenience"]', 'way["shop"="convenience"]',
+    'node["shop"="general"]', 'way["shop"="general"]',
+    'node["shop"="grocery"]', 'way["shop"="grocery"]',
+    'node["shop"="variety_store"]', 'way["shop"="variety_store"]',
+    'node["leisure"="fitness_centre"]', 'way["leisure"="fitness_centre"]',
+    'node["leisure"="sports_centre"]', 'way["leisure"="sports_centre"]',
   ].map(f => `${f}${around};`).join('\n  ');
-  return `[out:json][timeout:20];\n(\n  ${filters}\n);\nout center tags;`;
+  return `[out:json][timeout:25];\n(\n  ${filters}\n);\nout center tags;`;
 }
 
 function convenienceSummary(supermarkets: number, hasGP: boolean, hasPharmacy: boolean):
@@ -142,7 +190,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     const query = overpassQuery(latitude, longitude);
     const data = await fetchOverpass(query);
-    const elements: any[] = data?.elements ?? [];
+    const elements: any[] = data.elements;
 
     const places: NearbyPlace[] = elements
       .map((el): NearbyPlace | null => {
@@ -157,10 +205,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         const dist = distanceMiles(latitude, longitude, placeLat, placeLng);
         if (dist > RADIUS_MILES) return null;
 
+        const defaultNames: Record<NearbyPlace['type'], string> = {
+          gp: 'GP surgery', dentist: 'Dentist', pharmacy: 'Pharmacy',
+          supermarket: 'Supermarket', convenience: 'Shop', gym: 'Gym / leisure centre',
+        };
+
         return {
           id: `${el.type}/${el.id}`,
-          name: tags.name || (type === 'gp' ? 'GP surgery' : type === 'dentist' ? 'Dentist' :
-                type === 'pharmacy' ? 'Pharmacy' : 'Shop'),
+          name: tags.name || defaultNames[type],
           type,
           address: buildAddress(tags),
           lat: placeLat,
@@ -189,6 +241,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const nearestDentist = nearestOf('dentist');
     const nearestPharmacy = nearestOf('pharmacy');
     const supermarketsNearby = deduped.filter(p => p.type === 'supermarket').length;
+    const gymsNearby = deduped.filter(p => p.type === 'gym').length;
 
     const conv = convenienceSummary(supermarketsNearby, !!nearestGP, !!nearestPharmacy);
 
@@ -198,14 +251,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       nearestDentist,
       nearestPharmacy,
       supermarketsNearby,
+      gymsNearby,
       convenienceScore: conv.score,
       convenienceReason: conv.reason,
     };
 
-    return res.status(200).json({ places: deduped, summary });
+    return res.status(200).json({ ok: true, places: deduped, summary });
   } catch (err) {
     console.error('Nearby API error:', err);
     return res.status(200).json({
+      ok: false,
       places: [],
       summary: {
         radiusMiles: RADIUS_MILES,
@@ -213,6 +268,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         nearestDentist: null,
         nearestPharmacy: null,
         supermarketsNearby: 0,
+        gymsNearby: 0,
         convenienceScore: 'limited',
         convenienceReason: 'Could not load nearby amenities data.',
       },

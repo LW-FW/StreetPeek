@@ -59,6 +59,7 @@ DEFUNCT = {
     "E60000102": "E60000332",  # Kettering        → North Northamptonshire (2021)
     "E60000100": "E60000333",  # Daventry         → West Northamptonshire (2021)
     "E60000103": "E60000333",  # Northampton      → West Northamptonshire (2021)
+    "E60000105": "E60000332",  # Wellingborough   → North Northamptonshire (2021)
 }
 
 # Successor councils whose recorded portal_url is an info page — probe these too

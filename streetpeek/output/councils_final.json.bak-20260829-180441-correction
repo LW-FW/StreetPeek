@@ -867,9 +867,9 @@
     "reference": "E60000109",
     "name": "Gedling LPA",
     "website": "https://www.gedling.gov.uk",
-    "portal_url": "https://pawam.gedling.gov.uk/online-applications/",
+    "portal_url": "https://pa.gedling.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-30T14:38:30.591887"
+    "scanned_at": "2026-05-01T11:35:26.849943 [manual]"
   },
   {
     "reference": "E60000110",
@@ -891,9 +891,9 @@
     "reference": "E60000112",
     "name": "Rushcliffe LPA",
     "website": "https://www.rushcliffe.gov.uk",
-    "portal_url": "https://planningon-line.rushcliffe.gov.uk/online-applications/",
+    "portal_url": "https://planningon.rushcliffe.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-30T14:38:30.591999"
+    "scanned_at": "2026-05-01T11:35:26.849952 [manual]"
   },
   {
     "reference": "E60000113",
@@ -971,9 +971,9 @@
     "reference": "E60000122",
     "name": "Stafford LPA",
     "website": "https://www.staffordbc.gov.uk",
-    "portal_url": "https://www12.staffordbc.gov.uk/online-applications/",
+    "portal_url": "https://www.staffordbc.gov.uk/planning",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-30T14:38:30.592185"
+    "scanned_at": "2026-05-01T08:36:40.311226"
   },
   {
     "reference": "E60000123",
@@ -1059,9 +1059,9 @@
     "reference": "E60000133",
     "name": "Sandwell LPA",
     "website": "https://www.sandwell.gov.uk",
-    "portal_url": "https://webcaps.sandwell.gov.uk/publicaccess/",
+    "portal_url": "https://sandwell.idoxcloud.com/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-30T14:38:30.592307"
+    "scanned_at": "2026-05-01T11:35:26.850069 [manual]"
   },
   {
     "reference": "E60000134",
@@ -1379,9 +1379,9 @@
     "reference": "E60000173",
     "name": "Three Rivers LPA",
     "website": "https://www.threerivers.gov.uk",
-    "portal_url": "https://www3.threerivers.gov.uk/online-applications/",
+    "portal_url": "https://www.threerivers.gov.uk/service/planning-applications",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-30T14:38:30.592544"
+    "scanned_at": "2026-05-01T11:35:26.850262 [manual]"
   },
   {
     "reference": "E60000174",
@@ -1459,9 +1459,9 @@
     "reference": "E60000183",
     "name": "Babergh LPA",
     "website": "https://www.babergh.gov.uk",
-    "portal_url": "https://planning.baberghmidsuffolk.gov.uk/online-applications/",
+    "portal_url": "https://www.babergh.gov.uk/{&quot;0&quot;:&quot;#&quot;,&quot;en_GB&quot;:&quot;https://planning.baberghmidsuffolk.gov.uk/online-applications/&quot;}",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-30T14:38:30.592662"
+    "scanned_at": "2026-05-01T08:52:18.096231"
   },
   {
     "reference": "E60000184",
@@ -1483,9 +1483,9 @@
     "reference": "E60000186",
     "name": "Mid Suffolk LPA",
     "website": "https://www.midsuffolk.gov.uk",
-    "portal_url": "https://planning.baberghmidsuffolk.gov.uk/online-applications/",
+    "portal_url": "https://www.midsuffolk.gov.uk/{&quot;0&quot;:&quot;#&quot;,&quot;en_GB&quot;:&quot;https://planning.baberghmidsuffolk.gov.uk/online-applications/&quot;}",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-30T14:38:30.592729"
+    "scanned_at": "2026-05-01T08:52:44.913065"
   },
   {
     "reference": "E60000187",
@@ -2445,7 +2445,7 @@
     "website": "https://www.torridge.gov.uk",
     "portal_url": "https://publicaccess.torridge.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-30T14:38:30.593324"
+    "scanned_at": "2026-05-01T10:47:01.136869"
   },
   {
     "reference": "E60000307",
@@ -2562,26 +2562,26 @@
   {
     "reference": "E60000321",
     "name": "New Forest National Park LPA",
-    "website": "https://www.newforestnpa.gov.uk",
-    "portal_url": "https://www.newforestnpa.gov.uk/planning/planning-applications/search-for-planning-applications",
+    "website": "https://www.newforest.gov.uk",
+    "portal_url": "https://planning.newforest.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T18:04:41.857233 [manual-correction: reverted false-positive shared-host auto-fix]"
+    "scanned_at": "2026-08-29T18:00:54.639455"
   },
   {
     "reference": "E60000322",
     "name": "North York Moors National Park LPA",
-    "website": "https://www.northyorkmoors.org.uk",
-    "portal_url": "https://planning.northyorkmoors.org.uk/online-applications/",
+    "website": "https://www.york.gov.uk",
+    "portal_url": "https://planningaccess.york.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T18:04:41.857328 [manual-correction: reverted false-positive shared-host auto-fix]"
+    "scanned_at": "2026-08-29T18:00:12.246772"
   },
   {
     "reference": "E60000323",
     "name": "Northumberland National Park LPA",
-    "website": "https://www.northumberlandnationalpark.org.uk",
-    "portal_url": "https://www.northumberlandnationalpark.org.uk/planning/planning-applications/search-for-a-planning-application/",
+    "website": "https://www.northumberland.gov.uk",
+    "portal_url": "https://publicaccess.northumberland.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T18:04:41.857405 [manual-correction: reverted false-positive shared-host auto-fix]"
+    "scanned_at": "2026-08-29T18:00:19.051579"
   },
   {
     "reference": "E60000324",
@@ -2610,10 +2610,10 @@
   {
     "reference": "E60000327",
     "name": "Yorkshire Dales National Park LPA",
-    "website": "https://www.yorkshiredales.org.uk",
-    "portal_url": "https://www.yorkshiredales.org.uk/living-and-working/planning/planning-search/",
+    "website": "https://www.york.gov.uk",
+    "portal_url": "https://planningaccess.york.gov.uk/online-applications/",
     "platform": "Idox/PublicAccess",
-    "scanned_at": "2026-08-29T18:04:41.857478 [manual-correction: reverted false-positive shared-host auto-fix]"
+    "scanned_at": "2026-08-29T18:01:01.352143"
   },
   {
     "reference": "E60000328",

@@ -13,8 +13,16 @@ export default function AreaMap({ lat, lng, points=[], locked=true, freeRadiusMi
   const mapRef = useRef<any>(null);
 
   useEffect(() => {
-    if (typeof window === 'undefined' || !containerRef.current || mapRef.current) return;
+    if (typeof window === 'undefined' || !containerRef.current) return;
+    // React Strict Mode runs this effect, its cleanup, then this effect again
+    // in dev — since the leaflet import is async, both runs can still be
+    // in-flight when the first one's cleanup fires. `cancelled` lets a stale
+    // run recognise it's been superseded instead of initialising a second
+    // map on the same (already-bound) DOM node.
+    let cancelled = false;
+
     import('leaflet').then(L => {
+      if (cancelled || !containerRef.current || (containerRef.current as any)._leaflet_id) return;
       delete (L.Icon.Default.prototype as any)._getIconUrl;
       L.Icon.Default.mergeOptions({
         iconRetinaUrl:'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
@@ -36,7 +44,10 @@ export default function AreaMap({ lat, lng, points=[], locked=true, freeRadiusMi
         L.marker([point.lat,point.lng],{icon}).addTo(map).bindPopup(`<strong>${point.label}</strong><br/><span style="color:#888;font-size:12px;">${TYPE_LABELS[point.type]} · ${point.distance}</span>`);
       });
     });
-    return () => { if (mapRef.current) { mapRef.current.remove(); mapRef.current=null; } };
+    return () => {
+      cancelled = true;
+      if (mapRef.current) { mapRef.current.remove(); mapRef.current=null; }
+    };
   }, [lat, lng]);
 
   return (
